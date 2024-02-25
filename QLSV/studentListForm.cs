@@ -9,7 +9,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Text;
 namespace QLSV
 {
     public partial class studentListForm : Form
@@ -59,6 +58,11 @@ namespace QLSV
 
 
         private void button1_Click(object sender, EventArgs e)
+        {
+            this.LoadData();
+        }
+
+        public void LoadData()
         {
             SqlCommand command = new SqlCommand("SELECT * FROM student");
             DataGridView1.ReadOnly = true;

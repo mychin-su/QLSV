@@ -87,5 +87,111 @@ namespace QLSV
                 e.Handled = true;
             }
         }
+
+        private void ButtonUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string query = "UPDATE student SET fname = @fname, lname = @lname, bdate = @bdate, gender = @gender, phone = @phone, address = @address, picture = @picture WHERE id = @id";
+                using (SqlConnection con = new SqlConnection(@"Data Source=Vuong-Duc-Thoai\SQLEXPRESS;User ID=sa;Password=********;Initial Catalog=LoginFormDb;Integrated Security=True;"))
+                using (SqlCommand command = new SqlCommand(query, con))
+                {
+                    command.Parameters.AddWithValue("@id", int.Parse(TextBoxId.Text));
+                    command.Parameters.AddWithValue("@fname", TextBoxFname.Text);
+                    command.Parameters.AddWithValue("@lname", TextBoxLname.Text);
+                    command.Parameters.AddWithValue("@bdate", DateTimePicker1.Value);
+                    command.Parameters.AddWithValue("@gender", RadioButtonFemale.Checked ? "Female" : "Male");
+                    command.Parameters.AddWithValue("@phone", TextBoxPhone.Text);
+                    command.Parameters.AddWithValue("@address", TextBoxAddress.Text);
+                    if (PictureBoxStudentImage.Image != null)
+                    {
+                        byte[] pictureData = ConvertImageToByteArray(PictureBoxStudentImage.Image);
+                        command.Parameters.AddWithValue("@picture", pictureData);
+                    }
+                    else
+                    {
+                        command.Parameters.AddWithValue("@picture", DBNull.Value);
+                    }
+
+                    con.Open();
+                    int result = command.ExecuteNonQuery(); // Executes update and returns number of affected rows
+
+                    if (result > 0)
+                    {
+                        studentListForm studentList = new studentListForm();
+                        studentList.Show();
+                        MessageBox.Show("Student updated successfully", "Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Student not found or update failed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private byte[] ConvertImageToByteArray(Image image)
+        {
+            using (var ms = new MemoryStream())
+            {
+                image.Save(ms, image.RawFormat);
+                return ms.ToArray();
+            }
+        }
+
+        private void ButtonRemoveStudent_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int id = int.Parse(TextBoxId.Text);
+                string query = "DELETE FROM student WHERE id = @id";
+
+                using (SqlConnection con = new SqlConnection(@"Data Source=Vuong-Duc-Thoai\SQLEXPRESS;User ID=sa;Password=********;Initial Catalog=LoginFormDb;Integrated Security=True;"))
+                using (SqlCommand command = new SqlCommand(query, con))
+                {
+                    command.Parameters.AddWithValue("@id", id);
+                    con.Open();
+                    int rowsAffected = command.ExecuteNonQuery();
+                    if (rowsAffected > 0)
+                    {
+                        // Clear input fields after successful deletion
+                        TextBoxId.Text = "";
+                        TextBoxFname.Text = "";
+                        TextBoxLname.Text = "";
+                        DateTimePicker1.Value = DateTime.Now; // You can set it to default value
+                        RadioButtonFemale.Checked = false; // Uncheck both radio buttons
+                        RadioButtonMale.Checked = false;
+                        TextBoxPhone.Text = "";
+                        TextBoxAddress.Text = "";
+                        PictureBoxStudentImage.Image = null;
+                        // Optional: Clear form or perform other actions after deletion.
+                        MessageBox.Show("Student deleted successfully", "Delete Student", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Student not found", "Delete Student", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // Log the exception for debugging and security purposes.
+            }
+        }
+
+        private void ButtonUploadImage_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog opf = new OpenFileDialog();
+            opf.Filter = "Select Image(*.jpg;*.png;*.gif)|*.jpg;*.png;*.gif";
+            if ((opf.ShowDialog() == DialogResult.OK))
+            {
+                PictureBoxStudentImage.Image = Image.FromFile(opf.FileName);
+            }
+        }
     }
 }

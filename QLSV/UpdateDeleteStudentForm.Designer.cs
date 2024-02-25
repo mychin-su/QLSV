@@ -34,8 +34,8 @@ namespace QLSV
             this.RadioButtonFemale = new System.Windows.Forms.RadioButton();
             this.RadioButtonMale = new System.Windows.Forms.RadioButton();
             this.Label7 = new System.Windows.Forms.Label();
-            this.ButtonCancel = new System.Windows.Forms.Button();
-            this.ButtonAddStudent = new System.Windows.Forms.Button();
+            this.ButtonUpdate = new System.Windows.Forms.Button();
+            this.ButtonRemoveStudent = new System.Windows.Forms.Button();
             this.ButtonUploadImage = new System.Windows.Forms.Button();
             this.PictureBoxStudentImage = new System.Windows.Forms.PictureBox();
             this.Label6 = new System.Windows.Forms.Label();
@@ -106,35 +106,37 @@ namespace QLSV
             this.Label7.TabIndex = 32;
             this.Label7.Text = "Gender:";
             // 
-            // ButtonCancel
+            // ButtonUpdate
             // 
-            this.ButtonCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(38)))), ((int)(((byte)(19)))));
-            this.ButtonCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ButtonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ButtonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonCancel.ForeColor = System.Drawing.Color.White;
-            this.ButtonCancel.Location = new System.Drawing.Point(240, 383);
-            this.ButtonCancel.Margin = new System.Windows.Forms.Padding(4);
-            this.ButtonCancel.Name = "ButtonCancel";
-            this.ButtonCancel.Size = new System.Drawing.Size(213, 49);
-            this.ButtonCancel.TabIndex = 31;
-            this.ButtonCancel.Text = "Edit";
-            this.ButtonCancel.UseVisualStyleBackColor = false;
+            this.ButtonUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(38)))), ((int)(((byte)(19)))));
+            this.ButtonUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonUpdate.ForeColor = System.Drawing.Color.White;
+            this.ButtonUpdate.Location = new System.Drawing.Point(240, 383);
+            this.ButtonUpdate.Margin = new System.Windows.Forms.Padding(4);
+            this.ButtonUpdate.Name = "ButtonUpdate";
+            this.ButtonUpdate.Size = new System.Drawing.Size(213, 49);
+            this.ButtonUpdate.TabIndex = 31;
+            this.ButtonUpdate.Text = "Update";
+            this.ButtonUpdate.UseVisualStyleBackColor = false;
+            this.ButtonUpdate.Click += new System.EventHandler(this.ButtonUpdate_Click);
             // 
-            // ButtonAddStudent
+            // ButtonRemoveStudent
             // 
-            this.ButtonAddStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(131)))), ((int)(((byte)(215)))));
-            this.ButtonAddStudent.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ButtonAddStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ButtonAddStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonAddStudent.ForeColor = System.Drawing.Color.White;
-            this.ButtonAddStudent.Location = new System.Drawing.Point(537, 383);
-            this.ButtonAddStudent.Margin = new System.Windows.Forms.Padding(4);
-            this.ButtonAddStudent.Name = "ButtonAddStudent";
-            this.ButtonAddStudent.Size = new System.Drawing.Size(213, 49);
-            this.ButtonAddStudent.TabIndex = 30;
-            this.ButtonAddStudent.Text = "Remove";
-            this.ButtonAddStudent.UseVisualStyleBackColor = false;
+            this.ButtonRemoveStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(131)))), ((int)(((byte)(215)))));
+            this.ButtonRemoveStudent.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonRemoveStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonRemoveStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonRemoveStudent.ForeColor = System.Drawing.Color.White;
+            this.ButtonRemoveStudent.Location = new System.Drawing.Point(537, 383);
+            this.ButtonRemoveStudent.Margin = new System.Windows.Forms.Padding(4);
+            this.ButtonRemoveStudent.Name = "ButtonRemoveStudent";
+            this.ButtonRemoveStudent.Size = new System.Drawing.Size(213, 49);
+            this.ButtonRemoveStudent.TabIndex = 30;
+            this.ButtonRemoveStudent.Text = "Remove";
+            this.ButtonRemoveStudent.UseVisualStyleBackColor = false;
+            this.ButtonRemoveStudent.Click += new System.EventHandler(this.ButtonRemoveStudent_Click);
             // 
             // ButtonUploadImage
             // 
@@ -146,6 +148,7 @@ namespace QLSV
             this.ButtonUploadImage.TabIndex = 29;
             this.ButtonUploadImage.Text = "upload image";
             this.ButtonUploadImage.UseVisualStyleBackColor = true;
+            this.ButtonUploadImage.Click += new System.EventHandler(this.ButtonUploadImage_Click);
             // 
             // PictureBoxStudentImage
             // 
@@ -321,8 +324,8 @@ namespace QLSV
             this.Controls.Add(this.label8);
             this.Controls.Add(this.GroupBox1);
             this.Controls.Add(this.Label7);
-            this.Controls.Add(this.ButtonCancel);
-            this.Controls.Add(this.ButtonAddStudent);
+            this.Controls.Add(this.ButtonUpdate);
+            this.Controls.Add(this.ButtonRemoveStudent);
             this.Controls.Add(this.ButtonUploadImage);
             this.Controls.Add(this.PictureBoxStudentImage);
             this.Controls.Add(this.Label6);
@@ -355,8 +358,8 @@ namespace QLSV
         internal System.Windows.Forms.RadioButton RadioButtonFemale;
         internal System.Windows.Forms.RadioButton RadioButtonMale;
         internal System.Windows.Forms.Label Label7;
-        internal System.Windows.Forms.Button ButtonCancel;
-        internal System.Windows.Forms.Button ButtonAddStudent;
+        internal System.Windows.Forms.Button ButtonUpdate;
+        internal System.Windows.Forms.Button ButtonRemoveStudent;
         internal System.Windows.Forms.Button ButtonUploadImage;
         internal System.Windows.Forms.PictureBox PictureBoxStudentImage;
         internal System.Windows.Forms.Label Label6;

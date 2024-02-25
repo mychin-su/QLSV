@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace QLSV
 {
@@ -28,7 +29,6 @@ namespace QLSV
             MY_DB db = new MY_DB();
 
             SqlDataAdapter adapter = new SqlDataAdapter();
-
             DataTable table = new DataTable();
             
             SqlCommand command = new SqlCommand("SELECT * FROM log_in WHERE UserName = @User AND PassWord = @Pass", db.getConnection);
@@ -40,10 +40,12 @@ namespace QLSV
 
             adapter.Fill(table);
 
-            if ((table.Rows.Count > 0) )
+            if (table.Rows.Count > 0)
             {
-                //MessageBox.Show("Ok, next time will be go to Main Menu of App");
-                this.DialogResult = DialogResult.OK;
+                this.Hide(); // Hide the login form
+                Progress progress = new Progress();
+                progress.FormClosed += (s, args) => this.Close(); // Ensure the login form closes when progress form closes
+                progress.ShowDialog();
             }
             else
             {
@@ -53,7 +55,9 @@ namespace QLSV
 
         private void linkLabel_NewUser(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            Form_NewUser form_NewUser = new Form_NewUser();
+            form_NewUser.Show(this);
+            
         }
     }
 }
