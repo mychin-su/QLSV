@@ -33,10 +33,6 @@ namespace QLSV
         {
             this.components = new System.ComponentModel.Container();
             this.DataGridView1 = new System.Windows.Forms.DataGridView();
-            this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.loginFormDbDataSet = new QLSV.LoginFormDbDataSet();
-            this.studentTableAdapter = new QLSV.LoginFormDbDataSetTableAdapters.studentTableAdapter();
-            this.ButtonRefresh = new System.Windows.Forms.Button();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,6 +41,10 @@ namespace QLSV
             this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.picture = new System.Windows.Forms.DataGridViewImageColumn();
+            this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.loginFormDbDataSet = new QLSV.LoginFormDbDataSet();
+            this.studentTableAdapter = new QLSV.LoginFormDbDataSetTableAdapters.studentTableAdapter();
+            this.ButtonRefresh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginFormDbDataSet)).BeginInit();
@@ -72,31 +72,6 @@ namespace QLSV
             this.DataGridView1.Size = new System.Drawing.Size(1248, 280);
             this.DataGridView1.TabIndex = 0;
             this.DataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellDoubleClick);
-            // 
-            // studentBindingSource
-            // 
-            this.studentBindingSource.DataMember = "student";
-            this.studentBindingSource.DataSource = this.loginFormDbDataSet;
-            // 
-            // loginFormDbDataSet
-            // 
-            this.loginFormDbDataSet.DataSetName = "LoginFormDbDataSet";
-            this.loginFormDbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // studentTableAdapter
-            // 
-            this.studentTableAdapter.ClearBeforeFill = true;
-            // 
-            // ButtonRefresh
-            // 
-            this.ButtonRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonRefresh.Location = new System.Drawing.Point(516, 315);
-            this.ButtonRefresh.Name = "ButtonRefresh";
-            this.ButtonRefresh.Size = new System.Drawing.Size(164, 43);
-            this.ButtonRefresh.TabIndex = 1;
-            this.ButtonRefresh.Text = "Refresh";
-            this.ButtonRefresh.UseVisualStyleBackColor = true;
-            this.ButtonRefresh.Click += new System.EventHandler(this.button1_Click);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -153,6 +128,31 @@ namespace QLSV
             this.picture.HeaderText = "picture";
             this.picture.MinimumWidth = 12;
             this.picture.Name = "picture";
+            // 
+            // studentBindingSource
+            // 
+            this.studentBindingSource.DataMember = "student";
+            this.studentBindingSource.DataSource = this.loginFormDbDataSet;
+            // 
+            // loginFormDbDataSet
+            // 
+            this.loginFormDbDataSet.DataSetName = "LoginFormDbDataSet";
+            this.loginFormDbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // studentTableAdapter
+            // 
+            this.studentTableAdapter.ClearBeforeFill = true;
+            // 
+            // ButtonRefresh
+            // 
+            this.ButtonRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonRefresh.Location = new System.Drawing.Point(516, 315);
+            this.ButtonRefresh.Name = "ButtonRefresh";
+            this.ButtonRefresh.Size = new System.Drawing.Size(164, 43);
+            this.ButtonRefresh.TabIndex = 1;
+            this.ButtonRefresh.Text = "Refresh";
+            this.ButtonRefresh.UseVisualStyleBackColor = true;
+            this.ButtonRefresh.Click += new System.EventHandler(this.button1_Click);
             // 
             // studentListForm
             // 

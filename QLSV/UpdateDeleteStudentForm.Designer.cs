@@ -52,6 +52,8 @@ namespace QLSV
             this.label8 = new System.Windows.Forms.Label();
             this.TextBoxId = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.button_Search = new System.Windows.Forms.Button();
+            this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.GroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxStudentImage)).BeginInit();
             this.SuspendLayout();
@@ -113,10 +115,10 @@ namespace QLSV
             this.ButtonUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonUpdate.ForeColor = System.Drawing.Color.White;
-            this.ButtonUpdate.Location = new System.Drawing.Point(240, 383);
+            this.ButtonUpdate.Location = new System.Drawing.Point(568, 385);
             this.ButtonUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.ButtonUpdate.Name = "ButtonUpdate";
-            this.ButtonUpdate.Size = new System.Drawing.Size(213, 49);
+            this.ButtonUpdate.Size = new System.Drawing.Size(176, 45);
             this.ButtonUpdate.TabIndex = 31;
             this.ButtonUpdate.Text = "Update";
             this.ButtonUpdate.UseVisualStyleBackColor = false;
@@ -129,10 +131,10 @@ namespace QLSV
             this.ButtonRemoveStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonRemoveStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonRemoveStudent.ForeColor = System.Drawing.Color.White;
-            this.ButtonRemoveStudent.Location = new System.Drawing.Point(537, 383);
+            this.ButtonRemoveStudent.Location = new System.Drawing.Point(780, 383);
             this.ButtonRemoveStudent.Margin = new System.Windows.Forms.Padding(4);
             this.ButtonRemoveStudent.Name = "ButtonRemoveStudent";
-            this.ButtonRemoveStudent.Size = new System.Drawing.Size(213, 49);
+            this.ButtonRemoveStudent.Size = new System.Drawing.Size(175, 49);
             this.ButtonRemoveStudent.TabIndex = 30;
             this.ButtonRemoveStudent.Text = "Remove";
             this.ButtonRemoveStudent.UseVisualStyleBackColor = false;
@@ -166,7 +168,7 @@ namespace QLSV
             this.Label6.AutoSize = true;
             this.Label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label6.ForeColor = System.Drawing.Color.White;
-            this.Label6.Location = new System.Drawing.Point(523, 169);
+            this.Label6.Location = new System.Drawing.Point(532, 213);
             this.Label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label6.Name = "Label6";
             this.Label6.Size = new System.Drawing.Size(86, 25);
@@ -188,7 +190,7 @@ namespace QLSV
             this.Label5.AutoSize = true;
             this.Label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label5.ForeColor = System.Drawing.Color.White;
-            this.Label5.Location = new System.Drawing.Point(523, 41);
+            this.Label5.Location = new System.Drawing.Point(519, 57);
             this.Label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label5.Name = "Label5";
             this.Label5.Size = new System.Drawing.Size(99, 25);
@@ -198,7 +200,7 @@ namespace QLSV
             // TextBoxPhone
             // 
             this.TextBoxPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBoxPhone.Location = new System.Drawing.Point(167, 286);
+            this.TextBoxPhone.Location = new System.Drawing.Point(169, 278);
             this.TextBoxPhone.Margin = new System.Windows.Forms.Padding(4);
             this.TextBoxPhone.Name = "TextBoxPhone";
             this.TextBoxPhone.Size = new System.Drawing.Size(315, 30);
@@ -209,7 +211,7 @@ namespace QLSV
             this.Label4.AutoSize = true;
             this.Label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label4.ForeColor = System.Drawing.Color.White;
-            this.Label4.Location = new System.Drawing.Point(66, 275);
+            this.Label4.Location = new System.Drawing.Point(61, 269);
             this.Label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label4.Name = "Label4";
             this.Label4.Size = new System.Drawing.Size(81, 25);
@@ -303,15 +305,40 @@ namespace QLSV
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.LimeGreen;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(323, 23);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Cornsilk;
+            this.button1.Location = new System.Drawing.Point(340, 16);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(163, 25);
+            this.button1.Size = new System.Drawing.Size(146, 36);
             this.button1.TabIndex = 36;
             this.button1.Text = "Find";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button_Search
+            // 
+            this.button_Search.BackColor = System.Drawing.Color.Green;
+            this.button_Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_Search.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button_Search.Location = new System.Drawing.Point(14, 379);
+            this.button_Search.Name = "button_Search";
+            this.button_Search.Size = new System.Drawing.Size(139, 45);
+            this.button_Search.TabIndex = 38;
+            this.button_Search.Text = "Search";
+            this.button_Search.UseVisualStyleBackColor = false;
+            this.button_Search.Click += new System.EventHandler(this.button_Search_Click);
+            // 
+            // textBoxSearch
+            // 
+            this.textBoxSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSearch.ForeColor = System.Drawing.Color.Black;
+            this.textBoxSearch.Location = new System.Drawing.Point(192, 379);
+            this.textBoxSearch.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxSearch.Multiline = true;
+            this.textBoxSearch.Name = "textBoxSearch";
+            this.textBoxSearch.Size = new System.Drawing.Size(294, 45);
+            this.textBoxSearch.TabIndex = 39;
+            this.textBoxSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxSearch_KeyPress);
             // 
             // UpdateDeleteStudentForm
             // 
@@ -319,6 +346,8 @@ namespace QLSV
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
             this.ClientSize = new System.Drawing.Size(968, 449);
+            this.Controls.Add(this.textBoxSearch);
+            this.Controls.Add(this.button_Search);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.TextBoxId);
             this.Controls.Add(this.label8);
@@ -376,5 +405,7 @@ namespace QLSV
         private System.Windows.Forms.Label label8;
         internal System.Windows.Forms.TextBox TextBoxId;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button_Search;
+        internal System.Windows.Forms.TextBox textBoxSearch;
     }
 }

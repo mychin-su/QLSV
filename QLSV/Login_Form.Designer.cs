@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -38,19 +37,10 @@
             this.btt_Login = new System.Windows.Forms.Button();
             this.btt_Cancel = new System.Windows.Forms.Button();
             this.linkLabel_New = new System.Windows.Forms.LinkLabel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(32, 25);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 98);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // label2
             // 
@@ -77,33 +67,36 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label4.Location = new System.Drawing.Point(205, 71);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Lime;
+            this.label4.Location = new System.Drawing.Point(227, 60);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(101, 32);
+            this.label4.Size = new System.Drawing.Size(175, 54);
             this.label4.TabIndex = 100;
             this.label4.Text = "LOGIN";
             // 
             // TextBoxUsername
             // 
-            this.TextBoxUsername.Location = new System.Drawing.Point(217, 171);
+            this.TextBoxUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextBoxUsername.Location = new System.Drawing.Point(217, 174);
             this.TextBoxUsername.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextBoxUsername.Multiline = true;
             this.TextBoxUsername.Name = "TextBoxUsername";
-            this.TextBoxUsername.Size = new System.Drawing.Size(232, 29);
+            this.TextBoxUsername.Size = new System.Drawing.Size(232, 36);
             this.TextBoxUsername.TabIndex = 10;
             this.TextBoxUsername.TabStop = false;
+            this.toolTip1.SetToolTip(this.TextBoxUsername, "Vui lòng nhập user");
             // 
             // TextBoxPassword
             // 
+            this.TextBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextBoxPassword.Location = new System.Drawing.Point(217, 246);
             this.TextBoxPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.TextBoxPassword.Multiline = true;
             this.TextBoxPassword.Name = "TextBoxPassword";
             this.TextBoxPassword.PasswordChar = '*';
             this.TextBoxPassword.Size = new System.Drawing.Size(232, 34);
             this.TextBoxPassword.TabIndex = 12;
+            this.toolTip1.SetToolTip(this.TextBoxPassword, "Vui lòng nhập PassWord");
             // 
             // btt_Login
             // 
@@ -132,7 +125,7 @@
             this.linkLabel_New.AutoSize = true;
             this.linkLabel_New.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel_New.LinkColor = System.Drawing.Color.LawnGreen;
-            this.linkLabel_New.Location = new System.Drawing.Point(22, 409);
+            this.linkLabel_New.Location = new System.Drawing.Point(21, 409);
             this.linkLabel_New.Name = "linkLabel_New";
             this.linkLabel_New.Size = new System.Drawing.Size(163, 20);
             this.linkLabel_New.TabIndex = 18;
@@ -140,19 +133,23 @@
             this.linkLabel_New.Text = "Create New User?";
             this.linkLabel_New.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_NewUser);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(12, 11);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(175, 134);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // toolTip1
             // 
-            this.toolTip1.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.toolTip1.Tag = "";
+            this.toolTip1.AutoPopDelay = 500;
+            this.toolTip1.InitialDelay = 500;
+            this.toolTip1.ReshowDelay = 100;
             this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.toolTip1.ToolTipTitle = "Vui lòng nhập tên tài khoản!";
-            // 
-            // toolTip2
-            // 
-            this.toolTip2.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.toolTip2.Tag = "";
-            this.toolTip2.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.toolTip2.ToolTipTitle = "Vui lòng nhập mật khẩu!";
+            this.toolTip1.ToolTipTitle = "Vui lòng nhập user";
             // 
             // Login_Form
             // 
@@ -174,6 +171,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Login_Form_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -192,7 +190,6 @@
         private System.Windows.Forms.Button btt_Cancel;
         private System.Windows.Forms.LinkLabel linkLabel_New;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.ToolTip toolTip2;
     }
 }
 

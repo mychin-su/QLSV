@@ -17,6 +17,8 @@ namespace QLSV
         public Login_Form()
         {
             InitializeComponent();
+            this.TextBoxPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Login_Form_KeyPress);
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -53,11 +55,23 @@ namespace QLSV
             }
         }
 
+
+
         private void linkLabel_NewUser(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Form_NewUser form_NewUser = new Form_NewUser();
             form_NewUser.Show(this);
             
+        }
+
+
+        private void Login_Form_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                this.btt_Login_Click(sender, e);
+                e.Handled = true;
+            }
         }
     }
 }

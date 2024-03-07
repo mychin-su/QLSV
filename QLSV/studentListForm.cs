@@ -37,10 +37,7 @@ namespace QLSV
 
             }
             DataGridView1.AllowUserToAddRows = false;
-            foreach (DataGridViewColumn col in DataGridView1.Columns)
-            {
-                Console.WriteLine(col.Name);
-            }
+
         }
 
         // Helper method to get the index of the image column
@@ -64,6 +61,8 @@ namespace QLSV
 
         public void LoadData()
         {
+            // TODO: This line of code loads data into the 'loginFormDbDataSet.student' table. You can move, or remove it, as needed.
+            this.studentTableAdapter.Fill(this.loginFormDbDataSet.student);
             SqlCommand command = new SqlCommand("SELECT * FROM student");
             DataGridView1.ReadOnly = true;
             // Handle image column layout if it exists
@@ -121,6 +120,5 @@ namespace QLSV
                 updateForm.ShowDialog();
             }
         }
-
     }
 }

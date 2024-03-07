@@ -25,6 +25,7 @@ namespace QLSV
         {
             InitializeComponent();
             this.TextBoxId.KeyPress += new KeyPressEventHandler(TextBoxID_KeyPress);
+          //  this.textBoxSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxSearch_KeyPress);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -118,8 +119,6 @@ namespace QLSV
 
                     if (result > 0)
                     {
-                        studentListForm studentList = new studentListForm();
-                        studentList.Show();
                         MessageBox.Show("Student updated successfully", "Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
@@ -191,6 +190,89 @@ namespace QLSV
             if ((opf.ShowDialog() == DialogResult.OK))
             {
                 PictureBoxStudentImage.Image = Image.FromFile(opf.FileName);
+            }
+        }
+
+        private void button_Search_Click(object sender, EventArgs e)
+        {
+           
+            try
+            {
+                string strSearch = textBoxSearch.Text.Trim(); // Trim to remove leading/trailing spaces
+                string query = "SELECT * FROM student WHERE id = @id OR fname LIKE @fname OR lname LIKE @lname OR phone LIKE @phone OR address LIKE @address OR bdate LIKE @bdate OR gender LIKE @gender";
+
+                using (SqlConnection con = new SqlConnection(@"Data Source=Vuong-Duc-Thoai\SQLEXPRESS;User ID=sa;Password=********;Initial Catalog=LoginFormDb;Integrated Security=True;"))
+                using (SqlCommand command = new SqlCommand(query, con))
+                {
+                    // Thiết lập tham số cho câu truy vấn
+                    // Parsing strSearch to an integer for the id parameter
+                    int id;
+                    if (int.TryParse(strSearch, out id))
+                    {
+                        command.Parameters.AddWithValue("@id", id);
+                    }
+                    else
+                    {
+                        command.Parameters.AddWithValue("@id", DBNull.Value); // or null, depending on column definition
+                    }
+
+                    command.Parameters.AddWithValue("@fname", "%" + strSearch + "%");
+                    command.Parameters.AddWithValue("@lname", "%" + strSearch + "%");
+                    command.Parameters.AddWithValue("@phone", "%" + strSearch + "%");
+                    command.Parameters.AddWithValue("@address", "%" + strSearch + "%");
+                    command.Parameters.AddWithValue("@bdate", "%" + strSearch + "%");
+                    command.Parameters.AddWithValue("@gender", "%" + strSearch + "%");
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    DataTable table = new DataTable();
+                    con.Open();
+                    adapter.Fill(table); // Điền dữ liệu vào table
+                    if(table.Rows.Count > 0)
+                    {
+                        SearchForm searchForm = new SearchForm();
+                        int imageColumnIndex = GetImageColumnIndex(searchForm.dataGridView2);
+                        if (imageColumnIndex != -1)
+                        {
+                            DataGridViewImageColumn imageColumn = (DataGridViewImageColumn)searchForm.dataGridView2.Columns[imageColumnIndex];
+                            imageColumn.ImageLayout = DataGridViewImageCellLayout.Stretch;
+                            imageColumn.Width = 100; // Set width to desired value
+                            imageColumn.DefaultCellStyle.NullValue = null; // Prevents display of default image when cell value is null
+
+                        }
+                        searchForm.dataGridView2.DataSource = table;
+                        searchForm.Show();
+                    } else
+                    {
+                        MessageBox.Show("Not found", "Find Student", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                   
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // Helper method to get the index of the image column
+        private int GetImageColumnIndex(DataGridView dataGridView)
+        {
+            foreach (DataGridViewColumn column in dataGridView.Columns)
+            {
+                if (column is DataGridViewImageColumn)
+                {
+                    return column.Index;
+                }
+            }
+            return -1; // Return -1 if no image column is found
+        }
+
+        private void textBoxSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                this.button_Search_Click(sender, e);
+                e.Handled = true;
             }
         }
     }
