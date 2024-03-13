@@ -37,7 +37,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(245, 94);
+            this.label2.Location = new System.Drawing.Point(99, 44);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(275, 29);
             this.label2.TabIndex = 1;
@@ -46,7 +46,7 @@
             // textBox_OTP
             // 
             this.textBox_OTP.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_OTP.Location = new System.Drawing.Point(238, 182);
+            this.textBox_OTP.Location = new System.Drawing.Point(92, 111);
             this.textBox_OTP.Name = "textBox_OTP";
             this.textBox_OTP.Size = new System.Drawing.Size(295, 34);
             this.textBox_OTP.TabIndex = 2;
@@ -56,9 +56,9 @@
             this.button1.BackColor = System.Drawing.Color.Blue;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(276, 276);
+            this.button1.Location = new System.Drawing.Point(120, 183);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(180, 46);
+            this.button1.Size = new System.Drawing.Size(213, 47);
             this.button1.TabIndex = 3;
             this.button1.Text = "Xác nhận";
             this.button1.UseVisualStyleBackColor = false;
@@ -69,7 +69,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(507, 289);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox_OTP);
             this.Controls.Add(this.label2);

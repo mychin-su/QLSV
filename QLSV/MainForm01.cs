@@ -32,6 +32,12 @@ namespace QLSV
             studentListForm StdList = new studentListForm();
             StdList.Show(this);
         }
+
+        private void manageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Manage_Student_Form manage_Student_Form = new Manage_Student_Form();
+            manage_Student_Form.Show();
+        }
     }
  }
 

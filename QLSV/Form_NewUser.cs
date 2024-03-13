@@ -80,7 +80,8 @@
                 code_otp = Otp.GenarateOTP();
                 SendOtpEmail(gmail, code_otp);
                 Otp.Show();
-            }
+
+        }
 
 
 
@@ -218,15 +219,14 @@
                 return hasSpecial && hasDigit && hasLower && hasUpper;
             }
 
-            private void SendOtpEmail(string recipientEmail, string otp)
+            public void SendOtpEmail(string recipientEmail, string otp)
             {
                 string send_from = "thoai12309@gmail.com";
-                string send_password = "kpkezuucdizxlcaq"; // Đảm bảo sử dụng mật khẩu đúng hoặc Mật khẩu ứng dụng
+                string send_password = "kpkezuucdizxlcaq";
                 MailMessage mail = new MailMessage();
                 mail.To.Add(recipientEmail);
                 mail.From = new MailAddress(send_from);
                 mail.Subject = "Mã Xác Thực OTP";
-                // Cải thiện nội dung email
                 mail.Body = $"Mã OTP của bạn là: {otp}. Vui lòng sử dụng mã này để hoàn tất quá trình đăng ký.";
                 SmtpClient smtp = new SmtpClient("smtp.gmail.com");
                 smtp.EnableSsl = true; // Bật mã hóa SSL

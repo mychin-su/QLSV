@@ -39,6 +39,8 @@
             this.linkLabel_New = new System.Windows.Forms.LinkLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.checkBox_passWord = new System.Windows.Forms.CheckBox();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -93,7 +95,7 @@
             this.TextBoxPassword.Location = new System.Drawing.Point(217, 246);
             this.TextBoxPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextBoxPassword.Name = "TextBoxPassword";
-            this.TextBoxPassword.PasswordChar = '*';
+            this.TextBoxPassword.PasswordChar  = '*';
             this.TextBoxPassword.Size = new System.Drawing.Size(232, 34);
             this.TextBoxPassword.TabIndex = 12;
             this.toolTip1.SetToolTip(this.TextBoxPassword, "Vui lòng nhập PassWord");
@@ -151,12 +153,40 @@
             this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.toolTip1.ToolTipTitle = "Vui lòng nhập user";
             // 
+            // checkBox_passWord
+            // 
+            this.checkBox_passWord.AutoSize = true;
+            this.checkBox_passWord.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_passWord.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.checkBox_passWord.Location = new System.Drawing.Point(217, 302);
+            this.checkBox_passWord.Name = "checkBox_passWord";
+            this.checkBox_passWord.Size = new System.Drawing.Size(178, 26);
+            this.checkBox_passWord.TabIndex = 102;
+            this.checkBox_passWord.Text = "Show PassWord";
+            this.checkBox_passWord.UseVisualStyleBackColor = true;
+            this.checkBox_passWord.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel1.LinkColor = System.Drawing.Color.Lime;
+            this.linkLabel1.Location = new System.Drawing.Point(314, 409);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(135, 20);
+            this.linkLabel1.TabIndex = 103;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "ForgetPassWord";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // Login_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(483, 450);
+            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.checkBox_passWord);
             this.Controls.Add(this.linkLabel_New);
             this.Controls.Add(this.btt_Cancel);
             this.Controls.Add(this.btt_Login);
@@ -190,6 +220,8 @@
         private System.Windows.Forms.Button btt_Cancel;
         private System.Windows.Forms.LinkLabel linkLabel_New;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.CheckBox checkBox_passWord;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }
 

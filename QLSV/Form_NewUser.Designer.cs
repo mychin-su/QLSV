@@ -47,7 +47,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(275, 26);
+            this.label1.Location = new System.Drawing.Point(323, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(300, 32);
             this.label1.TabIndex = 0;
@@ -59,24 +59,24 @@
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // userName
+            // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.LightYellow;
             this.label10.Location = new System.Drawing.Point(79, 85);
-            this.label10.Name = "userName";
+            this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(119, 25);
             this.label10.TabIndex = 1;
             this.label10.Text = "User Name";
             // 
-            // passWord
+            // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.LightYellow;
             this.label11.Location = new System.Drawing.Point(79, 156);
-            this.label11.Name = "passWord";
+            this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(112, 25);
             this.label11.TabIndex = 2;
             this.label11.Text = "PassWord";
@@ -107,7 +107,7 @@
             this.textBox_UserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_UserName.Location = new System.Drawing.Point(284, 86);
             this.textBox_UserName.Name = "textBox_UserName";
-            this.textBox_UserName.Size = new System.Drawing.Size(234, 27);
+            this.textBox_UserName.Size = new System.Drawing.Size(396, 27);
             this.textBox_UserName.TabIndex = 5;
             // 
             // textBox_PassWord
@@ -115,7 +115,7 @@
             this.textBox_PassWord.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_PassWord.Location = new System.Drawing.Point(284, 157);
             this.textBox_PassWord.Name = "textBox_PassWord";
-            this.textBox_PassWord.Size = new System.Drawing.Size(234, 27);
+            this.textBox_PassWord.Size = new System.Drawing.Size(396, 27);
             this.textBox_PassWord.TabIndex = 6;
             this.textBox_PassWord.UseSystemPasswordChar = true;
             // 
@@ -124,7 +124,7 @@
             this.textBox_ConfirmPassWord.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_ConfirmPassWord.Location = new System.Drawing.Point(284, 232);
             this.textBox_ConfirmPassWord.Name = "textBox_ConfirmPassWord";
-            this.textBox_ConfirmPassWord.Size = new System.Drawing.Size(234, 27);
+            this.textBox_ConfirmPassWord.Size = new System.Drawing.Size(396, 27);
             this.textBox_ConfirmPassWord.TabIndex = 7;
             this.textBox_ConfirmPassWord.UseSystemPasswordChar = true;
             // 
@@ -133,7 +133,7 @@
             this.button_Register.BackColor = System.Drawing.Color.OrangeRed;
             this.button_Register.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_Register.ForeColor = System.Drawing.Color.AliceBlue;
-            this.button_Register.Location = new System.Drawing.Point(284, 384);
+            this.button_Register.Location = new System.Drawing.Point(373, 370);
             this.button_Register.Name = "button_Register";
             this.button_Register.Size = new System.Drawing.Size(202, 54);
             this.button_Register.TabIndex = 9;
@@ -154,10 +154,10 @@
             // 
             // textBox_gmail
             // 
-            this.textBox_gmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_gmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_gmail.Location = new System.Drawing.Point(284, 298);
             this.textBox_gmail.Name = "textBox_gmail";
-            this.textBox_gmail.Size = new System.Drawing.Size(234, 34);
+            this.textBox_gmail.Size = new System.Drawing.Size(396, 30);
             this.textBox_gmail.TabIndex = 11;
             // 
             // Form_NewUser

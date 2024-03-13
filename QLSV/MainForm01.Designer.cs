@@ -170,6 +170,7 @@
             this.manageToolStripMenuItem.Name = "manageToolStripMenuItem";
             this.manageToolStripMenuItem.Size = new System.Drawing.Size(366, 32);
             this.manageToolStripMenuItem.Text = "Manage Student Form";
+            this.manageToolStripMenuItem.Click += new System.EventHandler(this.manageToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 

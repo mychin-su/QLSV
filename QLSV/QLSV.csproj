@@ -52,6 +52,18 @@
     <Compile Include="AddStudentForm.Designer.cs">
       <DependentUpon>AddStudentForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChangePassWord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangePassWord.Designer.cs">
+      <DependentUpon>ChangePassWord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ForgetPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ForgetPassword.Designer.cs">
+      <DependentUpon>ForgetPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_NewUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +83,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LoginFormDbDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="LoginFormDbDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LoginFormDbDataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Login_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +99,12 @@
     </Compile>
     <Compile Include="MainForm01.Designer.cs">
       <DependentUpon>MainForm01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manage_Student_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manage_Student_Form.Designer.cs">
+      <DependentUpon>Manage_Student_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="MY_DB.cs" />
     <Compile Include="OTP.cs">
@@ -120,6 +143,12 @@
     <EmbeddedResource Include="AddStudentForm.resx">
       <DependentUpon>AddStudentForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ChangePassWord.resx">
+      <DependentUpon>ChangePassWord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ForgetPassword.resx">
+      <DependentUpon>ForgetPassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_NewUser.resx">
       <DependentUpon>Form_NewUser.cs</DependentUpon>
     </EmbeddedResource>
@@ -128,6 +157,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm01.resx">
       <DependentUpon>MainForm01.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manage_Student_Form.resx">
+      <DependentUpon>Manage_Student_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OTP.resx">
       <DependentUpon>OTP.cs</DependentUpon>
@@ -175,6 +207,17 @@
     </None>
     <None Include="LoginFormDbDataSet1.xss">
       <DependentUpon>LoginFormDbDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="LoginFormDbDataSet2.xsc">
+      <DependentUpon>LoginFormDbDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="LoginFormDbDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LoginFormDbDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LoginFormDbDataSet2.xss">
+      <DependentUpon>LoginFormDbDataSet2.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

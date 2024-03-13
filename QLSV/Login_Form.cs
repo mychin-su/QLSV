@@ -73,5 +73,24 @@ namespace QLSV
                 e.Handled = true;
             }
         }
+
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox_passWord.Checked == true)
+            {
+                TextBoxPassword.PasswordChar = '\0';
+            }
+            else
+            {
+                TextBoxPassword.PasswordChar = '*';
+            }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ForgetPassword forgetPassword = new ForgetPassword();
+            forgetPassword.Show();
+        }
     }
 }
