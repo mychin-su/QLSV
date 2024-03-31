@@ -27,8 +27,9 @@ namespace QLSV
         // button insert a new student
         private void ButtonAddStudent_Click(object sender, EventArgs e)
         {
-            STUDENT student = new STUDENT();
             int id = Convert.ToInt32(txtStudentID.Text);
+            STUDENT student = new STUDENT();
+           
             string fname = TextBoxFname.Text;
             string lname = TextBoxLname.Text;
             DateTime bdate = DateTimePicker1.Value;
@@ -70,7 +71,7 @@ namespace QLSV
 
 
         //  chuc nang kiem tra du lieu input
-        bool verif()
+      public bool verif()
         {
             if ((TextBoxFname.Text.Trim() == "")
                         || (TextBoxLname.Text.Trim() == "")
@@ -97,11 +98,6 @@ namespace QLSV
             {
                 PictureBoxStudentImage.Image = Image.FromFile(opf.FileName);
             }
-        }
-
-        private void AddStudentForm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

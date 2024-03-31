@@ -17,29 +17,13 @@ namespace QLSV
         {
             InitializeComponent();
         }
-
-        STUDENT student = new STUDENT();
-
+        MY_DB mydb = new MY_DB();
         private void studentListForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'loginFormDbDataSet.student' table. You can move, or remove it, as needed.
-            this.studentTableAdapter.Fill(this.loginFormDbDataSet.student);
-            SqlCommand command = new SqlCommand("SELECT * FROM student");
-            DataGridView1.ReadOnly = true;
-            // Handle image column layout if it exists
-            int imageColumnIndex = GetImageColumnIndex(DataGridView1);
-            if (imageColumnIndex != -1)
-            {
-                DataGridViewImageColumn imageColumn = (DataGridViewImageColumn)DataGridView1.Columns[imageColumnIndex];
-                imageColumn.ImageLayout = DataGridViewImageCellLayout.Stretch;
-                imageColumn.Width = 100; // Set width to desired value
-                imageColumn.DefaultCellStyle.NullValue = null; // Prevents display of default image when cell value is null
-
-            }
-            DataGridView1.AllowUserToAddRows = false;
+           LoadData();
 
         }
-
+        DataTable dt = new DataTable();
         // Helper method to get the index of the image column
         private int GetImageColumnIndex(DataGridView dataGridView)
         {
@@ -61,11 +45,17 @@ namespace QLSV
 
         public void LoadData()
         {
-            // TODO: This line of code loads data into the 'loginFormDbDataSet.student' table. You can move, or remove it, as needed.
-            this.studentTableAdapter.Fill(this.loginFormDbDataSet.student);
-            SqlCommand command = new SqlCommand("SELECT * FROM student");
-            DataGridView1.ReadOnly = true;
-            // Handle image column layout if it exists
+           
+
+            mydb.openConnection();
+
+            string query = "SELECT * FROM student";
+            SqlCommand command = new SqlCommand(query, mydb.getConnection);
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            adapter.Fill(dt);
+            DataGridView1.DataSource = dt;
+            mydb.closeConnection();
+                DataGridView1.Columns["bdate"].DefaultCellStyle.Format = "dd-MM-yyyy";
             int imageColumnIndex = GetImageColumnIndex(DataGridView1);
             if (imageColumnIndex != -1)
             {
@@ -75,7 +65,8 @@ namespace QLSV
                 imageColumn.DefaultCellStyle.NullValue = null; // Prevents display of default image when cell value is null
 
             }
-            DataGridView1.AllowUserToAddRows = false;
+            DataGridView1.AllowUserToAddRows = false; // Ngan them hang moi tu UI 
+            DataGridView1.ReadOnly = true;
         }
 
         private void DataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -118,6 +109,41 @@ namespace QLSV
 
                 // Hiển thị form UpdateDeleteStudentForm
                 updateForm.ShowDialog();
+            }
+        }
+
+        private void ButtonImport_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            openFileDialog.Filter = "Text files (*.txt)|*.txt|Excel files (*.xls;*.xlsx)|*.xls;*.xlsx|All files (*.*)|*.*";
+            openFileDialog.RestoreDirectory = true;
+
+            if(openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    //Read lines from the selected file 
+                    string[] lines = File.ReadAllLines(openFileDialog.FileName);
+                    string[] values;
+
+                    dt.Clear();
+                    for (int i = 0; i < lines.Length; i++)
+                    {
+                        values = lines[i].Split('|');
+                        DataRow row = dt.NewRow();
+
+                        for(int j = 0; j < values.Length; j++)
+                        {
+                            row[j] = values[j].Trim();
+                        }
+                        dt.Rows.Add(row);
+                    }
+                    MessageBox.Show("Data imported succesfully.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                } catch(Exception ex)
+                {
+                    MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);   
+                }
             }
         }
     }

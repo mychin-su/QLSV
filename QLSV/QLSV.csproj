@@ -46,28 +46,53 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddStudentForm.cs">
+    <Compile Include="COURSE\AddCourseForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddStudentForm.Designer.cs">
+    <Compile Include="COURSE\AddCourseForm.Designer.cs">
+      <DependentUpon>AddCourseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="COURSE\Course.cs" />
+    <Compile Include="COURSE\EditCoureseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="COURSE\EditCoureseForm.Designer.cs">
+      <DependentUpon>EditCoureseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="COURSE\RemoveCourseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="COURSE\RemoveCourseForm.Designer.cs">
+      <DependentUpon>RemoveCourseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="STUDENT\Admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="STUDENT\Admin.Designer.cs">
+      <DependentUpon>Admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="STUDENT\AddStudentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="STUDENT\AddStudentForm.Designer.cs">
       <DependentUpon>AddStudentForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ChangePassWord.cs">
+    <Compile Include="STUDENT\ChangePassWord.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChangePassWord.Designer.cs">
+    <Compile Include="STUDENT\ChangePassWord.Designer.cs">
       <DependentUpon>ChangePassWord.cs</DependentUpon>
     </Compile>
-    <Compile Include="ForgetPassword.cs">
+    <Compile Include="STUDENT\ForgetPassword.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ForgetPassword.Designer.cs">
+    <Compile Include="STUDENT\ForgetPassword.Designer.cs">
       <DependentUpon>ForgetPassword.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_NewUser.cs">
+    <Compile Include="STUDENT\Form_NewUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_NewUser.Designer.cs">
+    <Compile Include="STUDENT\Form_NewUser.Designer.cs">
       <DependentUpon>Form_NewUser.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginFormDbDataSet.cs">
@@ -88,6 +113,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LoginFormDbDataSet2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="LoginFormDbDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LoginFormDbDataSet3.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Login_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,10 +130,10 @@
     <Compile Include="MainForm01.Designer.cs">
       <DependentUpon>MainForm01.cs</DependentUpon>
     </Compile>
-    <Compile Include="Manage_Student_Form.cs">
+    <Compile Include="STUDENT\Manage_Student_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Manage_Student_Form.Designer.cs">
+    <Compile Include="STUDENT\Manage_Student_Form.Designer.cs">
       <DependentUpon>Manage_Student_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="MY_DB.cs" />
@@ -113,6 +143,12 @@
     <Compile Include="OTP.Designer.cs">
       <DependentUpon>OTP.cs</DependentUpon>
     </Compile>
+    <Compile Include="STUDENT\Print.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="STUDENT\Print.Designer.cs">
+      <DependentUpon>Print.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Progress.cs">
       <SubType>Form</SubType>
@@ -121,35 +157,53 @@
       <DependentUpon>Progress.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SearchForm.cs">
+    <Compile Include="STUDENT\SearchForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SearchForm.Designer.cs">
+    <Compile Include="STUDENT\SearchForm.Designer.cs">
       <DependentUpon>SearchForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="STUDENT.cs" />
-    <Compile Include="studentListForm.cs">
+    <Compile Include="STUDENT\StatisticForm .cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="studentListForm.Designer.cs">
+    <Compile Include="STUDENT\StatisticForm .Designer.cs">
+      <DependentUpon>StatisticForm .cs</DependentUpon>
+    </Compile>
+    <Compile Include="STUDENT\STUDENT.cs" />
+    <Compile Include="STUDENT\studentListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="STUDENT\studentListForm.Designer.cs">
       <DependentUpon>studentListForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UpdateDeleteStudentForm.cs">
+    <Compile Include="STUDENT\UpdateDeleteStudentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UpdateDeleteStudentForm.Designer.cs">
+    <Compile Include="STUDENT\UpdateDeleteStudentForm.Designer.cs">
       <DependentUpon>UpdateDeleteStudentForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AddStudentForm.resx">
+    <EmbeddedResource Include="COURSE\AddCourseForm.resx">
+      <DependentUpon>AddCourseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="COURSE\EditCoureseForm.resx">
+      <DependentUpon>EditCoureseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="COURSE\RemoveCourseForm.resx">
+      <DependentUpon>RemoveCourseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STUDENT\Admin.resx">
+      <DependentUpon>Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STUDENT\AddStudentForm.resx">
       <DependentUpon>AddStudentForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChangePassWord.resx">
+    <EmbeddedResource Include="STUDENT\ChangePassWord.resx">
       <DependentUpon>ChangePassWord.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ForgetPassword.resx">
+    <EmbeddedResource Include="STUDENT\ForgetPassword.resx">
       <DependentUpon>ForgetPassword.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_NewUser.resx">
+    <EmbeddedResource Include="STUDENT\Form_NewUser.resx">
       <DependentUpon>Form_NewUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login_Form.resx">
@@ -158,11 +212,14 @@
     <EmbeddedResource Include="MainForm01.resx">
       <DependentUpon>MainForm01.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Manage_Student_Form.resx">
+    <EmbeddedResource Include="STUDENT\Manage_Student_Form.resx">
       <DependentUpon>Manage_Student_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OTP.resx">
       <DependentUpon>OTP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STUDENT\Print.resx">
+      <DependentUpon>Print.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Progress.resx">
       <DependentUpon>Progress.cs</DependentUpon>
@@ -177,13 +234,16 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="SearchForm.resx">
+    <EmbeddedResource Include="STUDENT\SearchForm.resx">
       <DependentUpon>SearchForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="studentListForm.resx">
+    <EmbeddedResource Include="STUDENT\StatisticForm .resx">
+      <DependentUpon>StatisticForm .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STUDENT\studentListForm.resx">
       <DependentUpon>studentListForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UpdateDeleteStudentForm.resx">
+    <EmbeddedResource Include="STUDENT\UpdateDeleteStudentForm.resx">
       <DependentUpon>UpdateDeleteStudentForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="LoginFormDbDataSet.xsc">
@@ -218,6 +278,17 @@
     </None>
     <None Include="LoginFormDbDataSet2.xss">
       <DependentUpon>LoginFormDbDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="LoginFormDbDataSet3.xsc">
+      <DependentUpon>LoginFormDbDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="LoginFormDbDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LoginFormDbDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LoginFormDbDataSet3.xss">
+      <DependentUpon>LoginFormDbDataSet3.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

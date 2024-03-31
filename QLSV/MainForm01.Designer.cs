@@ -64,6 +64,7 @@
             this.reSultToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aVGByScoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.finalResultToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -77,7 +78,8 @@
             this.sTUDENTToolStripMenuItem,
             this.cOURSEToolStripMenuItem,
             this.sCOREToolStripMenuItem,
-            this.reSultToolStripMenuItem});
+            this.reSultToolStripMenuItem,
+            this.adminToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 24);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(735, 35);
@@ -143,7 +145,8 @@
             this.staticsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.staticsToolStripMenuItem.Name = "staticsToolStripMenuItem";
             this.staticsToolStripMenuItem.Size = new System.Drawing.Size(366, 32);
-            this.staticsToolStripMenuItem.Text = "Statics";
+            this.staticsToolStripMenuItem.Text = "Statistic";
+            this.staticsToolStripMenuItem.Click += new System.EventHandler(this.staticsToolStripMenuItem_Click);
             // 
             // toolStripMenuItem3
             // 
@@ -157,6 +160,7 @@
             this.editRemoveToolStripMenuItem.Name = "editRemoveToolStripMenuItem";
             this.editRemoveToolStripMenuItem.Size = new System.Drawing.Size(366, 32);
             this.editRemoveToolStripMenuItem.Text = "Edit / Remove";
+            this.editRemoveToolStripMenuItem.Click += new System.EventHandler(this.editRemoveToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
@@ -184,6 +188,7 @@
             this.printToolStripMenuItem.Name = "printToolStripMenuItem";
             this.printToolStripMenuItem.Size = new System.Drawing.Size(366, 32);
             this.printToolStripMenuItem.Text = "Print";
+            this.printToolStripMenuItem.Click += new System.EventHandler(this.printToolStripMenuItem_Click);
             // 
             // cOURSEToolStripMenuItem
             // 
@@ -204,11 +209,12 @@
             // 
             // addCourseToolStripMenuItem
             // 
-            this.addCourseToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.addCourseToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.addCourseToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.addCourseToolStripMenuItem.Name = "addCourseToolStripMenuItem";
             this.addCourseToolStripMenuItem.Size = new System.Drawing.Size(280, 32);
             this.addCourseToolStripMenuItem.Text = "Add Course";
+            this.addCourseToolStripMenuItem.Click += new System.EventHandler(this.addCourseToolStripMenuItem_Click);
             // 
             // toolStripMenuItem9
             // 
@@ -217,11 +223,12 @@
             // 
             // removeCourseToolStripMenuItem
             // 
-            this.removeCourseToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.removeCourseToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.removeCourseToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.removeCourseToolStripMenuItem.Name = "removeCourseToolStripMenuItem";
             this.removeCourseToolStripMenuItem.Size = new System.Drawing.Size(280, 32);
             this.removeCourseToolStripMenuItem.Text = "Remove Course";
+            this.removeCourseToolStripMenuItem.Click += new System.EventHandler(this.removeCourseToolStripMenuItem_Click);
             // 
             // toolStripMenuItem8
             // 
@@ -230,11 +237,12 @@
             // 
             // editCourseToolStripMenuItem
             // 
-            this.editCourseToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.editCourseToolStripMenuItem.BackColor = System.Drawing.Color.Black;
             this.editCourseToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.editCourseToolStripMenuItem.Name = "editCourseToolStripMenuItem";
             this.editCourseToolStripMenuItem.Size = new System.Drawing.Size(280, 32);
             this.editCourseToolStripMenuItem.Text = "Edit Course";
+            this.editCourseToolStripMenuItem.Click += new System.EventHandler(this.editCourseToolStripMenuItem_Click);
             // 
             // toolStripMenuItem7
             // 
@@ -256,7 +264,7 @@
             // 
             // printToolStripMenuItem1
             // 
-            this.printToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.printToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.printToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
             this.printToolStripMenuItem1.Name = "printToolStripMenuItem1";
             this.printToolStripMenuItem1.Size = new System.Drawing.Size(280, 32);
@@ -362,6 +370,13 @@
             this.finalResultToolStripMenuItem.Size = new System.Drawing.Size(323, 32);
             this.finalResultToolStripMenuItem.Text = "Statics Result";
             // 
+            // adminToolStripMenuItem
+            // 
+            this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
+            this.adminToolStripMenuItem.Size = new System.Drawing.Size(100, 31);
+            this.adminToolStripMenuItem.Text = "ADMIN";
+            this.adminToolStripMenuItem.Click += new System.EventHandler(this.adminToolStripMenuItem_Click);
+            // 
             // menuStrip2
             // 
             this.menuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -432,5 +447,6 @@
         private System.Windows.Forms.ToolStripMenuItem reSultToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aVGByScoreToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem finalResultToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem adminToolStripMenuItem;
     }
 }

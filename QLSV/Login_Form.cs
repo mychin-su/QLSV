@@ -33,7 +33,7 @@ namespace QLSV
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable table = new DataTable();
             
-            SqlCommand command = new SqlCommand("SELECT * FROM log_in WHERE UserName = @User AND PassWord = @Pass", db.getConnection);
+            SqlCommand command = new SqlCommand("SELECT * FROM log_in WHERE UserName = @User AND PassWord = @Pass AND Accept = 1" , db.getConnection);
 
             command.Parameters.Add("@User", SqlDbType.VarChar).Value = TextBoxUsername.Text;
             command.Parameters.Add("@Pass", SqlDbType.VarChar).Value = TextBoxPassword.Text;
