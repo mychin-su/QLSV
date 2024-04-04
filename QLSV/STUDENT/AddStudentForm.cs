@@ -1,7 +1,9 @@
-﻿using System;
+﻿using QLSV.COURSE;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -16,6 +18,15 @@ namespace QLSV
         public AddStudentForm()
         {
             InitializeComponent();
+        }
+        Course course = new Course();
+
+        private void AddStudentForm_Load(object sender, EventArgs e)
+        {
+            ComboBoxCourse.DataSource = course.getAllCourse(new SqlCommand("SELECT * FROM CourseTable"));
+            ComboBoxCourse.DisplayMember = "label";
+            ComboBoxCourse.ValueMember = "id";
+            ComboBoxCourse.SelectedItem = null;
         }
 
         // button cancel ( close the form )
@@ -36,6 +47,7 @@ namespace QLSV
             string phone = TextBoxPhone.Text;
             string adrs = TextBoxAddress.Text;
             string gender = "Male";
+            string courseName = ComboBoxCourse.Text;    
 
             if (RadioButtonFemale.Checked)
             {
@@ -53,7 +65,7 @@ namespace QLSV
             else if (verif())
             {
                 PictureBoxStudentImage.Image.Save(pic, PictureBoxStudentImage.Image.RawFormat);
-                if (student.insertStudent(id,fname, lname, bdate, gender, phone, adrs, pic))
+                if (student.insertStudent(id,fname, lname, bdate, gender, phone, adrs, pic, courseName))
                 {
                     MessageBox.Show("New Student Added", "Add Student", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -99,5 +111,7 @@ namespace QLSV
                 PictureBoxStudentImage.Image = Image.FromFile(opf.FileName);
             }
         }
+
+    
     }
 }

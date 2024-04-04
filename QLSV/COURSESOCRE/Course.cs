@@ -86,7 +86,6 @@ namespace QLSV.COURSE
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                // Log the exception for debugging and security purposes.
                 return false;
             }
 
@@ -113,10 +112,24 @@ namespace QLSV.COURSE
             return table;
         }
 
+        //Select Course that the student has not register 
+        public DataTable getCourseStudentIdNotRegister(int id, int semester) 
+        {
+            SqlCommand command = new SqlCommand("SELECT CourseTable.label FROM CourseTable LEFT JOIN student ON CourseTable.label = student.SelectedCourse AND student.id = @stdId WHERE student.SelectedCourse IS NULL AND CourseTable.Semester = @smt");
+            command.Connection = mydb.getConnection;    
+            command.Parameters.AddWithValue("@stdId", SqlDbType.Int).Value = id;
+            command.Parameters.AddWithValue("@smt", SqlDbType.Int).Value = semester;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+           return table;
+        }
+
+
+        //check course follow name 
         public bool checkCourseName(string courseName, int courseId = 0)
         {
-            // id <> @cID de phan biet xem co ton tai khong, chi la parameter 
-            SqlCommand command = new SqlCommand("SELECT * FROM CourseTable WHERE label=@cName And id <> @cID", mydb.getConnection);
+            SqlCommand command = new SqlCommand("SELECT * FROM CourseTable WHERE label=@cName And id = @cID", mydb.getConnection);
             command.Parameters.AddWithValue("@cName", SqlDbType.VarChar).Value = courseName;
             command.Parameters.AddWithValue("@cID", SqlDbType.VarChar).Value = courseId;
 
@@ -129,13 +142,14 @@ namespace QLSV.COURSE
             if (table.Rows.Count > 0)
             {
                 //neu phat hien co 1 dong ton tai trung ten
-                return false;
+                return true;
             }
             else
             {
-                return true;
+                return false;
             }
         }
+        //function to excute the count query 
 
         public string execCount(string query)
         {
@@ -146,6 +160,8 @@ namespace QLSV.COURSE
             mydb.closeConnection();
             return count;
         }
+
+        //function to return the total courses in the database
 
         public string totalCourse()
         {

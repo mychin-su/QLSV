@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QLSV.COURSE;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,6 +21,7 @@ namespace QLSV
         MY_DB mydb = new MY_DB();
 
         STUDENT std = new STUDENT();
+        Course course = new Course();
 
         public Manage_Student_Form()
         {
@@ -30,6 +32,7 @@ namespace QLSV
         private void Manage_Student_Form_Load(object sender, EventArgs e)
         {
             fillGrid(new SqlCommand("SELECT * FROM student"));
+            fillComboBox(new SqlCommand("SELECT * FROM CourseTable"));
         }
 
         public void fillGrid(SqlCommand cmd)
@@ -48,6 +51,14 @@ namespace QLSV
             //Dem sinh vien 
             LabelStudentTotal.Text = ("Total Students: " + dataGridView_Search.Rows.Count);
 
+        }
+
+        public void fillComboBox(SqlCommand cmd)
+        {
+            ComboBoxCourse.DataSource = course.getAllCourse(cmd);
+            ComboBoxCourse.DisplayMember = "label";
+            ComboBoxCourse.ValueMember = "id";
+            ComboBoxCourse.SelectedItem = null;
         }
 
         private void button_Search_Click(object sender, EventArgs e)
@@ -158,6 +169,22 @@ namespace QLSV
                 {
                     PictureBoxStudentImage.Image = null; 
                 }
+
+
+                //Hien thi Course Name
+                string courseName = dataGridView_Search.Rows[e.RowIndex].Cells[8].Value.ToString();
+
+                foreach (var item in ComboBoxCourse.Items)
+                {
+                    Console.WriteLine("Item in ComboBox: " + item.ToString());
+                    Console.WriteLine("CourseName from DataGridView: " + courseName);
+                    if (item.ToString() == courseName)
+                    {
+                        Console.WriteLine("Match found!");
+                        ComboBoxCourse.SelectedItem = item;
+                        break;
+                    }
+                }
             }
         }
 
@@ -227,6 +254,7 @@ namespace QLSV
                 string phone = TextBoxPhone.Text;
                 string adrs = TextBoxAddress.Text;
                 string gender = "Male";
+                string courseName = ComboBoxCourse.Text;
 
                 if (RadioButtonFemale.Checked)
                 {
@@ -244,7 +272,7 @@ namespace QLSV
                 else if (verif())
                 {
                     PictureBoxStudentImage.Image.Save(pic, PictureBoxStudentImage.Image.RawFormat);
-                    if (student.insertStudent(id, fname, lname, bdate, gender, phone, adrs, pic))
+                    if (student.insertStudent(id, fname, lname, bdate, gender, phone, adrs, pic, courseName))
                     {
                         MessageBox.Show("New Student Added", "Add Student", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         fillGrid(new SqlCommand("SELECT * FROM student"));
@@ -295,12 +323,13 @@ namespace QLSV
                 string phone = TextBoxPhone.Text;
                 string address = TextBoxAddress.Text;
                 byte[] picture = null;
+                string courseName = ComboBoxCourse.Text;
 
                 if (PictureBoxStudentImage.Image != null)
                 {
                     picture = ConvertImageToByteArray(PictureBoxStudentImage.Image);
                 }
-                    if (std.updateStudent(studentId, fname, lname, bdate, gender, phone, address, picture))
+                    if (std.updateStudent(studentId, fname, lname, bdate, gender, phone, address, picture, courseName))
                 {
                     MessageBox.Show("Student updated successfully", "Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     fillGrid(new SqlCommand("SELECT * FROM student"));
@@ -358,6 +387,7 @@ namespace QLSV
             TextBoxPhone.Text = "";
             TextBoxAddress.Text = "";
             PictureBoxStudentImage.Image = null;
+            ComboBoxCourse.SelectedItem = null;
         }
         
     }

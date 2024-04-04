@@ -37,6 +37,8 @@
             this.Button_Add = new System.Windows.Forms.Button();
             this.textBox_Period = new System.Windows.Forms.TextBox();
             this.textBox_CourseID = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBox_Semester = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label_SelectCourse
@@ -84,14 +86,14 @@
             this.textBox_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_Label.Location = new System.Drawing.Point(217, 108);
             this.textBox_Label.Name = "textBox_Label";
-            this.textBox_Label.Size = new System.Drawing.Size(277, 30);
+            this.textBox_Label.Size = new System.Drawing.Size(397, 30);
             this.textBox_Label.TabIndex = 5;
             // 
             // richTextBox_Description
             // 
             this.richTextBox_Description.Location = new System.Drawing.Point(217, 245);
             this.richTextBox_Description.Name = "richTextBox_Description";
-            this.richTextBox_Description.Size = new System.Drawing.Size(277, 123);
+            this.richTextBox_Description.Size = new System.Drawing.Size(397, 123);
             this.richTextBox_Description.TabIndex = 9;
             this.richTextBox_Description.Text = "";
             // 
@@ -99,9 +101,9 @@
             // 
             this.Button_Add.BackColor = System.Drawing.Color.GreenYellow;
             this.Button_Add.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Button_Add.Location = new System.Drawing.Point(217, 399);
+            this.Button_Add.Location = new System.Drawing.Point(217, 391);
             this.Button_Add.Name = "Button_Add";
-            this.Button_Add.Size = new System.Drawing.Size(295, 39);
+            this.Button_Add.Size = new System.Drawing.Size(397, 47);
             this.Button_Add.TabIndex = 10;
             this.Button_Add.Text = "Add";
             this.Button_Add.UseVisualStyleBackColor = false;
@@ -112,7 +114,7 @@
             this.textBox_Period.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_Period.Location = new System.Drawing.Point(217, 178);
             this.textBox_Period.Name = "textBox_Period";
-            this.textBox_Period.Size = new System.Drawing.Size(277, 30);
+            this.textBox_Period.Size = new System.Drawing.Size(205, 30);
             this.textBox_Period.TabIndex = 11;
             // 
             // textBox_CourseID
@@ -120,8 +122,28 @@
             this.textBox_CourseID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_CourseID.Location = new System.Drawing.Point(217, 35);
             this.textBox_CourseID.Name = "textBox_CourseID";
-            this.textBox_CourseID.Size = new System.Drawing.Size(277, 30);
+            this.textBox_CourseID.Size = new System.Drawing.Size(136, 30);
             this.textBox_CourseID.TabIndex = 12;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label1.Location = new System.Drawing.Point(414, 40);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(111, 25);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Semester:";
+            // 
+            // comboBox_Semester
+            // 
+            this.comboBox_Semester.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox_Semester.FormattingEnabled = true;
+            this.comboBox_Semester.Location = new System.Drawing.Point(548, 38);
+            this.comboBox_Semester.Name = "comboBox_Semester";
+            this.comboBox_Semester.Size = new System.Drawing.Size(66, 33);
+            this.comboBox_Semester.TabIndex = 15;
             // 
             // AddCourseForm
             // 
@@ -129,6 +151,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(682, 450);
+            this.Controls.Add(this.comboBox_Semester);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox_CourseID);
             this.Controls.Add(this.textBox_Period);
             this.Controls.Add(this.Button_Add);
@@ -156,5 +180,7 @@
         private System.Windows.Forms.Button Button_Add;
         private System.Windows.Forms.TextBox textBox_Period;
         private System.Windows.Forms.TextBox textBox_CourseID;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboBox_Semester;
     }
 }

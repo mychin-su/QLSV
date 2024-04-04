@@ -256,6 +256,7 @@
             this.manageCourseToolStripMenuItem.Name = "manageCourseToolStripMenuItem";
             this.manageCourseToolStripMenuItem.Size = new System.Drawing.Size(280, 32);
             this.manageCourseToolStripMenuItem.Text = "Manage Courses";
+            this.manageCourseToolStripMenuItem.Click += new System.EventHandler(this.manageCourseToolStripMenuItem_Click);
             // 
             // toolStripMenuItem6
             // 
@@ -269,6 +270,7 @@
             this.printToolStripMenuItem1.Name = "printToolStripMenuItem1";
             this.printToolStripMenuItem1.Size = new System.Drawing.Size(280, 32);
             this.printToolStripMenuItem1.Text = "Print";
+            this.printToolStripMenuItem1.Click += new System.EventHandler(this.printToolStripMenuItem1_Click);
             // 
             // sCOREToolStripMenuItem
             // 
@@ -294,6 +296,7 @@
             this.addScoreToolStripMenuItem.Name = "addScoreToolStripMenuItem";
             this.addScoreToolStripMenuItem.Size = new System.Drawing.Size(326, 32);
             this.addScoreToolStripMenuItem.Text = "Add Score";
+            this.addScoreToolStripMenuItem.Click += new System.EventHandler(this.addScoreToolStripMenuItem_Click);
             // 
             // toolStripMenuItem10
             // 
@@ -307,6 +310,7 @@
             this.removeScoreToolStripMenuItem.Name = "removeScoreToolStripMenuItem";
             this.removeScoreToolStripMenuItem.Size = new System.Drawing.Size(326, 32);
             this.removeScoreToolStripMenuItem.Text = "Remove Score";
+            this.removeScoreToolStripMenuItem.Click += new System.EventHandler(this.removeScoreToolStripMenuItem_Click);
             // 
             // toolStripMenuItem11
             // 

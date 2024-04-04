@@ -64,6 +64,8 @@
             this.loginFormDbDataSet3 = new QLSV.LoginFormDbDataSet3();
             this.LabelStudentTotal = new System.Windows.Forms.Label();
             this.studentTableAdapter1 = new QLSV.LoginFormDbDataSet3TableAdapters.studentTableAdapter();
+            this.label10 = new System.Windows.Forms.Label();
+            this.ComboBoxCourse = new System.Windows.Forms.ComboBox();
             this.GroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxStudentImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginFormDbDataSet2)).BeginInit();
@@ -130,7 +132,7 @@
             this.ButtonAddStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonAddStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonAddStudent.ForeColor = System.Drawing.Color.White;
-            this.ButtonAddStudent.Location = new System.Drawing.Point(24, 686);
+            this.ButtonAddStudent.Location = new System.Drawing.Point(24, 721);
             this.ButtonAddStudent.Margin = new System.Windows.Forms.Padding(4);
             this.ButtonAddStudent.Name = "ButtonAddStudent";
             this.ButtonAddStudent.Size = new System.Drawing.Size(132, 49);
@@ -146,7 +148,7 @@
             this.ButtonEditStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonEditStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonEditStudent.ForeColor = System.Drawing.Color.White;
-            this.ButtonEditStudent.Location = new System.Drawing.Point(192, 686);
+            this.ButtonEditStudent.Location = new System.Drawing.Point(199, 721);
             this.ButtonEditStudent.Margin = new System.Windows.Forms.Padding(4);
             this.ButtonEditStudent.Name = "ButtonEditStudent";
             this.ButtonEditStudent.Size = new System.Drawing.Size(141, 49);
@@ -157,7 +159,7 @@
             // 
             // ButtonUploadImage
             // 
-            this.ButtonUploadImage.Location = new System.Drawing.Point(149, 606);
+            this.ButtonUploadImage.Location = new System.Drawing.Point(140, 562);
             this.ButtonUploadImage.Margin = new System.Windows.Forms.Padding(4);
             this.ButtonUploadImage.Name = "ButtonUploadImage";
             this.ButtonUploadImage.Size = new System.Drawing.Size(161, 28);
@@ -171,7 +173,7 @@
             this.Label6.AutoSize = true;
             this.Label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label6.ForeColor = System.Drawing.Color.White;
-            this.Label6.Location = new System.Drawing.Point(18, 426);
+            this.Label6.Location = new System.Drawing.Point(19, 391);
             this.Label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label6.Name = "Label6";
             this.Label6.Size = new System.Drawing.Size(86, 25);
@@ -185,7 +187,7 @@
             this.TextBoxAddress.Margin = new System.Windows.Forms.Padding(4);
             this.TextBoxAddress.Multiline = true;
             this.TextBoxAddress.Name = "TextBoxAddress";
-            this.TextBoxAddress.Size = new System.Drawing.Size(303, 99);
+            this.TextBoxAddress.Size = new System.Drawing.Size(304, 60);
             this.TextBoxAddress.TabIndex = 26;
             // 
             // Label5
@@ -307,10 +309,10 @@
             // 
             // buttonDownloadImage
             // 
-            this.buttonDownloadImage.Location = new System.Drawing.Point(317, 607);
+            this.buttonDownloadImage.Location = new System.Drawing.Point(298, 565);
             this.buttonDownloadImage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonDownloadImage.Name = "buttonDownloadImage";
-            this.buttonDownloadImage.Size = new System.Drawing.Size(148, 25);
+            this.buttonDownloadImage.Size = new System.Drawing.Size(158, 25);
             this.buttonDownloadImage.TabIndex = 36;
             this.buttonDownloadImage.Text = "Download";
             this.buttonDownloadImage.UseVisualStyleBackColor = true;
@@ -323,7 +325,7 @@
             this.ButtonRemoveStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonRemoveStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonRemoveStudent.ForeColor = System.Drawing.Color.White;
-            this.ButtonRemoveStudent.Location = new System.Drawing.Point(375, 686);
+            this.ButtonRemoveStudent.Location = new System.Drawing.Point(371, 721);
             this.ButtonRemoveStudent.Margin = new System.Windows.Forms.Padding(4);
             this.ButtonRemoveStudent.Name = "ButtonRemoveStudent";
             this.ButtonRemoveStudent.Size = new System.Drawing.Size(125, 49);
@@ -339,7 +341,7 @@
             this.ButtonResetStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonResetStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonResetStudent.ForeColor = System.Drawing.Color.White;
-            this.ButtonResetStudent.Location = new System.Drawing.Point(549, 686);
+            this.ButtonResetStudent.Location = new System.Drawing.Point(542, 721);
             this.ButtonResetStudent.Margin = new System.Windows.Forms.Padding(4);
             this.ButtonResetStudent.Name = "ButtonResetStudent";
             this.ButtonResetStudent.Size = new System.Drawing.Size(159, 49);
@@ -351,7 +353,7 @@
             // PictureBoxStudentImage
             // 
             this.PictureBoxStudentImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(196)))), ((int)(((byte)(244)))));
-            this.PictureBoxStudentImage.Location = new System.Drawing.Point(149, 426);
+            this.PictureBoxStudentImage.Location = new System.Drawing.Point(140, 391);
             this.PictureBoxStudentImage.Margin = new System.Windows.Forms.Padding(4);
             this.PictureBoxStudentImage.Name = "PictureBoxStudentImage";
             this.PictureBoxStudentImage.Size = new System.Drawing.Size(316, 175);
@@ -410,12 +412,12 @@
             // dataGridView_Search
             // 
             this.dataGridView_Search.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_Search.Location = new System.Drawing.Point(475, 61);
+            this.dataGridView_Search.Location = new System.Drawing.Point(491, 61);
             this.dataGridView_Search.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView_Search.Name = "dataGridView_Search";
             this.dataGridView_Search.RowHeadersWidth = 51;
             this.dataGridView_Search.RowTemplate.Height = 50;
-            this.dataGridView_Search.Size = new System.Drawing.Size(827, 566);
+            this.dataGridView_Search.Size = new System.Drawing.Size(811, 609);
             this.dataGridView_Search.TabIndex = 43;
             this.dataGridView_Search.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_Search_CellDoubleClick);
             // 
@@ -435,7 +437,7 @@
             this.LabelStudentTotal.BackColor = System.Drawing.Color.Moccasin;
             this.LabelStudentTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelStudentTotal.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.LabelStudentTotal.Location = new System.Drawing.Point(1100, 655);
+            this.LabelStudentTotal.Location = new System.Drawing.Point(1095, 704);
             this.LabelStudentTotal.Name = "LabelStudentTotal";
             this.LabelStudentTotal.Size = new System.Drawing.Size(190, 29);
             this.LabelStudentTotal.TabIndex = 44;
@@ -445,12 +447,34 @@
             // 
             this.studentTableAdapter1.ClearBeforeFill = true;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label10.Location = new System.Drawing.Point(12, 603);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(134, 20);
+            this.label10.TabIndex = 45;
+            this.label10.Text = "Select Course:";
+            // 
+            // ComboBoxCourse
+            // 
+            this.ComboBoxCourse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ComboBoxCourse.FormattingEnabled = true;
+            this.ComboBoxCourse.Location = new System.Drawing.Point(140, 637);
+            this.ComboBoxCourse.Name = "ComboBoxCourse";
+            this.ComboBoxCourse.Size = new System.Drawing.Size(325, 33);
+            this.ComboBoxCourse.TabIndex = 46;
+            // 
             // Manage_Student_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
             this.ClientSize = new System.Drawing.Size(1329, 816);
+            this.Controls.Add(this.ComboBoxCourse);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.LabelStudentTotal);
             this.Controls.Add(this.dataGridView_Search);
             this.Controls.Add(this.button_Search);
@@ -533,5 +557,7 @@
         private LoginFormDbDataSet3 loginFormDbDataSet3;
         private System.Windows.Forms.BindingSource studentBindingSource1;
         private LoginFormDbDataSet3TableAdapters.studentTableAdapter studentTableAdapter1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox ComboBoxCourse;
     }
 }

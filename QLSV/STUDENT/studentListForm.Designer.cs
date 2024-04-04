@@ -38,6 +38,9 @@ namespace QLSV
             this.studentTableAdapter = new QLSV.LoginFormDbDataSetTableAdapters.studentTableAdapter();
             this.ButtonRefresh = new System.Windows.Forms.Button();
             this.ButtonImport = new System.Windows.Forms.Button();
+            this.loginFormDbDataSet4 = new QLSV.LoginFormDbDataSet4();
+            this.studentBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.studentTableAdapter1 = new QLSV.LoginFormDbDataSet4TableAdapters.studentTableAdapter();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lname = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,9 +49,12 @@ namespace QLSV
             this.phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.picture = new System.Windows.Forms.DataGridViewImageColumn();
+            this.SelectedCourse = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginFormDbDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loginFormDbDataSet4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // DataGridView1
@@ -64,8 +70,9 @@ namespace QLSV
             this.gender,
             this.phone,
             this.address,
-            this.picture});
-            this.DataGridView1.DataSource = this.studentBindingSource;
+            this.picture,
+            this.SelectedCourse});
+            this.DataGridView1.DataSource = this.studentBindingSource1;
             this.DataGridView1.Location = new System.Drawing.Point(49, 12);
             this.DataGridView1.Name = "DataGridView1";
             this.DataGridView1.RowHeadersWidth = 40;
@@ -109,6 +116,20 @@ namespace QLSV
             this.ButtonImport.Text = "IMPORT";
             this.ButtonImport.UseVisualStyleBackColor = true;
             this.ButtonImport.Click += new System.EventHandler(this.ButtonImport_Click);
+            // 
+            // loginFormDbDataSet4
+            // 
+            this.loginFormDbDataSet4.DataSetName = "LoginFormDbDataSet4";
+            this.loginFormDbDataSet4.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // studentBindingSource1
+            // 
+            this.studentBindingSource1.DataMember = "student";
+            this.studentBindingSource1.DataSource = this.loginFormDbDataSet4;
+            // 
+            // studentTableAdapter1
+            // 
+            this.studentTableAdapter1.ClearBeforeFill = true;
             // 
             // Column1
             // 
@@ -166,6 +187,13 @@ namespace QLSV
             this.picture.MinimumWidth = 6;
             this.picture.Name = "picture";
             // 
+            // SelectedCourse
+            // 
+            this.SelectedCourse.DataPropertyName = "SelectedCourse";
+            this.SelectedCourse.HeaderText = "SelectedCourse";
+            this.SelectedCourse.MinimumWidth = 6;
+            this.SelectedCourse.Name = "SelectedCourse";
+            // 
             // studentListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -181,6 +209,8 @@ namespace QLSV
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginFormDbDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loginFormDbDataSet4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -200,6 +230,9 @@ namespace QLSV
         private LoginFormDbDataSetTableAdapters.studentTableAdapter studentTableAdapter;
         private System.Windows.Forms.Button ButtonRefresh;
         private Button ButtonImport;
+        private LoginFormDbDataSet4 loginFormDbDataSet4;
+        private BindingSource studentBindingSource1;
+        private LoginFormDbDataSet4TableAdapters.studentTableAdapter studentTableAdapter1;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn lname;
@@ -208,5 +241,6 @@ namespace QLSV
         private DataGridViewTextBoxColumn phone;
         private DataGridViewTextBoxColumn address;
         private DataGridViewImageColumn picture;
+        private DataGridViewTextBoxColumn SelectedCourse;
     }
 }

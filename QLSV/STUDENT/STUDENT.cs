@@ -13,10 +13,10 @@ namespace QLSV
 
 
         //  function to insert a new student
-        public bool insertStudent(int Id,string fname, string lname, DateTime bdate, string gender, string phone, string address, MemoryStream picture)
+        public bool insertStudent(int Id,string fname, string lname, DateTime bdate, string gender, string phone, string address, MemoryStream picture, string selectedCourse)
         {
-            SqlCommand command = new SqlCommand("INSERT INTO student (id, fname, lname, bdate, gender, phone, address, picture)" +
-                " VALUES (@id,@fn, @ln, @bdt, @gdr, @phn, @adrs, @pic)", mydb.getConnection);
+            SqlCommand command = new SqlCommand("INSERT INTO student (id, fname, lname, bdate, gender, phone, address, picture, SelectedCourse)" +
+                " VALUES (@id,@fn, @ln, @bdt, @gdr, @phn, @adrs, @pic, @selectCourse)", mydb.getConnection);
             command.Parameters.Add("@id", SqlDbType.Int).Value = Id;
             command.Parameters.Add("@fn", SqlDbType.VarChar).Value = fname;
             command.Parameters.Add("@ln", SqlDbType.VarChar).Value = lname;
@@ -25,6 +25,7 @@ namespace QLSV
             command.Parameters.Add("@phn", SqlDbType.VarChar).Value = phone;
             command.Parameters.Add("@adrs", SqlDbType.VarChar).Value = address;
             command.Parameters.Add("@pic", SqlDbType.Image).Value = picture.ToArray();
+            command.Parameters.Add("@selectCourse", SqlDbType.VarChar).Value = selectedCourse;
 
             mydb.openConnection();
             
@@ -40,6 +41,8 @@ namespace QLSV
             }
         }
 
+   
+
         public DataTable getStudent(SqlCommand command)
         {
             command.Connection = mydb.getConnection;
@@ -49,13 +52,12 @@ namespace QLSV
             return table;
         }
 
-
         //Update Student 
-        public bool updateStudent(int Id, string fname, string lname, DateTime bdate, string gender, string phone, string address, byte[] picture)
+        public bool updateStudent(int Id, string fname, string lname, DateTime bdate, string gender, string phone, string address, byte[] picture, string selectedCourse)
         {
             try
             {
-                string query = "UPDATE student SET fname = @fname, lname = @lname, bdate = @bdate, gender = @gender, phone = @phone, address = @address, picture = @picture WHERE id = @id";
+                string query = "UPDATE student SET fname = @fname, lname = @lname, bdate = @bdate, gender = @gender, phone = @phone, address = @address, picture = @picture, SelectedCourse = @selectCourse WHERE id = @id";
                 using (SqlConnection con = new SqlConnection(@"Data Source=Vuong-Duc-Thoai\SQLEXPRESS;User ID=sa;Password=********;Initial Catalog=LoginFormDb;Integrated Security=True;"))
                 using (SqlCommand command = new SqlCommand(query, con))
                 {
@@ -69,7 +71,9 @@ namespace QLSV
                     if(picture != null)
                     {
                         command.Parameters.AddWithValue("@picture", picture);
-                    } 
+                    }
+
+                    command.Parameters.AddWithValue("@selectCourse", selectedCourse);
                     con.Open();
                     int result = command.ExecuteNonQuery(); // Executes update and returns number of affected rows
 
@@ -82,6 +86,16 @@ namespace QLSV
                 return false;
             }
             
+        }
+
+        public bool updateStudentCourse(int id, string courseName)
+        {
+            SqlCommand command = new SqlCommand("UPDATE student SET SelectedCourse = @selectedCourse WHERE id = @id", mydb.getConnection);
+            command.Parameters.AddWithValue("@selectedCourse", courseName);
+            command.Parameters.AddWithValue("@id", id);
+            mydb.openConnection();
+            int result = command.ExecuteNonQuery();
+            return result > 0;
         }
 
 

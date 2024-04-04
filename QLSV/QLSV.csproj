@@ -33,8 +33,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.6\lib\net472\Guna.UI2.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,24 +52,72 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="COURSE\AddCourseForm.cs">
+    <Compile Include="COURSESOCRE\AddCourseForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="COURSE\AddCourseForm.Designer.cs">
+    <Compile Include="COURSESOCRE\AddCourseForm.Designer.cs">
       <DependentUpon>AddCourseForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="COURSE\Course.cs" />
-    <Compile Include="COURSE\EditCoureseForm.cs">
+    <Compile Include="COURSESOCRE\AddCourseStudent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="COURSE\EditCoureseForm.Designer.cs">
+    <Compile Include="COURSESOCRE\AddCourseStudent.Designer.cs">
+      <DependentUpon>AddCourseStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="COURSESOCRE\AddScoreForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="COURSESOCRE\AddScoreForm.Designer.cs">
+      <DependentUpon>AddScoreForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="COURSESOCRE\Course.cs" />
+    <Compile Include="COURSESOCRE\CourseStdList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="COURSESOCRE\CourseStdList.Designer.cs">
+      <DependentUpon>CourseStdList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="COURSESOCRE\EditCoureseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="COURSESOCRE\EditCoureseForm.Designer.cs">
       <DependentUpon>EditCoureseForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="COURSE\RemoveCourseForm.cs">
+    <Compile Include="COURSESOCRE\ManageCourses.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="COURSE\RemoveCourseForm.Designer.cs">
+    <Compile Include="COURSESOCRE\ManageCourses.Designer.cs">
+      <DependentUpon>ManageCourses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="COURSESOCRE\PrintCourseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="COURSESOCRE\PrintCourseForm.Designer.cs">
+      <DependentUpon>PrintCourseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="COURSESOCRE\PrintScore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="COURSESOCRE\PrintScore.Designer.cs">
+      <DependentUpon>PrintScore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="COURSESOCRE\RemoveCourseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="COURSESOCRE\RemoveCourseForm.Designer.cs">
       <DependentUpon>RemoveCourseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="COURSESOCRE\RemoveScoreForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="COURSESOCRE\RemoveScoreForm.Designer.cs">
+      <DependentUpon>RemoveScoreForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="COURSESOCRE\Score.cs" />
+    <Compile Include="LoginFormDbDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LoginFormDbDataSet4.xsd</DependentUpon>
     </Compile>
     <Compile Include="STUDENT\Admin.cs">
       <SubType>Form</SubType>
@@ -182,14 +236,35 @@
     <Compile Include="STUDENT\UpdateDeleteStudentForm.Designer.cs">
       <DependentUpon>UpdateDeleteStudentForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="COURSE\AddCourseForm.resx">
+    <EmbeddedResource Include="COURSESOCRE\AddCourseForm.resx">
       <DependentUpon>AddCourseForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="COURSE\EditCoureseForm.resx">
+    <EmbeddedResource Include="COURSESOCRE\AddCourseStudent.resx">
+      <DependentUpon>AddCourseStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="COURSESOCRE\AddScoreForm.resx">
+      <DependentUpon>AddScoreForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="COURSESOCRE\CourseStdList.resx">
+      <DependentUpon>CourseStdList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="COURSESOCRE\EditCoureseForm.resx">
       <DependentUpon>EditCoureseForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="COURSE\RemoveCourseForm.resx">
+    <EmbeddedResource Include="COURSESOCRE\ManageCourses.resx">
+      <DependentUpon>ManageCourses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="COURSESOCRE\PrintCourseForm.resx">
+      <DependentUpon>PrintCourseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="COURSESOCRE\PrintScore.resx">
+      <DependentUpon>PrintScore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="COURSESOCRE\RemoveCourseForm.resx">
       <DependentUpon>RemoveCourseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="COURSESOCRE\RemoveScoreForm.resx">
+      <DependentUpon>RemoveScoreForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="STUDENT\Admin.resx">
       <DependentUpon>Admin.cs</DependentUpon>
@@ -290,6 +365,18 @@
     <None Include="LoginFormDbDataSet3.xss">
       <DependentUpon>LoginFormDbDataSet3.xsd</DependentUpon>
     </None>
+    <None Include="LoginFormDbDataSet4.xsc">
+      <DependentUpon>LoginFormDbDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="LoginFormDbDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LoginFormDbDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LoginFormDbDataSet4.xss">
+      <DependentUpon>LoginFormDbDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

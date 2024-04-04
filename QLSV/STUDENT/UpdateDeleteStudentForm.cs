@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QLSV.COURSESOCRE;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -274,6 +275,12 @@ namespace QLSV
                 this.button_Search_Click(sender, e);
                 e.Handled = true;
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AddCourseStudent addCourseFrm = new AddCourseStudent(Convert.ToInt32(TextBoxId.Text));
+            addCourseFrm.Show(this);
         }
     }
 }

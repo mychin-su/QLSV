@@ -20,7 +20,9 @@ namespace QLSV
         MY_DB mydb = new MY_DB();
         private void studentListForm_Load(object sender, EventArgs e)
         {
-           LoadData();
+            // TODO: This line of code loads data into the 'loginFormDbDataSet4.student' table. You can move, or remove it, as needed.
+            this.studentTableAdapter1.Fill(this.loginFormDbDataSet4.student);
+            LoadData();
 
         }
         DataTable dt = new DataTable();

@@ -24,9 +24,9 @@ namespace QLSV.COURSE
         private void EditCoureseForm_Load(object sender, EventArgs e)
         {
             comboBox_SelectCourse.DataSource = course.getAllCourse(new SqlCommand("SELECT * FROM CourseTable"));
-            comboBox_SelectCourse.DisplayMember = "label";
-            comboBox_SelectCourse.ValueMember = "id";
-            comboBox_SelectCourse.SelectedItem = null;
+            comboBox_SelectCourse.DisplayMember = "label"; // xác định trường dữ liệu nào sẽ hiện thị cho người dùng
+            comboBox_SelectCourse.ValueMember = "id"; // Xác định trường dữ liệu nào sẽ được sử dụng như giá trị thực tế khi người dùng chọn.
+            comboBox_SelectCourse.SelectedItem = null; // Đặt giá trị được chọn ban đầu ComboBox thành null. Điều này đảm bảo rằng không có mục nào được chọn mặc định khi ComboBox được hiển thị
         }
 
         public void fillCombo(int index)
@@ -39,13 +39,19 @@ namespace QLSV.COURSE
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string lable = textBox_Label.Text;
+            string label = textBox_Label.Text;
             int period = int.Parse(numericUpDown_Period.Value.ToString());
             string description = richTextBox_description.Text;
             int id = (int)comboBox_SelectCourse.SelectedValue;
-            if(course.updateCourse(id, lable, period, description))
+
+            //lay lai phan kiem tra ten course 
+            if(course.checkCourseName(label, Convert.ToInt32(comboBox_SelectCourse.SelectedValue))){
+                MessageBox.Show("This Course Name Already Exits", "Edit Course", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if(course.updateCourse(id, label, period, description))
             {
-                MessageBox.Show("Course updated successfully", "Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Course Updated", "Edit Course", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                fillCombo(comboBox_SelectCourse.SelectedIndex);
             } else
             {
                 MessageBox.Show("Course not found or update failed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

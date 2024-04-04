@@ -1,4 +1,5 @@
 ﻿using QLSV.COURSE;
+using QLSV.COURSESOCRE;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -80,6 +81,30 @@ namespace QLSV
         {
             EditCoureseForm editCourseForm = new EditCoureseForm();
             editCourseForm.Show(this);
+        }
+
+        private void manageCourseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Button_Next manageCourses = new Button_Next();
+            manageCourses.Show(this);
+        }
+
+        private void addScoreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddScoreForm addScoreForm = new AddScoreForm();
+            addScoreForm.Show(this);
+        }
+
+        private void removeScoreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RemoveScoreForm removeScoreForm = new RemoveScoreForm();    
+            removeScoreForm.Show(this);
+        }
+
+        private void printToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            PrintCourseForm printCourseForm = new PrintCourseForm();
+            printCourseForm.Show(this);
         }
     }
  }

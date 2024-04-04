@@ -49,6 +49,8 @@
             this.Label1 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.txtStudentID = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.ComboBoxCourse = new System.Windows.Forms.ComboBox();
             this.GroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxStudentImage)).BeginInit();
             this.SuspendLayout();
@@ -57,10 +59,10 @@
             // 
             this.GroupBox1.Controls.Add(this.RadioButtonFemale);
             this.GroupBox1.Controls.Add(this.RadioButtonMale);
-            this.GroupBox1.Location = new System.Drawing.Point(167, 203);
-            this.GroupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GroupBox1.Location = new System.Drawing.Point(163, 185);
+            this.GroupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.GroupBox1.Name = "GroupBox1";
-            this.GroupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GroupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.GroupBox1.Size = new System.Drawing.Size(319, 53);
             this.GroupBox1.TabIndex = 33;
             this.GroupBox1.TabStop = false;
@@ -71,7 +73,7 @@
             this.RadioButtonFemale.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RadioButtonFemale.ForeColor = System.Drawing.Color.White;
             this.RadioButtonFemale.Location = new System.Drawing.Point(149, 16);
-            this.RadioButtonFemale.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.RadioButtonFemale.Margin = new System.Windows.Forms.Padding(4);
             this.RadioButtonFemale.Name = "RadioButtonFemale";
             this.RadioButtonFemale.Size = new System.Drawing.Size(104, 29);
             this.RadioButtonFemale.TabIndex = 1;
@@ -84,7 +86,7 @@
             this.RadioButtonMale.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RadioButtonMale.ForeColor = System.Drawing.Color.White;
             this.RadioButtonMale.Location = new System.Drawing.Point(25, 16);
-            this.RadioButtonMale.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.RadioButtonMale.Margin = new System.Windows.Forms.Padding(4);
             this.RadioButtonMale.Name = "RadioButtonMale";
             this.RadioButtonMale.Size = new System.Drawing.Size(80, 29);
             this.RadioButtonMale.TabIndex = 0;
@@ -96,7 +98,7 @@
             this.Label7.AutoSize = true;
             this.Label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label7.ForeColor = System.Drawing.Color.White;
-            this.Label7.Location = new System.Drawing.Point(61, 213);
+            this.Label7.Location = new System.Drawing.Point(52, 201);
             this.Label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label7.Name = "Label7";
             this.Label7.Size = new System.Drawing.Size(90, 25);
@@ -110,8 +112,8 @@
             this.ButtonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonCancel.ForeColor = System.Drawing.Color.White;
-            this.ButtonCancel.Location = new System.Drawing.Point(31, 686);
-            this.ButtonCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ButtonCancel.Location = new System.Drawing.Point(33, 726);
+            this.ButtonCancel.Margin = new System.Windows.Forms.Padding(4);
             this.ButtonCancel.Name = "ButtonCancel";
             this.ButtonCancel.Size = new System.Drawing.Size(213, 49);
             this.ButtonCancel.TabIndex = 31;
@@ -126,8 +128,8 @@
             this.ButtonAddStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonAddStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonAddStudent.ForeColor = System.Drawing.Color.White;
-            this.ButtonAddStudent.Location = new System.Drawing.Point(291, 686);
-            this.ButtonAddStudent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ButtonAddStudent.Location = new System.Drawing.Point(283, 726);
+            this.ButtonAddStudent.Margin = new System.Windows.Forms.Padding(4);
             this.ButtonAddStudent.Name = "ButtonAddStudent";
             this.ButtonAddStudent.Size = new System.Drawing.Size(213, 49);
             this.ButtonAddStudent.TabIndex = 30;
@@ -137,8 +139,8 @@
             // 
             // ButtonUploadImage
             // 
-            this.ButtonUploadImage.Location = new System.Drawing.Point(169, 610);
-            this.ButtonUploadImage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ButtonUploadImage.Location = new System.Drawing.Point(163, 579);
+            this.ButtonUploadImage.Margin = new System.Windows.Forms.Padding(4);
             this.ButtonUploadImage.Name = "ButtonUploadImage";
             this.ButtonUploadImage.Size = new System.Drawing.Size(316, 28);
             this.ButtonUploadImage.TabIndex = 29;
@@ -149,8 +151,8 @@
             // PictureBoxStudentImage
             // 
             this.PictureBoxStudentImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(196)))), ((int)(((byte)(244)))));
-            this.PictureBoxStudentImage.Location = new System.Drawing.Point(169, 436);
-            this.PictureBoxStudentImage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PictureBoxStudentImage.Location = new System.Drawing.Point(163, 407);
+            this.PictureBoxStudentImage.Margin = new System.Windows.Forms.Padding(4);
             this.PictureBoxStudentImage.Name = "PictureBoxStudentImage";
             this.PictureBoxStudentImage.Size = new System.Drawing.Size(316, 175);
             this.PictureBoxStudentImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -162,7 +164,7 @@
             this.Label6.AutoSize = true;
             this.Label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label6.ForeColor = System.Drawing.Color.White;
-            this.Label6.Location = new System.Drawing.Point(57, 436);
+            this.Label6.Location = new System.Drawing.Point(43, 407);
             this.Label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label6.Name = "Label6";
             this.Label6.Size = new System.Drawing.Size(86, 25);
@@ -172,8 +174,8 @@
             // TextBoxAddress
             // 
             this.TextBoxAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBoxAddress.Location = new System.Drawing.Point(169, 314);
-            this.TextBoxAddress.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TextBoxAddress.Location = new System.Drawing.Point(159, 300);
+            this.TextBoxAddress.Margin = new System.Windows.Forms.Padding(4);
             this.TextBoxAddress.Multiline = true;
             this.TextBoxAddress.Name = "TextBoxAddress";
             this.TextBoxAddress.Size = new System.Drawing.Size(315, 99);
@@ -184,7 +186,7 @@
             this.Label5.AutoSize = true;
             this.Label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label5.ForeColor = System.Drawing.Color.White;
-            this.Label5.Location = new System.Drawing.Point(52, 318);
+            this.Label5.Location = new System.Drawing.Point(43, 303);
             this.Label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label5.Name = "Label5";
             this.Label5.Size = new System.Drawing.Size(99, 25);
@@ -194,8 +196,8 @@
             // TextBoxPhone
             // 
             this.TextBoxPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBoxPhone.Location = new System.Drawing.Point(169, 263);
-            this.TextBoxPhone.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TextBoxPhone.Location = new System.Drawing.Point(161, 262);
+            this.TextBoxPhone.Margin = new System.Windows.Forms.Padding(4);
             this.TextBoxPhone.Name = "TextBoxPhone";
             this.TextBoxPhone.Size = new System.Drawing.Size(315, 30);
             this.TextBoxPhone.TabIndex = 24;
@@ -205,7 +207,7 @@
             this.Label4.AutoSize = true;
             this.Label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label4.ForeColor = System.Drawing.Color.White;
-            this.Label4.Location = new System.Drawing.Point(72, 267);
+            this.Label4.Location = new System.Drawing.Point(57, 252);
             this.Label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label4.Name = "Label4";
             this.Label4.Size = new System.Drawing.Size(81, 25);
@@ -216,8 +218,8 @@
             // 
             this.DateTimePicker1.CustomFormat = "dd/MM/yyyy";
             this.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DateTimePicker1.Location = new System.Drawing.Point(169, 171);
-            this.DateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DateTimePicker1.Location = new System.Drawing.Point(167, 155);
+            this.DateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
             this.DateTimePicker1.Name = "DateTimePicker1";
             this.DateTimePicker1.Size = new System.Drawing.Size(315, 22);
             this.DateTimePicker1.TabIndex = 22;
@@ -227,7 +229,7 @@
             this.Label3.AutoSize = true;
             this.Label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label3.ForeColor = System.Drawing.Color.White;
-            this.Label3.Location = new System.Drawing.Point(39, 171);
+            this.Label3.Location = new System.Drawing.Point(41, 152);
             this.Label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label3.Name = "Label3";
             this.Label3.Size = new System.Drawing.Size(108, 25);
@@ -237,8 +239,8 @@
             // TextBoxLname
             // 
             this.TextBoxLname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBoxLname.Location = new System.Drawing.Point(169, 119);
-            this.TextBoxLname.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TextBoxLname.Location = new System.Drawing.Point(167, 105);
+            this.TextBoxLname.Margin = new System.Windows.Forms.Padding(4);
             this.TextBoxLname.Name = "TextBoxLname";
             this.TextBoxLname.Size = new System.Drawing.Size(315, 30);
             this.TextBoxLname.TabIndex = 20;
@@ -248,7 +250,7 @@
             this.Label2.AutoSize = true;
             this.Label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label2.ForeColor = System.Drawing.Color.White;
-            this.Label2.Location = new System.Drawing.Point(31, 122);
+            this.Label2.Location = new System.Drawing.Point(28, 105);
             this.Label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label2.Name = "Label2";
             this.Label2.Size = new System.Drawing.Size(122, 25);
@@ -258,8 +260,8 @@
             // TextBoxFname
             // 
             this.TextBoxFname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBoxFname.Location = new System.Drawing.Point(169, 68);
-            this.TextBoxFname.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TextBoxFname.Location = new System.Drawing.Point(167, 63);
+            this.TextBoxFname.Margin = new System.Windows.Forms.Padding(4);
             this.TextBoxFname.Name = "TextBoxFname";
             this.TextBoxFname.Size = new System.Drawing.Size(315, 30);
             this.TextBoxFname.TabIndex = 18;
@@ -269,7 +271,7 @@
             this.Label1.AutoSize = true;
             this.Label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label1.ForeColor = System.Drawing.Color.White;
-            this.Label1.Location = new System.Drawing.Point(25, 68);
+            this.Label1.Location = new System.Drawing.Point(28, 63);
             this.Label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label1.Name = "Label1";
             this.Label1.Size = new System.Drawing.Size(123, 25);
@@ -291,17 +293,39 @@
             // txtStudentID
             // 
             this.txtStudentID.Location = new System.Drawing.Point(169, 23);
-            this.txtStudentID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtStudentID.Margin = new System.Windows.Forms.Padding(4);
             this.txtStudentID.Name = "txtStudentID";
             this.txtStudentID.Size = new System.Drawing.Size(315, 22);
             this.txtStudentID.TabIndex = 35;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label9.Location = new System.Drawing.Point(12, 611);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(156, 25);
+            this.label9.TabIndex = 36;
+            this.label9.Text = "Select Course:";
+            // 
+            // ComboBoxCourse
+            // 
+            this.ComboBoxCourse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ComboBoxCourse.FormattingEnabled = true;
+            this.ComboBoxCourse.Location = new System.Drawing.Point(163, 639);
+            this.ComboBoxCourse.Name = "ComboBoxCourse";
+            this.ComboBoxCourse.Size = new System.Drawing.Size(319, 33);
+            this.ComboBoxCourse.TabIndex = 37;
             // 
             // AddStudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(84)))), ((int)(((byte)(0)))));
-            this.ClientSize = new System.Drawing.Size(540, 816);
+            this.ClientSize = new System.Drawing.Size(563, 816);
+            this.Controls.Add(this.ComboBoxCourse);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.txtStudentID);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.GroupBox1);
@@ -321,10 +345,11 @@
             this.Controls.Add(this.Label2);
             this.Controls.Add(this.TextBoxFname);
             this.Controls.Add(this.Label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AddStudentForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddStudentForm";
+            this.Load += new System.EventHandler(this.AddStudentForm_Load);
             this.GroupBox1.ResumeLayout(false);
             this.GroupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxStudentImage)).EndInit();
@@ -356,5 +381,7 @@
         internal System.Windows.Forms.Label Label1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtStudentID;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox ComboBoxCourse;
     }
 }
