@@ -140,6 +140,10 @@
             // 
             this.comboBox_Semester.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_Semester.FormattingEnabled = true;
+            this.comboBox_Semester.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3"});
             this.comboBox_Semester.Location = new System.Drawing.Point(548, 38);
             this.comboBox_Semester.Name = "comboBox_Semester";
             this.comboBox_Semester.Size = new System.Drawing.Size(66, 33);
@@ -164,6 +168,7 @@
             this.Controls.Add(this.label_SelectCourse);
             this.Name = "AddCourseForm";
             this.Text = "AddCourseForm";
+            this.Load += new System.EventHandler(this.AddCourseForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

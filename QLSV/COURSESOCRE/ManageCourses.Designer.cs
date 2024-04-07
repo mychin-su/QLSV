@@ -45,6 +45,8 @@
             this.ListBoxCourses = new System.Windows.Forms.ListBox();
             this.LabelTotalCourses = new System.Windows.Forms.Label();
             this.Bt_Next = new System.Windows.Forms.Button();
+            this.guna2ComboBox_Semester = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.NumericUpDownHours)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,7 +55,7 @@
             this.labelID.AutoSize = true;
             this.labelID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelID.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.labelID.Location = new System.Drawing.Point(139, 23);
+            this.labelID.Location = new System.Drawing.Point(150, 21);
             this.labelID.Name = "labelID";
             this.labelID.Size = new System.Drawing.Size(40, 25);
             this.labelID.TabIndex = 0;
@@ -72,7 +74,7 @@
             this.labelLabel.AutoSize = true;
             this.labelLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.labelLabel.Location = new System.Drawing.Point(107, 90);
+            this.labelLabel.Location = new System.Drawing.Point(118, 82);
             this.labelLabel.Name = "labelLabel";
             this.labelLabel.Size = new System.Drawing.Size(72, 25);
             this.labelLabel.TabIndex = 2;
@@ -83,7 +85,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(22, 164);
+            this.label1.Location = new System.Drawing.Point(33, 137);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(157, 25);
             this.label1.TabIndex = 3;
@@ -94,7 +96,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(52, 232);
+            this.label2.Location = new System.Drawing.Point(63, 186);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(127, 25);
             this.label2.TabIndex = 4;
@@ -103,7 +105,7 @@
             // TextBoxCourseName
             // 
             this.TextBoxCourseName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBoxCourseName.Location = new System.Drawing.Point(219, 87);
+            this.TextBoxCourseName.Location = new System.Drawing.Point(219, 82);
             this.TextBoxCourseName.Name = "TextBoxCourseName";
             this.TextBoxCourseName.Size = new System.Drawing.Size(223, 30);
             this.TextBoxCourseName.TabIndex = 2;
@@ -111,7 +113,7 @@
             // NumericUpDownHours
             // 
             this.NumericUpDownHours.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NumericUpDownHours.Location = new System.Drawing.Point(219, 162);
+            this.NumericUpDownHours.Location = new System.Drawing.Point(219, 137);
             this.NumericUpDownHours.Name = "NumericUpDownHours";
             this.NumericUpDownHours.Size = new System.Drawing.Size(128, 30);
             this.NumericUpDownHours.TabIndex = 3;
@@ -124,9 +126,9 @@
             // richTextBoxDescription
             // 
             this.richTextBoxDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBoxDescription.Location = new System.Drawing.Point(210, 232);
+            this.richTextBoxDescription.Location = new System.Drawing.Point(219, 183);
             this.richTextBoxDescription.Name = "richTextBoxDescription";
-            this.richTextBoxDescription.Size = new System.Drawing.Size(232, 111);
+            this.richTextBoxDescription.Size = new System.Drawing.Size(223, 89);
             this.richTextBoxDescription.TabIndex = 4;
             this.richTextBoxDescription.Text = "";
             // 
@@ -245,12 +247,44 @@
             this.Bt_Next.UseVisualStyleBackColor = false;
             this.Bt_Next.Click += new System.EventHandler(this.Bt_Next_Click);
             // 
+            // guna2ComboBox_Semester
+            // 
+            this.guna2ComboBox_Semester.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ComboBox_Semester.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.guna2ComboBox_Semester.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.guna2ComboBox_Semester.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2ComboBox_Semester.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2ComboBox_Semester.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.guna2ComboBox_Semester.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.guna2ComboBox_Semester.ItemHeight = 30;
+            this.guna2ComboBox_Semester.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3"});
+            this.guna2ComboBox_Semester.Location = new System.Drawing.Point(219, 305);
+            this.guna2ComboBox_Semester.Name = "guna2ComboBox_Semester";
+            this.guna2ComboBox_Semester.Size = new System.Drawing.Size(77, 36);
+            this.guna2ComboBox_Semester.TabIndex = 17;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label3.Location = new System.Drawing.Point(68, 305);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(111, 25);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "Semester:";
+            // 
             // Button_Next
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Blue;
             this.ClientSize = new System.Drawing.Size(836, 450);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.guna2ComboBox_Semester);
             this.Controls.Add(this.Bt_Next);
             this.Controls.Add(this.LabelTotalCourses);
             this.Controls.Add(this.ListBoxCourses);
@@ -296,5 +330,7 @@
         private System.Windows.Forms.ListBox ListBoxCourses;
         private System.Windows.Forms.Label LabelTotalCourses;
         private System.Windows.Forms.Button Bt_Next;
+        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox_Semester;
+        private System.Windows.Forms.Label label3;
     }
 }

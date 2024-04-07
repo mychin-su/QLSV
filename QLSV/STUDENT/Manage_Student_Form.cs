@@ -1,4 +1,5 @@
 ﻿using QLSV.COURSE;
+using QLSV.COURSESOCRE;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +10,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -22,6 +24,7 @@ namespace QLSV
 
         STUDENT std = new STUDENT();
         Course course = new Course();
+        Score score = new Score();
 
         public Manage_Student_Form()
         {
@@ -31,8 +34,7 @@ namespace QLSV
        
         private void Manage_Student_Form_Load(object sender, EventArgs e)
         {
-            fillGrid(new SqlCommand("SELECT * FROM student"));
-            fillComboBox(new SqlCommand("SELECT * FROM CourseTable"));
+            fillGrid(new SqlCommand("SELECT id StudentId, fname as FirstName, lname as LastName, bdate as BirthDate, email as Email, gender as Gender, phone as Phone, address as Address, picture as Picture FROM student ORDER BY LastName"));
         }
 
         public void fillGrid(SqlCommand cmd)
@@ -41,25 +43,64 @@ namespace QLSV
             DataGridViewImageColumn picol = new DataGridViewImageColumn();
             dataGridView_Search.RowTemplate.Height = 80;
             dataGridView_Search.DataSource = std.getStudent(cmd);
-            dataGridView_Search.Columns["bdate"].DefaultCellStyle.Format = "yyyy-MM-dd";
-            picol = (DataGridViewImageColumn)dataGridView_Search.Columns[7];
+            if (dataGridView_Search != null && dataGridView_Search.Columns["BirthDate"] != null)
+            {
+                dataGridView_Search.Columns["BirthDate"].DefaultCellStyle.Format = "yyyy-MM-dd";
+            }
+            picol = (DataGridViewImageColumn)dataGridView_Search.Columns["Picture"];
             picol.ImageLayout = DataGridViewImageCellLayout.Stretch;
             dataGridView_Search.AllowUserToAddRows = false;
             dataGridView_Search.ReadOnly = true;
 
+            // Kiểm tra xem cột "SelectedCourse" đã tồn tại chưa
+            bool selectedCourseColumnExists = false;
+            foreach (DataGridViewColumn column in dataGridView_Search.Columns)
+            {
+                if (column.Name == "SelectedCourse")
+                {
+                    selectedCourseColumnExists = true;
+                    break;
+                }
+            }
 
-            //Dem sinh vien 
+            // Nếu cột chưa tồn tại, thêm mới cột "SelectedCourse"
+            if (!selectedCourseColumnExists)
+            {
+                DataGridViewTextBoxColumn selectedCourseColumn = new DataGridViewTextBoxColumn();
+                selectedCourseColumn.Name = "SelectedCourse";
+                selectedCourseColumn.HeaderText = "Selected Course";
+                dataGridView_Search.Columns.Add(selectedCourseColumn);
+                dataGridView_Search.Columns["SelectedCourse"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+
+                // Duyệt qua từng dòng và gán giá trị cho cột "SelectedCourse"
+                foreach (DataGridViewRow row in dataGridView_Search.Rows)
+                {
+                    string stdId = row.Cells["StudentId"].Value.ToString();
+                    DataTable dataTable = score.getCourseBaseStudentIdRegister(stdId);
+                    if (dataTable.Rows.Count > 0)
+                    {
+                        string courseName = "";
+                        int rowCount = 0;
+                        foreach (DataRow row1 in dataTable.Rows)
+                        {
+                            string courseLabel = row1["label"].ToString();
+                            courseName += courseLabel;
+                            if (rowCount < dataTable.Rows.Count - 1)
+                            {
+                                courseName += Environment.NewLine;
+                            }
+                            rowCount++;
+                        }
+                        row.Cells["SelectedCourse"].Value = courseName;
+                    }
+                }
+            }
+
+            // Đếm số lượng sinh viên
             LabelStudentTotal.Text = ("Total Students: " + dataGridView_Search.Rows.Count);
-
         }
 
-        public void fillComboBox(SqlCommand cmd)
-        {
-            ComboBoxCourse.DataSource = course.getAllCourse(cmd);
-            ComboBoxCourse.DisplayMember = "label";
-            ComboBoxCourse.ValueMember = "id";
-            ComboBoxCourse.SelectedItem = null;
-        }
+
 
         private void button_Search_Click(object sender, EventArgs e)
         {
@@ -68,10 +109,10 @@ namespace QLSV
                 string strSearch = textBox_Search.Text.Trim(); // Trim to remove leading/trailing spaces
                 if(strSearch == "")
                 {
-                    MessageBox.Show("Not found", "Vui lòng nhập TextBox", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    return;
+                    SqlCommand command = new SqlCommand("SELECT id StudentId, fname as FirstName, lname as LastName, bdate as BirthDate, email as Email, gender as Gender, phone as Phone, address as Address, picture as Picture FROM student ORDER BY LastName");
+                    fillGrid(command);
                 }
-                SqlCommand cmd = new SqlCommand("SELECT * FROM student WHERE CONCAT(fname, lname, address) LIKE '%" + strSearch + "%'");
+                SqlCommand cmd = new SqlCommand("SELECT id StudentId, fname as FirstName, lname as LastName, bdate as BirthDate, email as Email, gender as Gender, phone as Phone, address as Address, picture as Picture FROM student WHERE CONCAT(id,fname, lname, address) LIKE '%" + strSearch + "%'");
                 fillGrid(cmd);
                 
             }
@@ -143,47 +184,31 @@ namespace QLSV
                 //Lay hang duoc chon 
                 DataGridViewRow row = dataGridView_Search.Rows[e.RowIndex];
 
-                txtStudentID.Text = row.Cells[0].Value.ToString();
-                TextBoxFname.Text = row.Cells[1].Value.ToString();
-                TextBoxLname.Text  = row.Cells[2].Value.ToString();      
-                DateTimePicker1.Value = Convert.ToDateTime(row.Cells[3].Value);
+                txtStudentID.Text = row.Cells["StudentId"].Value.ToString();
+                TextBoxFname.Text = row.Cells["FirstName"].Value.ToString();
+                TextBoxLname.Text  = row.Cells["LastName"].Value.ToString();      
+                DateTimePicker1.Value = Convert.ToDateTime(row.Cells["BirthDate"].Value);
 
-
+                textBox_Email.Text = row.Cells["Email"].Value.ToString();
                 // Gioi tinh 
-                if (row.Cells[4].Value.ToString().ToLower() == "female"){
+                if (row.Cells["Gender"].Value.ToString().ToLower() == "female"){
                     RadioButtonFemale.Checked = true;
                 } else
                 {
                     RadioButtonMale.Checked = true;
                 }
-                TextBoxPhone.Text = row.Cells[5].Value.ToString();  
-                TextBoxAddress.Text = row.Cells[6].Value.ToString();
+                TextBoxPhone.Text = row.Cells["Phone"].Value.ToString();  
+                TextBoxAddress.Text = row.Cells["Address"].Value.ToString();
 
                 //Hien thi hinh anh 
-                if (row.Cells[7] != null && row.Cells[7].Value != DBNull.Value)
+                if (row.Cells["Picture"] != null && row.Cells["Picture"].Value != DBNull.Value)
                 {
-                    byte[] pic = (byte[])row.Cells[7].Value;
+                    byte[] pic = (byte[])row.Cells["Picture"].Value;
                     MemoryStream picture = new MemoryStream(pic);
                     PictureBoxStudentImage.Image = Image.FromStream(picture);
                 } else
                 {
                     PictureBoxStudentImage.Image = null; 
-                }
-
-
-                //Hien thi Course Name
-                string courseName = dataGridView_Search.Rows[e.RowIndex].Cells[8].Value.ToString();
-
-                foreach (var item in ComboBoxCourse.Items)
-                {
-                    Console.WriteLine("Item in ComboBox: " + item.ToString());
-                    Console.WriteLine("CourseName from DataGridView: " + courseName);
-                    if (item.ToString() == courseName)
-                    {
-                        Console.WriteLine("Match found!");
-                        ComboBoxCourse.SelectedItem = item;
-                        break;
-                    }
                 }
             }
         }
@@ -251,10 +276,10 @@ namespace QLSV
                 string fname = TextBoxFname.Text;
                 string lname = TextBoxLname.Text;
                 DateTime bdate = DateTimePicker1.Value;
+                string email = textBox_Email.Text;
                 string phone = TextBoxPhone.Text;
                 string adrs = TextBoxAddress.Text;
                 string gender = "Male";
-                string courseName = ComboBoxCourse.Text;
 
                 if (RadioButtonFemale.Checked)
                 {
@@ -272,10 +297,10 @@ namespace QLSV
                 else if (verif())
                 {
                     PictureBoxStudentImage.Image.Save(pic, PictureBoxStudentImage.Image.RawFormat);
-                    if (student.insertStudent(id, fname, lname, bdate, gender, phone, adrs, pic, courseName))
+                    if (student.insertStudent(id, fname, lname, bdate, email, gender, phone, adrs, pic))
                     {
                         MessageBox.Show("New Student Added", "Add Student", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        fillGrid(new SqlCommand("SELECT * FROM student"));
+                        fillGrid(new SqlCommand("SELECT id StudentId, fname as FirstName, lname as LastName, bdate as BirthDate, email as Email, gender as Gender, phone as Phone, address as Address, picture as Picture FROM student ORDER BY LastName"));
                     }
                     else
                     {
@@ -319,20 +344,20 @@ namespace QLSV
                 string fname = TextBoxFname.Text;
                 string lname = TextBoxLname.Text;
                 DateTime bdate = DateTimePicker1.Value;
+                string email = textBox_Email.Text;
                 string gender = RadioButtonFemale.Checked ? "Female" : "Male";
                 string phone = TextBoxPhone.Text;
                 string address = TextBoxAddress.Text;
                 byte[] picture = null;
-                string courseName = ComboBoxCourse.Text;
 
                 if (PictureBoxStudentImage.Image != null)
                 {
                     picture = ConvertImageToByteArray(PictureBoxStudentImage.Image);
                 }
-                    if (std.updateStudent(studentId, fname, lname, bdate, gender, phone, address, picture, courseName))
+                    if (std.updateStudent(studentId, fname, lname, bdate, email, gender, phone, address, picture))
                 {
                     MessageBox.Show("Student updated successfully", "Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    fillGrid(new SqlCommand("SELECT * FROM student"));
+                    fillGrid(new SqlCommand("SELECT id StudentId, fname as FirstName, lname as LastName, bdate as BirthDate, email as Email, gender as Gender, phone as Phone, address as Address, picture as Picture FROM student ORDER BY LastName"));
                 } else
                 {
                     MessageBox.Show("Student not found or update failed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -360,7 +385,7 @@ namespace QLSV
             if (std.deleteStudent(id))
             {
                 MessageBox.Show("Student deleted successfully", "Delete Student", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                fillGrid(new SqlCommand("SELECT * FROM student"));
+                fillGrid(new SqlCommand("SELECT id StudentId, fname as FirstName, lname as LastName, bdate as BirthDate, email as Email, gender as Gender, phone as Phone, address as Address, picture as Picture FROM student ORDER BY LastName"));
                 // Clear input fields after successful deletion
                 ClearControls();
                 // Optional: Clear form or perform other actions after deletion.
@@ -387,7 +412,6 @@ namespace QLSV
             TextBoxPhone.Text = "";
             TextBoxAddress.Text = "";
             PictureBoxStudentImage.Image = null;
-            ComboBoxCourse.SelectedItem = null;
         }
         
     }

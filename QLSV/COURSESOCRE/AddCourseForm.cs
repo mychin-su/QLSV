@@ -21,7 +21,14 @@ namespace QLSV.COURSE
         }
 
         Course course = new Course();
-        MY_DB mydb = new MY_DB();   
+        MY_DB mydb = new MY_DB();
+
+
+        private void AddCourseForm_Load(object sender, EventArgs e)
+        {
+            this.comboBox_Semester.SelectedIndex = 0;
+        }
+
 
         private void Button_Add_Click(object sender, EventArgs e)
         {
@@ -33,6 +40,7 @@ namespace QLSV.COURSE
            string name = textBox_Label.Text;
            int hrs =int.Parse(textBox_Period.Text);
            string desc = richTextBox_Description.Text;
+            string semester = comboBox_Semester.Text;
 
            if(name.Trim() == "")  // lam viec voi string xoa het cac khoang trang truoc sau chi lay ten
             {
@@ -43,7 +51,7 @@ namespace QLSV.COURSE
             }
             else if (!course.checkCourseName(name)) // nếu couseName chưa tồn tại
             {
-                if (course.insertCourse(courseID, name, hrs, desc))
+                if (course.insertCourse(courseID, name, hrs, desc, semester))
                 {
                     MessageBox.Show("New Course Inserted", "Add Course", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -74,5 +82,7 @@ namespace QLSV.COURSE
             }
 
         }
+
+        
     }
 }

@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Configuration;
 
 namespace QLSV.COURSE
 {
@@ -18,34 +19,43 @@ namespace QLSV.COURSE
         MY_DB mydb = new MY_DB();
 
         //function to insert a new Course 
-        public bool insertCourse(int Id, string label, int period, string description)
-        {
-            SqlCommand command = new SqlCommand("INSERT INTO CourseTable (id, label, period, description)" + " VALUES (@id, @name, @hrs, @description)", mydb.getConnection);
-            command.Parameters.Add("@id", SqlDbType.Int).Value = Id;
-            command.Parameters.Add("@name", SqlDbType.VarChar).Value = label;
-            command.Parameters.Add("@hrs", SqlDbType.Int).Value = period;
-            command.Parameters.Add("description", SqlDbType.VarChar).Value = description;
-
-            mydb.openConnection();
-
-            if((command.ExecuteNonQuery() == 1))
-            {
-                mydb.closeConnection();
-                return true;
-            } 
-            else 
-            {
-                mydb.closeConnection();
-                return false;
-            }
-        }
-
-        //Update Student 
-        public bool updateCourse(int Id, string lable, int period, string description)
+        public bool insertCourse(int Id, string label, int period, string description, string semester)
         {
             try
             {
-                string query = "UPDATE CourseTable SET label = @label, period = @period, description = @description WHERE id = @id";
+                SqlCommand command = new SqlCommand("INSERT INTO CourseTable (id, label, period, description, Semester)" + " VALUES (@id, @name, @hrs, @description, @semester)", mydb.getConnection);
+                command.Parameters.Add("@id", SqlDbType.Int).Value = Id;
+                command.Parameters.Add("@name", SqlDbType.VarChar).Value = label;
+                command.Parameters.Add("@hrs", SqlDbType.Int).Value = period;
+                command.Parameters.Add("@description", SqlDbType.VarChar).Value = description;
+                command.Parameters.Add("@semester", SqlDbType.VarChar).Value = semester;
+
+                mydb.openConnection();
+
+                if ((command.ExecuteNonQuery() == 1))
+                {
+                    mydb.closeConnection();
+                    return true;
+                }
+                else
+                {
+                    mydb.closeConnection();
+                    return false;
+                }
+            } catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "InsertCourse", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        
+        }
+
+        //Update Student 
+        public bool updateCourse(int Id, string lable, int period, string description, string semester)
+        {
+            try
+            {
+                string query = "UPDATE CourseTable SET label = @label, period = @period, description = @description, Semester = @semester WHERE id = @id";
                 using (SqlConnection con = new SqlConnection(@"Data Source=Vuong-Duc-Thoai\SQLEXPRESS;User ID=sa;Password=********;Initial Catalog=LoginFormDb;Integrated Security=True;"))
                 using (SqlCommand command = new SqlCommand(query, con))
                 {
@@ -53,6 +63,7 @@ namespace QLSV.COURSE
                     command.Parameters.AddWithValue("@label", lable);
                     command.Parameters.AddWithValue("@period", period);
                     command.Parameters.AddWithValue("@description", description);
+                    command.Parameters.AddWithValue("@semester", semester);
                     con.Open();
                     int result = command.ExecuteNonQuery(); // Executes update and returns number of affected rows
                     return result > 0;
@@ -113,17 +124,70 @@ namespace QLSV.COURSE
         }
 
         //Select Course that the student has not register 
-        public DataTable getCourseStudentIdNotRegister(int id, int semester) 
+        public DataTable getCourseStudentIdNotRegister(int id, int semester)
         {
-            SqlCommand command = new SqlCommand("SELECT CourseTable.label FROM CourseTable LEFT JOIN student ON CourseTable.label = student.SelectedCourse AND student.id = @stdId WHERE student.SelectedCourse IS NULL AND CourseTable.Semester = @smt");
-            command.Connection = mydb.getConnection;    
-            command.Parameters.AddWithValue("@stdId", SqlDbType.Int).Value = id;
-            command.Parameters.AddWithValue("@smt", SqlDbType.Int).Value = semester;
-            SqlDataAdapter adapter = new SqlDataAdapter(command);
-            DataTable table = new DataTable();
-            adapter.Fill(table);
-           return table;
+            string connectionString = "Data Source=Vuong-Duc-Thoai\\SQLEXPRESS;User ID=sa;Password=********;Initial Catalog=LoginFormDb;Integrated Security=True;";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand("SELECT c.label FROM CourseTable c WHERE c.id NOT IN (SELECT s.course_id FROM Score s WHERE student_id = @stdId) AND c.Semester = @smt", connection);
+                command.Parameters.AddWithValue("@stdId", id);
+                command.Parameters.AddWithValue("@smt", semester);
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+                return table;
+            }
         }
+
+        public DataTable getCourseStudentRegister(string courseName)
+        {
+            string connectionString = "Data Source=Vuong-Duc-Thoai\\SQLEXPRESS;User ID=sa;Password=********;Initial Catalog=LoginFormDb;Integrated Security=True;";
+            using(SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand("SELECT ROW_NUMBER() OVER (ORDER BY s.fname) as STT, s.id as ID, s.fname as FirstName, s.lname as LastName, s.bdate as DOB, ct.label as CourseName FROM student as s  INNER JOIN Score as sc ON s.id = sc.student_id INNER JOIN CourseTable as ct ON sc.course_id = ct.id  WHERE ct.label = @cN", connection);
+                command.Parameters.AddWithValue("@cN", courseName);
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                DataTable table = new DataTable();  
+                adapter.Fill(table);
+                return table;
+
+            }
+        }
+
+
+        //get id base on courseName
+        public int getIdBaseOnCourseName(string courseName)
+            {
+                int courseId = -1; 
+                try
+                {
+                string connectionString = "Data Source=Vuong-Duc-Thoai\\SQLEXPRESS;User ID=sa;Password=********;Initial Catalog=LoginFormDb;Integrated Security=True;";
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                    {
+
+                        connection.Open(); 
+
+                        // Create and execute the command
+                        SqlCommand command = new SqlCommand("SELECT id FROM CourseTable WHERE label = @courseName", connection);
+
+                        command.Parameters.AddWithValue("@courseName", courseName);
+                        object result = command.ExecuteScalar();
+
+                        if (result != null && int.TryParse(result.ToString(), out courseId))
+                        {
+                            return courseId;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Save Course", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                return courseId;
+            }
+
+
+
 
 
         //check course follow name 

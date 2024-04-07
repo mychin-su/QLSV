@@ -32,54 +32,36 @@ namespace QLSV
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.DataGridView1 = new System.Windows.Forms.DataGridView();
+            this.studentBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.studentBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.loginFormDbDataSet4 = new QLSV.LoginFormDbDataSet4();
             this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.loginFormDbDataSet = new QLSV.LoginFormDbDataSet();
             this.studentTableAdapter = new QLSV.LoginFormDbDataSetTableAdapters.studentTableAdapter();
             this.ButtonRefresh = new System.Windows.Forms.Button();
             this.ButtonImport = new System.Windows.Forms.Button();
-            this.loginFormDbDataSet4 = new QLSV.LoginFormDbDataSet4();
-            this.studentBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.studentTableAdapter1 = new QLSV.LoginFormDbDataSet4TableAdapters.studentTableAdapter();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.address = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.picture = new System.Windows.Forms.DataGridViewImageColumn();
-            this.SelectedCourse = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridView1)).BeginInit();
+            this.studentTableAdapter2 = new QLSV.LoginFormDbDataSet5TableAdapters.studentTableAdapter();
+            this.DataGridView1 = new System.Windows.Forms.DataGridView();
+            this.openFD = new System.Windows.Forms.OpenFileDialog();
+            this.Button_Save = new Guna.UI2.WinForms.Guna2Button();
+            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loginFormDbDataSet4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginFormDbDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.loginFormDbDataSet4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // DataGridView1
+            // studentBindingSource1
             // 
-            this.DataGridView1.AutoGenerateColumns = false;
-            this.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.lname,
-            this.bdate,
-            this.gender,
-            this.phone,
-            this.address,
-            this.picture,
-            this.SelectedCourse});
-            this.DataGridView1.DataSource = this.studentBindingSource1;
-            this.DataGridView1.Location = new System.Drawing.Point(49, 12);
-            this.DataGridView1.Name = "DataGridView1";
-            this.DataGridView1.RowHeadersWidth = 40;
-            this.DataGridView1.RowTemplate.Height = 80;
-            this.DataGridView1.Size = new System.Drawing.Size(1248, 280);
-            this.DataGridView1.TabIndex = 0;
-            this.DataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellDoubleClick);
+            this.studentBindingSource1.DataMember = "student";
+            this.studentBindingSource1.DataSource = this.loginFormDbDataSet4;
+            // 
+            // loginFormDbDataSet4
+            // 
+            this.loginFormDbDataSet4.DataSetName = "LoginFormDbDataSet4";
+            this.loginFormDbDataSet4.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // studentBindingSource
             // 
@@ -98,7 +80,7 @@ namespace QLSV
             // ButtonRefresh
             // 
             this.ButtonRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonRefresh.Location = new System.Drawing.Point(385, 330);
+            this.ButtonRefresh.Location = new System.Drawing.Point(387, 349);
             this.ButtonRefresh.Name = "ButtonRefresh";
             this.ButtonRefresh.Size = new System.Drawing.Size(164, 43);
             this.ButtonRefresh.TabIndex = 1;
@@ -109,7 +91,7 @@ namespace QLSV
             // ButtonImport
             // 
             this.ButtonImport.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonImport.Location = new System.Drawing.Point(714, 331);
+            this.ButtonImport.Location = new System.Drawing.Point(714, 349);
             this.ButtonImport.Name = "ButtonImport";
             this.ButtonImport.Size = new System.Drawing.Size(182, 42);
             this.ButtonImport.TabIndex = 2;
@@ -117,100 +99,66 @@ namespace QLSV
             this.ButtonImport.UseVisualStyleBackColor = true;
             this.ButtonImport.Click += new System.EventHandler(this.ButtonImport_Click);
             // 
-            // loginFormDbDataSet4
-            // 
-            this.loginFormDbDataSet4.DataSetName = "LoginFormDbDataSet4";
-            this.loginFormDbDataSet4.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // studentBindingSource1
-            // 
-            this.studentBindingSource1.DataMember = "student";
-            this.studentBindingSource1.DataSource = this.loginFormDbDataSet4;
-            // 
             // studentTableAdapter1
             // 
             this.studentTableAdapter1.ClearBeforeFill = true;
             // 
-            // Column1
+            // studentTableAdapter2
             // 
-            this.Column1.DataPropertyName = "id";
-            this.Column1.HeaderText = "StudentId";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
+            this.studentTableAdapter2.ClearBeforeFill = true;
             // 
-            // Column2
+            // DataGridView1
             // 
-            this.Column2.DataPropertyName = "fname";
-            this.Column2.HeaderText = "FirstName";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
+            this.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridView1.Location = new System.Drawing.Point(56, 12);
+            this.DataGridView1.Name = "DataGridView1";
+            this.DataGridView1.RowHeadersVisible = false;
+            this.DataGridView1.RowHeadersWidth = 51;
+            this.DataGridView1.RowTemplate.Height = 80;
+            this.DataGridView1.Size = new System.Drawing.Size(1179, 331);
+            this.DataGridView1.TabIndex = 3;
+            this.DataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellDoubleClick);
             // 
-            // lname
+            // openFD
             // 
-            this.lname.DataPropertyName = "lname";
-            this.lname.HeaderText = "LastName";
-            this.lname.MinimumWidth = 6;
-            this.lname.Name = "lname";
+            this.openFD.FileName = "openFileDialog1";
             // 
-            // bdate
+            // Button_Save
             // 
-            this.bdate.DataPropertyName = "bdate";
-            this.bdate.HeaderText = "BirthDate";
-            this.bdate.MinimumWidth = 6;
-            this.bdate.Name = "bdate";
-            // 
-            // gender
-            // 
-            this.gender.DataPropertyName = "gender";
-            this.gender.HeaderText = "Gender";
-            this.gender.MinimumWidth = 6;
-            this.gender.Name = "gender";
-            // 
-            // phone
-            // 
-            this.phone.DataPropertyName = "phone";
-            this.phone.HeaderText = "Phone";
-            this.phone.MinimumWidth = 6;
-            this.phone.Name = "phone";
-            // 
-            // address
-            // 
-            this.address.DataPropertyName = "address";
-            this.address.HeaderText = "Address";
-            this.address.MinimumWidth = 6;
-            this.address.Name = "address";
-            // 
-            // picture
-            // 
-            this.picture.DataPropertyName = "picture";
-            this.picture.HeaderText = "Picture";
-            this.picture.MinimumWidth = 6;
-            this.picture.Name = "picture";
-            // 
-            // SelectedCourse
-            // 
-            this.SelectedCourse.DataPropertyName = "SelectedCourse";
-            this.SelectedCourse.HeaderText = "SelectedCourse";
-            this.SelectedCourse.MinimumWidth = 6;
-            this.SelectedCourse.Name = "SelectedCourse";
+            this.Button_Save.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.Button_Save.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Button_Save.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Button_Save.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Button_Save.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Button_Save.FillColor = System.Drawing.Color.Blue;
+            this.Button_Save.Font = new System.Drawing.Font("Segoe UI Black", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Button_Save.ForeColor = System.Drawing.Color.White;
+            this.Button_Save.Location = new System.Drawing.Point(981, 355);
+            this.Button_Save.Name = "Button_Save";
+            this.Button_Save.Size = new System.Drawing.Size(165, 36);
+            this.Button_Save.TabIndex = 4;
+            this.Button_Save.Text = "Save_DB";
+            this.Button_Save.Click += new System.EventHandler(this.Button_Save_Click);
             // 
             // studentListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1300, 422);
+            this.Controls.Add(this.Button_Save);
+            this.Controls.Add(this.DataGridView1);
             this.Controls.Add(this.ButtonImport);
             this.Controls.Add(this.ButtonRefresh);
-            this.Controls.Add(this.DataGridView1);
             this.Name = "studentListForm";
             this.Text = "studentListForm";
             this.Load += new System.EventHandler(this.studentListForm_Load);
             this.DoubleClick += new System.EventHandler(this.studentListForm_DoubleClick);
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loginFormDbDataSet4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginFormDbDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.loginFormDbDataSet4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -223,8 +171,6 @@ namespace QLSV
 
 
         #endregion
-
-        private System.Windows.Forms.DataGridView DataGridView1;
         private LoginFormDbDataSet loginFormDbDataSet;
         private System.Windows.Forms.BindingSource studentBindingSource;
         private LoginFormDbDataSetTableAdapters.studentTableAdapter studentTableAdapter;
@@ -233,14 +179,10 @@ namespace QLSV
         private LoginFormDbDataSet4 loginFormDbDataSet4;
         private BindingSource studentBindingSource1;
         private LoginFormDbDataSet4TableAdapters.studentTableAdapter studentTableAdapter1;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column2;
-        private DataGridViewTextBoxColumn lname;
-        private DataGridViewTextBoxColumn bdate;
-        private DataGridViewTextBoxColumn gender;
-        private DataGridViewTextBoxColumn phone;
-        private DataGridViewTextBoxColumn address;
-        private DataGridViewImageColumn picture;
-        private DataGridViewTextBoxColumn SelectedCourse;
+        private BindingSource studentBindingSource2;
+        private LoginFormDbDataSet5TableAdapters.studentTableAdapter studentTableAdapter2;
+        private DataGridView DataGridView1;
+        private OpenFileDialog openFD;
+        private Guna.UI2.WinForms.Guna2Button Button_Save;
     }
 }

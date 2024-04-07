@@ -33,8 +33,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
       <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.6\lib\net472\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Access.Dao, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Access.Dao.15.0.4420.1018\lib\net20\Microsoft.Office.Interop.Access.Dao.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1001\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -69,6 +83,12 @@
     </Compile>
     <Compile Include="COURSESOCRE\AddScoreForm.Designer.cs">
       <DependentUpon>AddScoreForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="COURSESOCRE\AvgScoreByCourseFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="COURSESOCRE\AvgScoreByCourseFrm.Designer.cs">
+      <DependentUpon>AvgScoreByCourseFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="COURSESOCRE\Course.cs" />
     <Compile Include="COURSESOCRE\CourseStdList.cs">
@@ -118,6 +138,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>LoginFormDbDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="LoginFormDbDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LoginFormDbDataSet5.xsd</DependentUpon>
     </Compile>
     <Compile Include="STUDENT\Admin.cs">
       <SubType>Form</SubType>
@@ -244,6 +269,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="COURSESOCRE\AddScoreForm.resx">
       <DependentUpon>AddScoreForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="COURSESOCRE\AvgScoreByCourseFrm.resx">
+      <DependentUpon>AvgScoreByCourseFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="COURSESOCRE\CourseStdList.resx">
       <DependentUpon>CourseStdList.cs</DependentUpon>
@@ -376,6 +404,17 @@
     <None Include="LoginFormDbDataSet4.xss">
       <DependentUpon>LoginFormDbDataSet4.xsd</DependentUpon>
     </None>
+    <None Include="LoginFormDbDataSet5.xsc">
+      <DependentUpon>LoginFormDbDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="LoginFormDbDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LoginFormDbDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LoginFormDbDataSet5.xss">
+      <DependentUpon>LoginFormDbDataSet5.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -391,6 +430,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="images\images.jpg" />
     <Content Include="images\user.png" />
     <None Include="Resources\z5156032890966_75de56ed84e104eb477f035c83c83c82.jpg" />
   </ItemGroup>

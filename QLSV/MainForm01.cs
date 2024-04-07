@@ -106,6 +106,12 @@ namespace QLSV
             PrintCourseForm printCourseForm = new PrintCourseForm();
             printCourseForm.Show(this);
         }
+
+        private void avgScoreByCourseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AvgScoreByCourseFrm avgScoreByCourseFrm = new AvgScoreByCourseFrm();
+            avgScoreByCourseFrm.Show(this);
+        }
     }
  }
 

@@ -52,9 +52,9 @@ namespace QLSV
             this.label8 = new System.Windows.Forms.Label();
             this.TextBoxId = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.button_Search = new System.Windows.Forms.Button();
-            this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.label_Email = new System.Windows.Forms.Label();
+            this.textBox_email = new System.Windows.Forms.TextBox();
             this.GroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxStudentImage)).BeginInit();
             this.SuspendLayout();
@@ -63,7 +63,7 @@ namespace QLSV
             // 
             this.GroupBox1.Controls.Add(this.RadioButtonFemale);
             this.GroupBox1.Controls.Add(this.RadioButtonMale);
-            this.GroupBox1.Location = new System.Drawing.Point(167, 203);
+            this.GroupBox1.Location = new System.Drawing.Point(169, 252);
             this.GroupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.GroupBox1.Name = "GroupBox1";
             this.GroupBox1.Padding = new System.Windows.Forms.Padding(4);
@@ -89,7 +89,7 @@ namespace QLSV
             this.RadioButtonMale.AutoSize = true;
             this.RadioButtonMale.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RadioButtonMale.ForeColor = System.Drawing.Color.White;
-            this.RadioButtonMale.Location = new System.Drawing.Point(25, 16);
+            this.RadioButtonMale.Location = new System.Drawing.Point(35, 16);
             this.RadioButtonMale.Margin = new System.Windows.Forms.Padding(4);
             this.RadioButtonMale.Name = "RadioButtonMale";
             this.RadioButtonMale.Size = new System.Drawing.Size(80, 29);
@@ -102,7 +102,7 @@ namespace QLSV
             this.Label7.AutoSize = true;
             this.Label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label7.ForeColor = System.Drawing.Color.White;
-            this.Label7.Location = new System.Drawing.Point(61, 213);
+            this.Label7.Location = new System.Drawing.Point(57, 272);
             this.Label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label7.Name = "Label7";
             this.Label7.Size = new System.Drawing.Size(90, 25);
@@ -201,7 +201,7 @@ namespace QLSV
             // TextBoxPhone
             // 
             this.TextBoxPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBoxPhone.Location = new System.Drawing.Point(169, 278);
+            this.TextBoxPhone.Location = new System.Drawing.Point(171, 333);
             this.TextBoxPhone.Margin = new System.Windows.Forms.Padding(4);
             this.TextBoxPhone.Name = "TextBoxPhone";
             this.TextBoxPhone.Size = new System.Drawing.Size(315, 30);
@@ -212,7 +212,7 @@ namespace QLSV
             this.Label4.AutoSize = true;
             this.Label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label4.ForeColor = System.Drawing.Color.White;
-            this.Label4.Location = new System.Drawing.Point(61, 269);
+            this.Label4.Location = new System.Drawing.Point(66, 333);
             this.Label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label4.Name = "Label4";
             this.Label4.Size = new System.Drawing.Size(81, 25);
@@ -316,31 +316,6 @@ namespace QLSV
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button_Search
-            // 
-            this.button_Search.BackColor = System.Drawing.Color.Green;
-            this.button_Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_Search.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button_Search.Location = new System.Drawing.Point(44, 326);
-            this.button_Search.Name = "button_Search";
-            this.button_Search.Size = new System.Drawing.Size(139, 45);
-            this.button_Search.TabIndex = 38;
-            this.button_Search.Text = "Search";
-            this.button_Search.UseVisualStyleBackColor = false;
-            this.button_Search.Click += new System.EventHandler(this.button_Search_Click);
-            // 
-            // textBoxSearch
-            // 
-            this.textBoxSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSearch.ForeColor = System.Drawing.Color.Black;
-            this.textBoxSearch.Location = new System.Drawing.Point(233, 330);
-            this.textBoxSearch.Margin = new System.Windows.Forms.Padding(4);
-            this.textBoxSearch.Multiline = true;
-            this.textBoxSearch.Name = "textBoxSearch";
-            this.textBoxSearch.Size = new System.Drawing.Size(294, 45);
-            this.textBoxSearch.TabIndex = 39;
-            this.textBoxSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxSearch_KeyPress);
-            // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.LightPink;
@@ -354,15 +329,34 @@ namespace QLSV
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // label_Email
+            // 
+            this.label_Email.AutoSize = true;
+            this.label_Email.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Email.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label_Email.Location = new System.Drawing.Point(66, 224);
+            this.label_Email.Name = "label_Email";
+            this.label_Email.Size = new System.Drawing.Size(72, 25);
+            this.label_Email.TabIndex = 41;
+            this.label_Email.Text = "Email:";
+            // 
+            // textBox_email
+            // 
+            this.textBox_email.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_email.Location = new System.Drawing.Point(169, 215);
+            this.textBox_email.Name = "textBox_email";
+            this.textBox_email.Size = new System.Drawing.Size(315, 30);
+            this.textBox_email.TabIndex = 42;
+            // 
             // UpdateDeleteStudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
             this.ClientSize = new System.Drawing.Size(968, 449);
+            this.Controls.Add(this.textBox_email);
+            this.Controls.Add(this.label_Email);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBoxSearch);
-            this.Controls.Add(this.button_Search);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.TextBoxId);
             this.Controls.Add(this.label8);
@@ -420,8 +414,8 @@ namespace QLSV
         private System.Windows.Forms.Label label8;
         internal System.Windows.Forms.TextBox TextBoxId;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button_Search;
-        internal System.Windows.Forms.TextBox textBoxSearch;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label_Email;
+        internal System.Windows.Forms.TextBox textBox_email;
     }
 }

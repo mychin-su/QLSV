@@ -35,7 +35,7 @@ namespace QLSV
             {
                 int id = int.Parse(TextBoxId.Text);
                 // Sử dụng SqlParameter để tránh SQL Injection
-                string query = "SELECT id, fname, lname, bdate, gender, phone, address, picture FROM student WHERE id = @id";
+                string query = "SELECT id, fname, lname, bdate, gender, email, phone, address, picture FROM student WHERE id = @id";
                 using (SqlConnection con = new SqlConnection(@"Data Source=Vuong-Duc-Thoai\SQLEXPRESS;User ID=sa;Password=********;Initial Catalog=LoginFormDb;Integrated Security=True;"))
                 using (SqlCommand command = new SqlCommand(query, con))
                 {
@@ -51,6 +51,7 @@ namespace QLSV
                         TextBoxFname.Text = table.Rows[0]["fname"].ToString();
                         TextBoxLname.Text = table.Rows[0]["lname"].ToString();
                         DateTimePicker1.Value = (DateTime)table.Rows[0]["bdate"];
+                        textBox_email.Text = table.Rows[0]["email"].ToString();
                         if (table.Rows[0]["gender"].ToString() == "Female")
                         {
                             RadioButtonFemale.Checked = true;
@@ -94,7 +95,7 @@ namespace QLSV
         {
             try
             {
-                string query = "UPDATE student SET fname = @fname, lname = @lname, bdate = @bdate, gender = @gender, phone = @phone, address = @address, picture = @picture WHERE id = @id";
+                string query = "UPDATE student SET fname = @fname, lname = @lname, bdate = @bdate, email = @email ,gender = @gender, phone = @phone, address = @address, picture = @picture WHERE id = @id";
                 using (SqlConnection con = new SqlConnection(@"Data Source=Vuong-Duc-Thoai\SQLEXPRESS;User ID=sa;Password=********;Initial Catalog=LoginFormDb;Integrated Security=True;"))
                 using (SqlCommand command = new SqlCommand(query, con))
                 {
@@ -102,6 +103,7 @@ namespace QLSV
                     command.Parameters.AddWithValue("@fname", TextBoxFname.Text);
                     command.Parameters.AddWithValue("@lname", TextBoxLname.Text);
                     command.Parameters.AddWithValue("@bdate", DateTimePicker1.Value);
+                    command.Parameters.AddWithValue("@email", textBox_email.Text);    
                     command.Parameters.AddWithValue("@gender", RadioButtonFemale.Checked ? "Female" : "Male");
                     command.Parameters.AddWithValue("@phone", TextBoxPhone.Text);
                     command.Parameters.AddWithValue("@address", TextBoxAddress.Text);
@@ -163,6 +165,7 @@ namespace QLSV
                         TextBoxFname.Text = "";
                         TextBoxLname.Text = "";
                         DateTimePicker1.Value = DateTime.Now; // You can set it to default value
+                        textBox_email.Text = "";
                         RadioButtonFemale.Checked = false; // Uncheck both radio buttons
                         RadioButtonMale.Checked = false;
                         TextBoxPhone.Text = "";
@@ -194,66 +197,7 @@ namespace QLSV
             }
         }
 
-        private void button_Search_Click(object sender, EventArgs e)
-        {
-           
-            try
-            {
-                string strSearch = textBoxSearch.Text.Trim(); // Trim to remove leading/trailing spaces
-                string query = "SELECT * FROM student WHERE id = @id OR fname LIKE @fname OR lname LIKE @lname OR phone LIKE @phone OR address LIKE @address OR bdate LIKE @bdate OR gender LIKE @gender";
-
-                using (SqlConnection con = new SqlConnection(@"Data Source=Vuong-Duc-Thoai\SQLEXPRESS;User ID=sa;Password=********;Initial Catalog=LoginFormDb;Integrated Security=True;"))
-                using (SqlCommand command = new SqlCommand(query, con))
-                {
-                    // Thiết lập tham số cho câu truy vấn
-                    // Parsing strSearch to an integer for the id parameter
-                    int id;
-                    if (int.TryParse(strSearch, out id))
-                    {
-                        command.Parameters.AddWithValue("@id", id);
-                    }
-                    else
-                    {
-                        command.Parameters.AddWithValue("@id", DBNull.Value); // or null, depending on column definition
-                    }
-
-                    command.Parameters.AddWithValue("@fname", "%" + strSearch + "%");
-                    command.Parameters.AddWithValue("@lname", "%" + strSearch + "%");
-                    command.Parameters.AddWithValue("@phone", "%" + strSearch + "%");
-                    command.Parameters.AddWithValue("@address", "%" + strSearch + "%");
-                    command.Parameters.AddWithValue("@bdate", "%" + strSearch + "%");
-                    command.Parameters.AddWithValue("@gender", "%" + strSearch + "%");
-
-                    SqlDataAdapter adapter = new SqlDataAdapter(command);
-                    DataTable table = new DataTable();
-                    con.Open();
-                    adapter.Fill(table); // Điền dữ liệu vào table
-                    if(table.Rows.Count > 0)
-                    {
-                        SearchForm searchForm = new SearchForm();
-                        int imageColumnIndex = GetImageColumnIndex(searchForm.dataGridView2);
-                        if (imageColumnIndex != -1)
-                        {
-                            DataGridViewImageColumn imageColumn = (DataGridViewImageColumn)searchForm.dataGridView2.Columns[imageColumnIndex];
-                            imageColumn.ImageLayout = DataGridViewImageCellLayout.Stretch;
-                            imageColumn.Width = 100; // Set width to desired value
-                            imageColumn.DefaultCellStyle.NullValue = null; // Prevents display of default image when cell value is null
-
-                        }
-                        searchForm.dataGridView2.DataSource = table;
-                        searchForm.Show();
-                    } else
-                    {
-                        MessageBox.Show("Not found", "Find Student", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    }
-                   
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+       
 
         // Helper method to get the index of the image column
         private int GetImageColumnIndex(DataGridView dataGridView)
@@ -268,14 +212,7 @@ namespace QLSV
             return -1; // Return -1 if no image column is found
         }
 
-        private void textBoxSearch_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-                this.button_Search_Click(sender, e);
-                e.Handled = true;
-            }
-        }
+
 
         private void button2_Click(object sender, EventArgs e)
         {

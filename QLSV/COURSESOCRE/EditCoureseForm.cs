@@ -6,9 +6,11 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Net.Http.Headers;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace QLSV.COURSE
 {
@@ -27,6 +29,7 @@ namespace QLSV.COURSE
             comboBox_SelectCourse.DisplayMember = "label"; // xác định trường dữ liệu nào sẽ hiện thị cho người dùng
             comboBox_SelectCourse.ValueMember = "id"; // Xác định trường dữ liệu nào sẽ được sử dụng như giá trị thực tế khi người dùng chọn.
             comboBox_SelectCourse.SelectedItem = null; // Đặt giá trị được chọn ban đầu ComboBox thành null. Điều này đảm bảo rằng không có mục nào được chọn mặc định khi ComboBox được hiển thị
+            clearControls();
         }
 
         public void fillCombo(int index)
@@ -35,27 +38,6 @@ namespace QLSV.COURSE
             comboBox_SelectCourse.DisplayMember = "label";
             comboBox_SelectCourse.ValueMember = "id";
             comboBox_SelectCourse.SelectedIndex = index;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            string label = textBox_Label.Text;
-            int period = int.Parse(numericUpDown_Period.Value.ToString());
-            string description = richTextBox_description.Text;
-            int id = (int)comboBox_SelectCourse.SelectedValue;
-
-            //lay lai phan kiem tra ten course 
-            if(course.checkCourseName(label, Convert.ToInt32(comboBox_SelectCourse.SelectedValue))){
-                MessageBox.Show("This Course Name Already Exits", "Edit Course", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else if(course.updateCourse(id, label, period, description))
-            {
-                MessageBox.Show("Course Updated", "Edit Course", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                fillCombo(comboBox_SelectCourse.SelectedIndex);
-            } else
-            {
-                MessageBox.Show("Course not found or update failed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
         private void comboBox_SelectCourse_SelectedIndexChanged(object sender, EventArgs e)
@@ -72,6 +54,7 @@ namespace QLSV.COURSE
                     textBox_Label.Text = table.Rows[0]["label"].ToString();
                     numericUpDown_Period.Value = Convert.ToInt32(table.Rows[0]["period"]);
                     richTextBox_description.Text = table.Rows[0]["description"].ToString();
+                    guna2ComboBox_Semester.Text = table.Rows[0]["Semester"].ToString();
                 }
             }
             catch (Exception ex)
@@ -80,5 +63,32 @@ namespace QLSV.COURSE
             }
         }
 
+        public void clearControls()
+        {
+            textBox_Label.Text = "";
+            numericUpDown_Period.Value = 10;
+            richTextBox_description.Text = "";
+
+        }
+
+        private void Button_Edit_Click(object sender, EventArgs e)
+        {
+            int id = (int)comboBox_SelectCourse.SelectedValue;
+            string name = textBox_Label.Text;
+            int period = int.Parse(numericUpDown_Period.Value.ToString());
+            string description = richTextBox_description.Text;
+            string semester = guna2ComboBox_Semester.Text;
+
+            if (course.updateCourse(id, name, period, description, semester))
+            {
+                int index = comboBox_SelectCourse.SelectedIndex;
+                fillCombo(index);
+                MessageBox.Show("Course Updated", "Edit Course", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("The course Not Update", "Edit Course", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
 }

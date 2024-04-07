@@ -337,6 +337,7 @@
             this.avgScoreByCourseToolStripMenuItem.Name = "avgScoreByCourseToolStripMenuItem";
             this.avgScoreByCourseToolStripMenuItem.Size = new System.Drawing.Size(326, 32);
             this.avgScoreByCourseToolStripMenuItem.Text = "Avg Score By Course";
+            this.avgScoreByCourseToolStripMenuItem.Click += new System.EventHandler(this.avgScoreByCourseToolStripMenuItem_Click);
             // 
             // toolStripMenuItem13
             // 

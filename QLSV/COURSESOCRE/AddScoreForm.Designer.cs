@@ -119,6 +119,7 @@
             this.comboBox_SelectCourse.Name = "comboBox_SelectCourse";
             this.comboBox_SelectCourse.Size = new System.Drawing.Size(234, 33);
             this.comboBox_SelectCourse.TabIndex = 8;
+            this.comboBox_SelectCourse.SelectedIndexChanged += new System.EventHandler(this.comboBox_SelectCourse_SelectedIndexChanged);
             // 
             // Button_AddCourse
             // 
@@ -142,6 +143,7 @@
             this.DataGridViewStudents.RowTemplate.Height = 24;
             this.DataGridViewStudents.Size = new System.Drawing.Size(443, 346);
             this.DataGridViewStudents.TabIndex = 10;
+            this.DataGridViewStudents.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewStudents_CellClick);
             this.DataGridViewStudents.Click += new System.EventHandler(this.DataGridViewStudents_Click);
             // 
             // AddScoreForm

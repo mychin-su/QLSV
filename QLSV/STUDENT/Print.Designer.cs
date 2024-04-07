@@ -31,7 +31,9 @@ namespace QLSV
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radioFemale = new System.Windows.Forms.RadioButton();
             this.buttonCheck = new System.Windows.Forms.Button();
+            this.radioMale = new System.Windows.Forms.RadioButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
@@ -41,18 +43,16 @@ namespace QLSV
             this.radioNo = new System.Windows.Forms.RadioButton();
             this.radioYes = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.radioAll = new System.Windows.Forms.RadioButton();
+            this.dataGridView_Print = new System.Windows.Forms.DataGridView();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonPrinter = new System.Windows.Forms.Button();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.radioAll = new System.Windows.Forms.RadioButton();
-            this.radioMale = new System.Windows.Forms.RadioButton();
-            this.radioFemale = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Print)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -68,6 +68,18 @@ namespace QLSV
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
+            // radioFemale
+            // 
+            this.radioFemale.AutoSize = true;
+            this.radioFemale.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioFemale.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.radioFemale.Location = new System.Drawing.Point(237, 49);
+            this.radioFemale.Name = "radioFemale";
+            this.radioFemale.Size = new System.Drawing.Size(104, 29);
+            this.radioFemale.TabIndex = 2;
+            this.radioFemale.Text = "Female";
+            this.radioFemale.UseVisualStyleBackColor = true;
+            // 
             // buttonCheck
             // 
             this.buttonCheck.BackColor = System.Drawing.Color.Red;
@@ -80,6 +92,18 @@ namespace QLSV
             this.buttonCheck.Text = "Check";
             this.buttonCheck.UseVisualStyleBackColor = false;
             this.buttonCheck.Click += new System.EventHandler(this.buttonCheck_Click);
+            // 
+            // radioMale
+            // 
+            this.radioMale.AutoSize = true;
+            this.radioMale.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioMale.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.radioMale.Location = new System.Drawing.Point(122, 49);
+            this.radioMale.Name = "radioMale";
+            this.radioMale.Size = new System.Drawing.Size(80, 29);
+            this.radioMale.TabIndex = 1;
+            this.radioMale.Text = "Male";
+            this.radioMale.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
@@ -186,15 +210,29 @@ namespace QLSV
             this.label1.TabIndex = 0;
             this.label1.Text = "Use Date  Range:";
             // 
-            // dataGridView1
+            // radioAll
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(34, 158);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1107, 422);
-            this.dataGridView1.TabIndex = 1;
+            this.radioAll.AutoSize = true;
+            this.radioAll.Checked = true;
+            this.radioAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioAll.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.radioAll.Location = new System.Drawing.Point(31, 49);
+            this.radioAll.Name = "radioAll";
+            this.radioAll.Size = new System.Drawing.Size(58, 29);
+            this.radioAll.TabIndex = 0;
+            this.radioAll.TabStop = true;
+            this.radioAll.Text = "All";
+            this.radioAll.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView_Print
+            // 
+            this.dataGridView_Print.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_Print.Location = new System.Drawing.Point(34, 158);
+            this.dataGridView_Print.Name = "dataGridView_Print";
+            this.dataGridView_Print.RowHeadersWidth = 30;
+            this.dataGridView_Print.RowTemplate.Height = 24;
+            this.dataGridView_Print.Size = new System.Drawing.Size(1107, 422);
+            this.dataGridView_Print.TabIndex = 1;
             // 
             // buttonSave
             // 
@@ -226,44 +264,6 @@ namespace QLSV
             // 
             this.printDialog1.UseEXDialog = true;
             // 
-            // radioAll
-            // 
-            this.radioAll.AutoSize = true;
-            this.radioAll.Checked = true;
-            this.radioAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioAll.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.radioAll.Location = new System.Drawing.Point(31, 49);
-            this.radioAll.Name = "radioAll";
-            this.radioAll.Size = new System.Drawing.Size(58, 29);
-            this.radioAll.TabIndex = 0;
-            this.radioAll.TabStop = true;
-            this.radioAll.Text = "All";
-            this.radioAll.UseVisualStyleBackColor = true;
-            // 
-            // radioMale
-            // 
-            this.radioMale.AutoSize = true;
-            this.radioMale.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioMale.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.radioMale.Location = new System.Drawing.Point(122, 49);
-            this.radioMale.Name = "radioMale";
-            this.radioMale.Size = new System.Drawing.Size(80, 29);
-            this.radioMale.TabIndex = 1;
-            this.radioMale.Text = "Male";
-            this.radioMale.UseVisualStyleBackColor = true;
-            // 
-            // radioFemale
-            // 
-            this.radioFemale.AutoSize = true;
-            this.radioFemale.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioFemale.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.radioFemale.Location = new System.Drawing.Point(237, 49);
-            this.radioFemale.Name = "radioFemale";
-            this.radioFemale.Size = new System.Drawing.Size(104, 29);
-            this.radioFemale.TabIndex = 2;
-            this.radioFemale.Text = "Female";
-            this.radioFemale.UseVisualStyleBackColor = true;
-            // 
             // Print
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -272,7 +272,7 @@ namespace QLSV
             this.ClientSize = new System.Drawing.Size(1175, 674);
             this.Controls.Add(this.buttonPrinter);
             this.Controls.Add(this.buttonSave);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridView_Print);
             this.Controls.Add(this.groupBox1);
             this.Name = "Print";
             this.Text = "Print";
@@ -283,7 +283,7 @@ namespace QLSV
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Print)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -291,7 +291,7 @@ namespace QLSV
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridView_Print;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonPrinter;
         private System.Windows.Forms.GroupBox groupBox3;

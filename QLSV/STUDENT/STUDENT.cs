@@ -13,19 +13,19 @@ namespace QLSV
 
 
         //  function to insert a new student
-        public bool insertStudent(int Id,string fname, string lname, DateTime bdate, string gender, string phone, string address, MemoryStream picture, string selectedCourse)
+        public bool insertStudent(int Id,string fname, string lname, DateTime bdate, string email, string gender, string phone, string address, MemoryStream picture)
         {
-            SqlCommand command = new SqlCommand("INSERT INTO student (id, fname, lname, bdate, gender, phone, address, picture, SelectedCourse)" +
-                " VALUES (@id,@fn, @ln, @bdt, @gdr, @phn, @adrs, @pic, @selectCourse)", mydb.getConnection);
+            SqlCommand command = new SqlCommand("INSERT INTO student (id, fname, lname, bdate, email, gender, phone, address, picture)" +
+                " VALUES (@id,@fn, @ln, @bdt, @, @gdr, @phn, @adrs, @pic)", mydb.getConnection);
             command.Parameters.Add("@id", SqlDbType.Int).Value = Id;
             command.Parameters.Add("@fn", SqlDbType.VarChar).Value = fname;
             command.Parameters.Add("@ln", SqlDbType.VarChar).Value = lname;
             command.Parameters.Add("@bdt", SqlDbType.DateTime).Value = bdate;
+            command.Parameters.Add("email", SqlDbType.VarChar).Value = email;
             command.Parameters.Add("@gdr", SqlDbType.VarChar).Value = gender;
             command.Parameters.Add("@phn", SqlDbType.VarChar).Value = phone;
             command.Parameters.Add("@adrs", SqlDbType.VarChar).Value = address;
             command.Parameters.Add("@pic", SqlDbType.Image).Value = picture.ToArray();
-            command.Parameters.Add("@selectCourse", SqlDbType.VarChar).Value = selectedCourse;
 
             mydb.openConnection();
             
@@ -53,11 +53,11 @@ namespace QLSV
         }
 
         //Update Student 
-        public bool updateStudent(int Id, string fname, string lname, DateTime bdate, string gender, string phone, string address, byte[] picture, string selectedCourse)
+        public bool updateStudent(int Id, string fname, string lname, DateTime bdate, string email, string gender, string phone, string address, byte[] picture)
         {
             try
             {
-                string query = "UPDATE student SET fname = @fname, lname = @lname, bdate = @bdate, gender = @gender, phone = @phone, address = @address, picture = @picture, SelectedCourse = @selectCourse WHERE id = @id";
+                string query = "UPDATE student SET fname = @fname, lname = @lname, bdate = @bdate, email = @email ,gender = @gender, phone = @phone, address = @address, picture = @picture WHERE id = @id";
                 using (SqlConnection con = new SqlConnection(@"Data Source=Vuong-Duc-Thoai\SQLEXPRESS;User ID=sa;Password=********;Initial Catalog=LoginFormDb;Integrated Security=True;"))
                 using (SqlCommand command = new SqlCommand(query, con))
                 {
@@ -65,6 +65,7 @@ namespace QLSV
                     command.Parameters.AddWithValue("@fname", fname);
                     command.Parameters.AddWithValue("@lname", lname);
                     command.Parameters.AddWithValue("@bdate", bdate);
+                    command.Parameters.AddWithValue("email", email);
                     command.Parameters.AddWithValue("@gender", gender);
                     command.Parameters.AddWithValue("@phone", phone);
                     command.Parameters.AddWithValue("@address", address);
@@ -73,7 +74,6 @@ namespace QLSV
                         command.Parameters.AddWithValue("@picture", picture);
                     }
 
-                    command.Parameters.AddWithValue("@selectCourse", selectedCourse);
                     con.Open();
                     int result = command.ExecuteNonQuery(); // Executes update and returns number of affected rows
 
@@ -88,15 +88,7 @@ namespace QLSV
             
         }
 
-        public bool updateStudentCourse(int id, string courseName)
-        {
-            SqlCommand command = new SqlCommand("UPDATE student SET SelectedCourse = @selectedCourse WHERE id = @id", mydb.getConnection);
-            command.Parameters.AddWithValue("@selectedCourse", courseName);
-            command.Parameters.AddWithValue("@id", id);
-            mydb.openConnection();
-            int result = command.ExecuteNonQuery();
-            return result > 0;
-        }
+ 
 
 
         //Delete Student 

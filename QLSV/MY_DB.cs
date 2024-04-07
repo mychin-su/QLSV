@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using Microsoft.Office.Interop.Access.Dao;
+using System.Drawing;
 namespace QLSV
 {
     class MY_DB      
@@ -21,6 +23,7 @@ namespace QLSV
             {
                 return con;
             }
+               
         }
 
 

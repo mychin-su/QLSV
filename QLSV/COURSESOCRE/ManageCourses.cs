@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -24,17 +25,17 @@ namespace QLSV.COURSESOCRE
 
         private void ManageCourses_Load(object sender, EventArgs e)
         {
-            reloadListBoxData();       
+            reloadListBoxData(0);
         }
 
-        private void reloadListBoxData()
+        private void reloadListBoxData(int index)
         {
             ListBoxCourses.DataSource = course.getAllCourse(new SqlCommand("SELECT * FROM CourseTable"));
             ListBoxCourses.ValueMember = "id";
             ListBoxCourses.DisplayMember = "label"; // hiển thị danh sách các label trong listBox
             ListBoxCourses.SelectedItem = null;
-
             LabelTotalCourses.Text = ("Total Courses: " + course.totalCourse());
+            guna2ComboBox_Semester.SelectedIndex = index;
         }
 
         //dung lay data theo chi muc index, dung datarow de lay du lieu hang cua table
@@ -51,6 +52,8 @@ namespace QLSV.COURSESOCRE
             NumericUpDownHours.Value = int.Parse(dr.ItemArray[2].ToString());  
             
             richTextBoxDescription.Text = dr.ItemArray[3].ToString();
+
+            guna2ComboBox_Semester.Text = dr.ItemArray[4].ToString();
         }
 
         private void ListBoxCourses_Click(object sender, EventArgs e)
@@ -66,6 +69,7 @@ namespace QLSV.COURSESOCRE
             string name = TextBoxCourseName.Text;
             int hrs = (int)NumericUpDownHours.Value;
             string desc = richTextBoxDescription.Text;
+            string semester = guna2ComboBox_Semester.Text;
 
             if (name.Trim() == "")  // lam viec voi string xoa het cac khoang trang truoc sau chi lay ten
             {
@@ -77,10 +81,11 @@ namespace QLSV.COURSESOCRE
             }
             else if (course.checkCourseName(name) == false)
             {
-                if (course.insertCourse(courseID, name, hrs, desc))
+                if (course.insertCourse(courseID, name, hrs, desc, semester))
                 {
                     MessageBox.Show("New Course Inserted", "Add Course", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    reloadListBoxData();
+                    int index = guna2ComboBox_Semester.SelectedIndex;
+                    reloadListBoxData(index);
 
                 }
                 else
@@ -117,16 +122,13 @@ namespace QLSV.COURSESOCRE
             string name = TextBoxCourseName.Text;
             int hrs = (int)NumericUpDownHours.Value;
             string desc = richTextBoxDescription.Text;
+            string semester = guna2ComboBox_Semester.Text;
 
-            Console.WriteLine(course.checkCourseName(name, id));
-            // kiem tra ton tai va trung 
-            if(course.checkCourseName(name, Convert.ToInt32(TextBoxID.Text)) == false)
-            {
-                MessageBox.Show("This Course Name Not Already Exits", "Edit Course", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            } else if(course.updateCourse(id, name, hrs, desc))
+            if(course.updateCourse(id, name, hrs, desc, semester))
             {
                 MessageBox.Show("Course Updated", "Edit Course", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                reloadListBoxData();
+                int index = guna2ComboBox_Semester.SelectedIndex;
+                reloadListBoxData(index);
             } else
             {
                 MessageBox.Show("Course Not Updated", "Edit Course", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -153,7 +155,7 @@ namespace QLSV.COURSESOCRE
                         TextBoxCourseName.Text = "";
                         NumericUpDownHours.Value = 10;
                         richTextBoxDescription.Text = "";
-                        reloadListBoxData();
+                        reloadListBoxData(0);
                     }
                     else
                     {
@@ -198,7 +200,12 @@ namespace QLSV.COURSESOCRE
 
         private void ListBoxCourses_DoubleClick(object sender, EventArgs e)
         {
-
+            ListBoxCourses.ValueMember = "label";
+            DataRowView selectedRow = (DataRowView)ListBoxCourses.SelectedItem;
+            int semester = Convert.ToInt32(selectedRow["Semester"]);
+            string courseName = ListBoxCourses.SelectedValue.ToString();
+            CourseStdList courseStdList = new CourseStdList(courseName, semester);
+            courseStdList.Show(this);
         }
     }
 }

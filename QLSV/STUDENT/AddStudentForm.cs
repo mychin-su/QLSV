@@ -21,13 +21,6 @@ namespace QLSV
         }
         Course course = new Course();
 
-        private void AddStudentForm_Load(object sender, EventArgs e)
-        {
-            ComboBoxCourse.DataSource = course.getAllCourse(new SqlCommand("SELECT * FROM CourseTable"));
-            ComboBoxCourse.DisplayMember = "label";
-            ComboBoxCourse.ValueMember = "id";
-            ComboBoxCourse.SelectedItem = null;
-        }
 
         // button cancel ( close the form )
         private void ButtonCancel_Click(object sender, EventArgs e)
@@ -40,14 +33,14 @@ namespace QLSV
         {
             int id = Convert.ToInt32(txtStudentID.Text);
             STUDENT student = new STUDENT();
-           
+
             string fname = TextBoxFname.Text;
             string lname = TextBoxLname.Text;
             DateTime bdate = DateTimePicker1.Value;
+            string email = textBox_Email.Text;
             string phone = TextBoxPhone.Text;
             string adrs = TextBoxAddress.Text;
             string gender = "Male";
-            string courseName = ComboBoxCourse.Text;    
 
             if (RadioButtonFemale.Checked)
             {
@@ -58,35 +51,36 @@ namespace QLSV
             int born_year = DateTimePicker1.Value.Year;
             int this_year = DateTime.Now.Year;
             //  sv tu 10-100,  co the thay doi
-            if ( ((this_year - born_year) < 10) || ((this_year - born_year) > 100) )
+            if (((this_year - born_year) < 10) || ((this_year - born_year) > 100))
             {
                 MessageBox.Show("The Student Age Must Be Between 10 and 100 year", "Invalid Birth Date", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (verif())
             {
                 PictureBoxStudentImage.Image.Save(pic, PictureBoxStudentImage.Image.RawFormat);
-                if (student.insertStudent(id,fname, lname, bdate, gender, phone, adrs, pic, courseName))
+                if (student.insertStudent(id, fname, lname, bdate, email, gender, phone, adrs, pic))
                 {
                     MessageBox.Show("New Student Added", "Add Student", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Error","Add Student",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error", "Add Student", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
             }
             else
             {
-                MessageBox.Show("Empty Fields", "Add Student",MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Empty Fields", "Add Student", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
 
         //  chuc nang kiem tra du lieu input
-      public bool verif()
+        public bool verif()
         {
             if ((TextBoxFname.Text.Trim() == "")
                         || (TextBoxLname.Text.Trim() == "")
+                        || (textBox_Email.Text.Trim()) == ""
                         || (TextBoxAddress.Text.Trim() == "")
                         || (TextBoxPhone.Text.Trim() == "")
                         || (PictureBoxStudentImage.Image == null))

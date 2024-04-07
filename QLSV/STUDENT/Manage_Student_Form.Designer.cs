@@ -64,8 +64,8 @@
             this.loginFormDbDataSet3 = new QLSV.LoginFormDbDataSet3();
             this.LabelStudentTotal = new System.Windows.Forms.Label();
             this.studentTableAdapter1 = new QLSV.LoginFormDbDataSet3TableAdapters.studentTableAdapter();
-            this.label10 = new System.Windows.Forms.Label();
-            this.ComboBoxCourse = new System.Windows.Forms.ComboBox();
+            this.label_Email = new System.Windows.Forms.Label();
+            this.textBox_Email = new System.Windows.Forms.TextBox();
             this.GroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxStudentImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginFormDbDataSet2)).BeginInit();
@@ -79,7 +79,7 @@
             // 
             this.GroupBox1.Controls.Add(this.RadioButtonFemale);
             this.GroupBox1.Controls.Add(this.RadioButtonMale);
-            this.GroupBox1.Location = new System.Drawing.Point(149, 202);
+            this.GroupBox1.Location = new System.Drawing.Point(152, 234);
             this.GroupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.GroupBox1.Name = "GroupBox1";
             this.GroupBox1.Padding = new System.Windows.Forms.Padding(4);
@@ -118,7 +118,7 @@
             this.Label7.AutoSize = true;
             this.Label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label7.ForeColor = System.Drawing.Color.White;
-            this.Label7.Location = new System.Drawing.Point(18, 218);
+            this.Label7.Location = new System.Drawing.Point(28, 250);
             this.Label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label7.Name = "Label7";
             this.Label7.Size = new System.Drawing.Size(90, 25);
@@ -159,7 +159,7 @@
             // 
             // ButtonUploadImage
             // 
-            this.ButtonUploadImage.Location = new System.Drawing.Point(140, 562);
+            this.ButtonUploadImage.Location = new System.Drawing.Point(140, 606);
             this.ButtonUploadImage.Margin = new System.Windows.Forms.Padding(4);
             this.ButtonUploadImage.Name = "ButtonUploadImage";
             this.ButtonUploadImage.Size = new System.Drawing.Size(161, 28);
@@ -173,7 +173,7 @@
             this.Label6.AutoSize = true;
             this.Label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label6.ForeColor = System.Drawing.Color.White;
-            this.Label6.Location = new System.Drawing.Point(19, 391);
+            this.Label6.Location = new System.Drawing.Point(32, 428);
             this.Label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label6.Name = "Label6";
             this.Label6.Size = new System.Drawing.Size(86, 25);
@@ -183,7 +183,7 @@
             // TextBoxAddress
             // 
             this.TextBoxAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBoxAddress.Location = new System.Drawing.Point(149, 314);
+            this.TextBoxAddress.Location = new System.Drawing.Point(152, 360);
             this.TextBoxAddress.Margin = new System.Windows.Forms.Padding(4);
             this.TextBoxAddress.Multiline = true;
             this.TextBoxAddress.Name = "TextBoxAddress";
@@ -195,7 +195,7 @@
             this.Label5.AutoSize = true;
             this.Label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label5.ForeColor = System.Drawing.Color.White;
-            this.Label5.Location = new System.Drawing.Point(19, 317);
+            this.Label5.Location = new System.Drawing.Point(22, 360);
             this.Label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label5.Name = "Label5";
             this.Label5.Size = new System.Drawing.Size(99, 25);
@@ -205,7 +205,7 @@
             // TextBoxPhone
             // 
             this.TextBoxPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBoxPhone.Location = new System.Drawing.Point(149, 268);
+            this.TextBoxPhone.Location = new System.Drawing.Point(156, 306);
             this.TextBoxPhone.Margin = new System.Windows.Forms.Padding(4);
             this.TextBoxPhone.Name = "TextBoxPhone";
             this.TextBoxPhone.Size = new System.Drawing.Size(304, 30);
@@ -216,7 +216,7 @@
             this.Label4.AutoSize = true;
             this.Label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label4.ForeColor = System.Drawing.Color.White;
-            this.Label4.Location = new System.Drawing.Point(19, 268);
+            this.Label4.Location = new System.Drawing.Point(27, 292);
             this.Label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label4.Name = "Label4";
             this.Label4.Size = new System.Drawing.Size(81, 25);
@@ -309,7 +309,7 @@
             // 
             // buttonDownloadImage
             // 
-            this.buttonDownloadImage.Location = new System.Drawing.Point(298, 565);
+            this.buttonDownloadImage.Location = new System.Drawing.Point(308, 606);
             this.buttonDownloadImage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonDownloadImage.Name = "buttonDownloadImage";
             this.buttonDownloadImage.Size = new System.Drawing.Size(158, 25);
@@ -353,7 +353,7 @@
             // PictureBoxStudentImage
             // 
             this.PictureBoxStudentImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(196)))), ((int)(((byte)(244)))));
-            this.PictureBoxStudentImage.Location = new System.Drawing.Point(140, 391);
+            this.PictureBoxStudentImage.Location = new System.Drawing.Point(152, 428);
             this.PictureBoxStudentImage.Margin = new System.Windows.Forms.Padding(4);
             this.PictureBoxStudentImage.Name = "PictureBoxStudentImage";
             this.PictureBoxStudentImage.Size = new System.Drawing.Size(316, 175);
@@ -366,11 +366,11 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label9.Location = new System.Drawing.Point(468, 30);
+            this.label9.Location = new System.Drawing.Point(402, 27);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(277, 20);
+            this.label9.Size = new System.Drawing.Size(361, 20);
             this.label9.TabIndex = 40;
-            this.label9.Text = "Search Fname, Lname, Address";
+            this.label9.Text = "Search StudentId,Fname, Lname, Address";
             // 
             // textBox_Search
             // 
@@ -447,25 +447,24 @@
             // 
             this.studentTableAdapter1.ClearBeforeFill = true;
             // 
-            // label10
+            // label_Email
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label10.Location = new System.Drawing.Point(12, 603);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(134, 20);
-            this.label10.TabIndex = 45;
-            this.label10.Text = "Select Course:";
+            this.label_Email.AutoSize = true;
+            this.label_Email.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Email.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label_Email.Location = new System.Drawing.Point(43, 207);
+            this.label_Email.Name = "label_Email";
+            this.label_Email.Size = new System.Drawing.Size(72, 25);
+            this.label_Email.TabIndex = 45;
+            this.label_Email.Text = "Email:";
             // 
-            // ComboBoxCourse
+            // textBox_Email
             // 
-            this.ComboBoxCourse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ComboBoxCourse.FormattingEnabled = true;
-            this.ComboBoxCourse.Location = new System.Drawing.Point(140, 637);
-            this.ComboBoxCourse.Name = "ComboBoxCourse";
-            this.ComboBoxCourse.Size = new System.Drawing.Size(325, 33);
-            this.ComboBoxCourse.TabIndex = 46;
+            this.textBox_Email.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_Email.Location = new System.Drawing.Point(157, 202);
+            this.textBox_Email.Name = "textBox_Email";
+            this.textBox_Email.Size = new System.Drawing.Size(296, 30);
+            this.textBox_Email.TabIndex = 46;
             // 
             // Manage_Student_Form
             // 
@@ -473,8 +472,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
             this.ClientSize = new System.Drawing.Size(1329, 816);
-            this.Controls.Add(this.ComboBoxCourse);
-            this.Controls.Add(this.label10);
+            this.Controls.Add(this.textBox_Email);
+            this.Controls.Add(this.label_Email);
             this.Controls.Add(this.LabelStudentTotal);
             this.Controls.Add(this.dataGridView_Search);
             this.Controls.Add(this.button_Search);
@@ -557,7 +556,7 @@
         private LoginFormDbDataSet3 loginFormDbDataSet3;
         private System.Windows.Forms.BindingSource studentBindingSource1;
         private LoginFormDbDataSet3TableAdapters.studentTableAdapter studentTableAdapter1;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox ComboBoxCourse;
+        private System.Windows.Forms.Label label_Email;
+        private System.Windows.Forms.TextBox textBox_Email;
     }
 }
