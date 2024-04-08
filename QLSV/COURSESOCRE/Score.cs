@@ -136,11 +136,37 @@ namespace QLSV.COURSESOCRE
             return table;
         }
 
+        public DataTable getCourseNameScoreStudentRegister(string studentId)
+        {
+            SqlCommand command = new SqlCommand("SELECT student.id as StudentId, CourseTable.label as CourseName, Score.student_score, Score.description FROM student " +
+                                  "INNER JOIN Score ON student.id = Score.student_id " +
+                                  "INNER JOIN CourseTable  ON Score.course_id = CourseTable.id " +
+                                  "WHERE student.id = @studentID", mydb.getConnection);
+            command.Parameters.AddWithValue("studentId", studentId);
+
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            return table;
+        }
+
         public DataTable getCourseBaseStudentIdRegister(string studentId)
         {
-            SqlCommand commnad = new SqlCommand("SELECT CourseTable.label, CourseTable.id FROM Score INNER JOIN CourseTable ON Score.course_id = CourseTable.id WHERE Score.student_id = @stdId", mydb.getConnection);
+            SqlCommand commnad = new SqlCommand("SELECT CourseTable.id as CourseID , CourseTable.label as CourseName FROM Score INNER JOIN CourseTable ON Score.course_id = CourseTable.id WHERE Score.student_id = @stdId", mydb.getConnection);
             commnad.Parameters.AddWithValue("@stdId", studentId);
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(commnad);    
+            DataTable table = new DataTable();
+            sqlDataAdapter.Fill(table);
+            return table;
+        }
+
+        public DataTable getScoreDescriptionBaseCourseId(string studentId,int courseId)
+        {
+            SqlCommand command = new SqlCommand("SELECT student_score, description FROM Score WHERE course_id = @courseId and student_id = @studentId", mydb.getConnection);
+            command.Parameters.AddWithValue("courseId", courseId);
+            command.Parameters.AddWithValue("studentId", studentId);
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(command);
             DataTable table = new DataTable();
             sqlDataAdapter.Fill(table);
             return table;

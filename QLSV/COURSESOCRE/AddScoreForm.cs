@@ -28,7 +28,7 @@ namespace QLSV.COURSESOCRE
         private void AddScoreForm_Load(object sender, EventArgs e)
         {
             //dua no voi student 
-            SqlCommand command = new SqlCommand("SELECT id, fname, lname FROM student");
+            SqlCommand command = new SqlCommand("SELECT id StudentId, fname FirstName, lname LastName FROM student");
             DataGridViewStudents.DataSource = STUDENT.getStudent(command);
         }
    
@@ -69,10 +69,10 @@ namespace QLSV.COURSESOCRE
             if(e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
                 DataGridViewRow selectedRow = DataGridViewStudents.Rows[e.RowIndex];
-                string studentId = selectedRow.Cells["id"].Value.ToString();
+                string studentId = selectedRow.Cells["StudentId"].Value.ToString();
                 comboBox_SelectCourse.DataSource = score.getCourseBaseStudentIdRegister(studentId);
-                comboBox_SelectCourse.DisplayMember = "label";
-                comboBox_SelectCourse.ValueMember = "id";
+                comboBox_SelectCourse.DisplayMember = "CourseName";
+                comboBox_SelectCourse.ValueMember = "CourseId";
             }
 
         }

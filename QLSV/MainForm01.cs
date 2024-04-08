@@ -112,6 +112,12 @@ namespace QLSV
             AvgScoreByCourseFrm avgScoreByCourseFrm = new AvgScoreByCourseFrm();
             avgScoreByCourseFrm.Show(this);
         }
+
+        private void manageScoreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManageScore manageScore = new ManageScore();
+            manageScore.Show(this);
+        }
     }
  }
 

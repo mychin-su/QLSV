@@ -79,24 +79,28 @@ namespace QLSV
             // 
             // ButtonRefresh
             // 
-            this.ButtonRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonRefresh.Location = new System.Drawing.Point(387, 349);
+            this.ButtonRefresh.BackColor = System.Drawing.Color.DarkBlue;
+            this.ButtonRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonRefresh.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ButtonRefresh.Location = new System.Drawing.Point(215, 382);
             this.ButtonRefresh.Name = "ButtonRefresh";
-            this.ButtonRefresh.Size = new System.Drawing.Size(164, 43);
+            this.ButtonRefresh.Size = new System.Drawing.Size(164, 48);
             this.ButtonRefresh.TabIndex = 1;
             this.ButtonRefresh.Text = "Refresh";
-            this.ButtonRefresh.UseVisualStyleBackColor = true;
+            this.ButtonRefresh.UseVisualStyleBackColor = false;
             this.ButtonRefresh.Click += new System.EventHandler(this.button1_Click);
             // 
             // ButtonImport
             // 
-            this.ButtonImport.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonImport.Location = new System.Drawing.Point(714, 349);
+            this.ButtonImport.BackColor = System.Drawing.Color.Fuchsia;
+            this.ButtonImport.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonImport.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ButtonImport.Location = new System.Drawing.Point(566, 388);
             this.ButtonImport.Name = "ButtonImport";
             this.ButtonImport.Size = new System.Drawing.Size(182, 42);
             this.ButtonImport.TabIndex = 2;
             this.ButtonImport.Text = "IMPORT";
-            this.ButtonImport.UseVisualStyleBackColor = true;
+            this.ButtonImport.UseVisualStyleBackColor = false;
             this.ButtonImport.Click += new System.EventHandler(this.ButtonImport_Click);
             // 
             // studentTableAdapter1
@@ -110,12 +114,12 @@ namespace QLSV
             // DataGridView1
             // 
             this.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGridView1.Location = new System.Drawing.Point(56, 12);
+            this.DataGridView1.Location = new System.Drawing.Point(12, 12);
             this.DataGridView1.Name = "DataGridView1";
             this.DataGridView1.RowHeadersVisible = false;
             this.DataGridView1.RowHeadersWidth = 51;
             this.DataGridView1.RowTemplate.Height = 80;
-            this.DataGridView1.Size = new System.Drawing.Size(1179, 331);
+            this.DataGridView1.Size = new System.Drawing.Size(1276, 350);
             this.DataGridView1.TabIndex = 3;
             this.DataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellDoubleClick);
             // 
@@ -133,9 +137,9 @@ namespace QLSV
             this.Button_Save.FillColor = System.Drawing.Color.Blue;
             this.Button_Save.Font = new System.Drawing.Font("Segoe UI Black", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Button_Save.ForeColor = System.Drawing.Color.White;
-            this.Button_Save.Location = new System.Drawing.Point(981, 355);
+            this.Button_Save.Location = new System.Drawing.Point(951, 388);
             this.Button_Save.Name = "Button_Save";
-            this.Button_Save.Size = new System.Drawing.Size(165, 36);
+            this.Button_Save.Size = new System.Drawing.Size(165, 42);
             this.Button_Save.TabIndex = 4;
             this.Button_Save.Text = "Save_DB";
             this.Button_Save.Click += new System.EventHandler(this.Button_Save_Click);
@@ -144,7 +148,8 @@ namespace QLSV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1300, 422);
+            this.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.ClientSize = new System.Drawing.Size(1292, 454);
             this.Controls.Add(this.Button_Save);
             this.Controls.Add(this.DataGridView1);
             this.Controls.Add(this.ButtonImport);

@@ -172,7 +172,6 @@ namespace QLSV.COURSESOCRE
                             //set Font
                             ITextSharpFont font = new ITextSharpFont(ITextSharpFont.FontFamily.HELVETICA, 10f);
                             font.SetStyle(ITextSharpFont.NORMAL);
-
                             //Add title to the PDF document 
                             Paragraph ending = new Paragraph("Tp.HCM, day...month...year 2024", font);
                             ending.Alignment = Element.ALIGN_RIGHT;
@@ -182,17 +181,15 @@ namespace QLSV.COURSESOCRE
 
                             document.Add(ending);
 
-                            ITextSharpFont font5 = new ITextSharpFont(ITextSharpFont.FontFamily.HELVETICA, 25f, ITextSharpFont.BOLDITALIC, BaseColor.RED);
-                            Paragraph sign = new Paragraph("THOAI      ", font5);
+                            ITextSharpFont font5 = new ITextSharpFont(ITextSharpFont.FontFamily.HELVETICA, 15f, ITextSharpFont.BOLDITALIC, BaseColor.RED);
+                            Paragraph sign = new Paragraph("THOAI          ", font5);
                             sign.Alignment = Element.ALIGN_RIGHT;
-                            sign.SpacingBefore = 15f;
+                            sign.SpacingBefore = 7f;
                             document.Add(sign);
 
-                            ITextSharpFont font4 = new ITextSharpFont(ITextSharpFont.FontFamily.HELVETICA, 20f, ITextSharpFont.BOLDITALIC, BaseColor.DARK_GRAY);
+                            ITextSharpFont font4 = new ITextSharpFont(ITextSharpFont.FontFamily.HELVETICA, 15f, ITextSharpFont.BOLDITALIC, BaseColor.DARK_GRAY);
                             Paragraph hoTen = new Paragraph("Vuong Duc Thoai", font4);
                             hoTen.Alignment = Element.ALIGN_RIGHT;
-
-                            hoTen.SpacingBefore = 15f;
 
                             document.Add(hoTen);
 

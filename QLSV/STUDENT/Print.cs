@@ -75,7 +75,7 @@ namespace QLSV
                     int rowCount = 0;
                     foreach (DataRow row1 in dataTable.Rows)
                     {
-                        string courseLabel = row1["label"].ToString();
+                        string courseLabel = row1["CourseName"].ToString();
                         courseName += courseLabel;
                         if (rowCount < dataTable.Rows.Count - 1)
                         {
@@ -212,8 +212,13 @@ namespace QLSV
 
                             // Create a paragraph for the title
                             Paragraph title1 = new Paragraph();
-                            ITextSharpFont font2 = new ITextSharpFont(ITextSharpFont.FontFamily.HELVETICA, 30f, ITextSharpFont.BOLD, BaseColor.RED);
-                            title1.Add(new Phrase("Ho Chi Minh University of Technology and Education", font2));
+                            ITextSharpFont font2 = new ITextSharpFont(
+                                 BaseFont.CreateFont(@"C:\Users\ASUS\AppData\Local\Microsoft\Windows\Fonts\RobotoMono-VariableFont_wght.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED),
+                                25f,
+                                iTextSharp.text.Font.BOLD,
+                                BaseColor.RED
+                            );
+                            title1.Add(new Phrase("HO CHI MINH UNIVERSITY OF TECHNOLOGY AND EDUCATION", font2));
                           //  title1.Alignment = Element.ALIGN_LEFT;
 
                             // Add title paragraph to a cell and add the cell to the table
@@ -230,9 +235,14 @@ namespace QLSV
                             document.Add(table);
 
 
-                            ITextSharpFont font3 = new ITextSharpFont(ITextSharpFont.FontFamily.HELVETICA, 20f, ITextSharpFont.BOLD);
+                            ITextSharpFont font3 = new ITextSharpFont(
+                         BaseFont.CreateFont(@"C:\Users\ASUS\AppData\Local\Microsoft\Windows\Fonts\RobotoMono-VariableFont_wght.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED),
+                             20f,
+                             iTextSharp.text.Font.BOLD,
+                         BaseColor.BLACK
+                         );
                             //Add title to the PDF document 
-                            Paragraph title = new Paragraph("DANH SÁCH SINH VIÊN KHOA CÔNG NGHE THÔNG TIN", font3);
+                            Paragraph title = new Paragraph("DANH SÁCH SINH VIÊN MÔN LẬP TRÌNH WINDOWS", font3);
                             title.Alignment = Element.ALIGN_CENTER;
                           
                             //Thiet lap khoang cach le tren va le duoi
@@ -320,17 +330,15 @@ namespace QLSV
 
                             document.Add(ending);
 
-                            ITextSharpFont font5 = new ITextSharpFont(ITextSharpFont.FontFamily.HELVETICA, 25f, ITextSharpFont.BOLDITALIC, BaseColor.RED);
-                            Paragraph sign = new Paragraph("THOAI      ", font5);
+                            ITextSharpFont font5 = new ITextSharpFont(ITextSharpFont.FontFamily.HELVETICA, 15f, ITextSharpFont.BOLDITALIC, BaseColor.RED);
+                            Paragraph sign = new Paragraph("THOAI          ", font5);
                             sign.Alignment = Element.ALIGN_RIGHT;
-                            sign.SpacingBefore = 15f;
+                            sign.SpacingBefore = 7f;
                             document.Add(sign);
 
-                            ITextSharpFont font4 = new ITextSharpFont(ITextSharpFont.FontFamily.HELVETICA,20f, ITextSharpFont.BOLDITALIC, BaseColor.DARK_GRAY);
+                            ITextSharpFont font4 = new ITextSharpFont(ITextSharpFont.FontFamily.HELVETICA,15f, ITextSharpFont.BOLDITALIC, BaseColor.DARK_GRAY);
                             Paragraph hoTen = new Paragraph("Vuong Duc Thoai", font4);
                             hoTen.Alignment = Element.ALIGN_RIGHT;
-
-                            hoTen.SpacingBefore = 15f;
 
                             document.Add(hoTen);
 

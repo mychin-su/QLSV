@@ -64,9 +64,5 @@ namespace QLSV.COURSESOCRE
             }
            
         }
-
-     
-
-
     }
 }
