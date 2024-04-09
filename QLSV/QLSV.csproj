@@ -150,34 +150,34 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LoginFormDbDataSet5.xsd</DependentUpon>
     </Compile>
-    <Compile Include="STUDENT\Admin.cs">
+    <Compile Include="STUDENTS\Admin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="STUDENT\Admin.Designer.cs">
+    <Compile Include="STUDENTS\Admin.Designer.cs">
       <DependentUpon>Admin.cs</DependentUpon>
     </Compile>
-    <Compile Include="STUDENT\AddStudentForm.cs">
+    <Compile Include="STUDENTS\AddStudentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="STUDENT\AddStudentForm.Designer.cs">
+    <Compile Include="STUDENTS\AddStudentForm.Designer.cs">
       <DependentUpon>AddStudentForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="STUDENT\ChangePassWord.cs">
+    <Compile Include="STUDENTS\ChangePassWord.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="STUDENT\ChangePassWord.Designer.cs">
+    <Compile Include="STUDENTS\ChangePassWord.Designer.cs">
       <DependentUpon>ChangePassWord.cs</DependentUpon>
     </Compile>
-    <Compile Include="STUDENT\ForgetPassword.cs">
+    <Compile Include="STUDENTS\ForgetPassword.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="STUDENT\ForgetPassword.Designer.cs">
+    <Compile Include="STUDENTS\ForgetPassword.Designer.cs">
       <DependentUpon>ForgetPassword.cs</DependentUpon>
     </Compile>
-    <Compile Include="STUDENT\Form_NewUser.cs">
+    <Compile Include="STUDENTS\Form_NewUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="STUDENT\Form_NewUser.Designer.cs">
+    <Compile Include="STUDENTS\Form_NewUser.Designer.cs">
       <DependentUpon>Form_NewUser.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginFormDbDataSet.cs">
@@ -215,10 +215,10 @@
     <Compile Include="MainForm01.Designer.cs">
       <DependentUpon>MainForm01.cs</DependentUpon>
     </Compile>
-    <Compile Include="STUDENT\Manage_Student_Form.cs">
+    <Compile Include="STUDENTS\Manage_Student_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="STUDENT\Manage_Student_Form.Designer.cs">
+    <Compile Include="STUDENTS\Manage_Student_Form.Designer.cs">
       <DependentUpon>Manage_Student_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="MY_DB.cs" />
@@ -228,10 +228,10 @@
     <Compile Include="OTP.Designer.cs">
       <DependentUpon>OTP.cs</DependentUpon>
     </Compile>
-    <Compile Include="STUDENT\Print.cs">
+    <Compile Include="STUDENTS\Print.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="STUDENT\Print.Designer.cs">
+    <Compile Include="STUDENTS\Print.Designer.cs">
       <DependentUpon>Print.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -242,29 +242,35 @@
       <DependentUpon>Progress.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="STUDENT\SearchForm.cs">
+    <Compile Include="STUDENTS\PrintForms.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="STUDENT\SearchForm.Designer.cs">
+    <Compile Include="STUDENTS\PrintForms.Designer.cs">
+      <DependentUpon>PrintForms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="STUDENTS\SearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="STUDENTS\SearchForm.Designer.cs">
       <DependentUpon>SearchForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="STUDENT\StatisticForm .cs">
+    <Compile Include="STUDENTS\StatisticForm .cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="STUDENT\StatisticForm .Designer.cs">
+    <Compile Include="STUDENTS\StatisticForm .Designer.cs">
       <DependentUpon>StatisticForm .cs</DependentUpon>
     </Compile>
-    <Compile Include="STUDENT\STUDENT.cs" />
-    <Compile Include="STUDENT\studentListForm.cs">
+    <Compile Include="STUDENTS\STUDENT.cs" />
+    <Compile Include="STUDENTS\studentListForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="STUDENT\studentListForm.Designer.cs">
+    <Compile Include="STUDENTS\studentListForm.Designer.cs">
       <DependentUpon>studentListForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="STUDENT\UpdateDeleteStudentForm.cs">
+    <Compile Include="STUDENTS\UpdateDeleteStudentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="STUDENT\UpdateDeleteStudentForm.Designer.cs">
+    <Compile Include="STUDENTS\UpdateDeleteStudentForm.Designer.cs">
       <DependentUpon>UpdateDeleteStudentForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="COURSESOCRE\AddCourseForm.resx">
@@ -303,19 +309,19 @@
     <EmbeddedResource Include="COURSESOCRE\RemoveScoreForm.resx">
       <DependentUpon>RemoveScoreForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="STUDENT\Admin.resx">
+    <EmbeddedResource Include="STUDENTS\Admin.resx">
       <DependentUpon>Admin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="STUDENT\AddStudentForm.resx">
+    <EmbeddedResource Include="STUDENTS\AddStudentForm.resx">
       <DependentUpon>AddStudentForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="STUDENT\ChangePassWord.resx">
+    <EmbeddedResource Include="STUDENTS\ChangePassWord.resx">
       <DependentUpon>ChangePassWord.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="STUDENT\ForgetPassword.resx">
+    <EmbeddedResource Include="STUDENTS\ForgetPassword.resx">
       <DependentUpon>ForgetPassword.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="STUDENT\Form_NewUser.resx">
+    <EmbeddedResource Include="STUDENTS\Form_NewUser.resx">
       <DependentUpon>Form_NewUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login_Form.resx">
@@ -324,13 +330,13 @@
     <EmbeddedResource Include="MainForm01.resx">
       <DependentUpon>MainForm01.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="STUDENT\Manage_Student_Form.resx">
+    <EmbeddedResource Include="STUDENTS\Manage_Student_Form.resx">
       <DependentUpon>Manage_Student_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OTP.resx">
       <DependentUpon>OTP.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="STUDENT\Print.resx">
+    <EmbeddedResource Include="STUDENTS\Print.resx">
       <DependentUpon>Print.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Progress.resx">
@@ -346,16 +352,19 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="STUDENT\SearchForm.resx">
+    <EmbeddedResource Include="STUDENTS\PrintForms.resx">
+      <DependentUpon>PrintForms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STUDENTS\SearchForm.resx">
       <DependentUpon>SearchForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="STUDENT\StatisticForm .resx">
+    <EmbeddedResource Include="STUDENTS\StatisticForm .resx">
       <DependentUpon>StatisticForm .cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="STUDENT\studentListForm.resx">
+    <EmbeddedResource Include="STUDENTS\studentListForm.resx">
       <DependentUpon>studentListForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="STUDENT\UpdateDeleteStudentForm.resx">
+    <EmbeddedResource Include="STUDENTS\UpdateDeleteStudentForm.resx">
       <DependentUpon>UpdateDeleteStudentForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="LoginFormDbDataSet.xsc">
@@ -441,6 +450,7 @@
   <ItemGroup>
     <Content Include="images\images.jpg" />
     <Content Include="images\user.png" />
+    <None Include="Resources\images.jpg" />
     <None Include="Resources\z5156032890966_75de56ed84e104eb477f035c83c83c82.jpg" />
   </ItemGroup>
   <ItemGroup>

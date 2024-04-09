@@ -59,6 +59,27 @@ namespace QLSV
                 if (column.Name == "SelectedCourse")
                 {
                     selectedCourseColumnExists = true;
+                    foreach (DataGridViewRow row in dataGridView_Search.Rows)
+                    {
+                        string stdId = row.Cells["StudentId"].Value.ToString();
+                        DataTable dataTable = score.getCourseBaseStudentIdRegister(stdId);
+                        if (dataTable.Rows.Count > 0)
+                        {
+                            string courseName = "";
+                            int rowCount = 0;
+                            foreach (DataRow row1 in dataTable.Rows)
+                            {
+                                string courseLabel = row1["CourseName"].ToString();
+                                courseName += courseLabel;
+                                if (rowCount < dataTable.Rows.Count - 1)
+                                {
+                                    courseName += Environment.NewLine;
+                                }
+                                rowCount++;
+                            }
+                            row.Cells["SelectedCourse"].Value = courseName;
+                        }
+                    }
                     break;
                 }
             }
@@ -66,13 +87,13 @@ namespace QLSV
             // Nếu cột chưa tồn tại, thêm mới cột "SelectedCourse"
             if (!selectedCourseColumnExists)
             {
+                //Thêm cột mới "SelectedCourse" 
                 DataGridViewTextBoxColumn selectedCourseColumn = new DataGridViewTextBoxColumn();
                 selectedCourseColumn.Name = "SelectedCourse";
                 selectedCourseColumn.HeaderText = "Selected Course";
                 dataGridView_Search.Columns.Add(selectedCourseColumn);
                 dataGridView_Search.Columns["SelectedCourse"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
 
-                // Duyệt qua từng dòng và gán giá trị cho cột "SelectedCourse"
                 foreach (DataGridViewRow row in dataGridView_Search.Rows)
                 {
                     string stdId = row.Cells["StudentId"].Value.ToString();
@@ -83,7 +104,7 @@ namespace QLSV
                         int rowCount = 0;
                         foreach (DataRow row1 in dataTable.Rows)
                         {
-                            string courseLabel = row1["label"].ToString();
+                            string courseLabel = row1["CourseName"].ToString();
                             courseName += courseLabel;
                             if (rowCount < dataTable.Rows.Count - 1)
                             {
@@ -413,6 +434,11 @@ namespace QLSV
             TextBoxAddress.Text = "";
             PictureBoxStudentImage.Image = null;
         }
-        
+
+        private void Button_AddCourse_Click(object sender, EventArgs e)
+        {
+            AddCourseStudent addCourseStudent = new AddCourseStudent(Convert.ToInt32(txtStudentID.Text));
+            addCourseStudent.Show(this);
+        }
     }
 }

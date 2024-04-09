@@ -66,6 +66,7 @@
             this.studentTableAdapter1 = new QLSV.LoginFormDbDataSet3TableAdapters.studentTableAdapter();
             this.label_Email = new System.Windows.Forms.Label();
             this.textBox_Email = new System.Windows.Forms.TextBox();
+            this.Button_AddCourse = new Guna.UI2.WinForms.Guna2Button();
             this.GroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxStudentImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginFormDbDataSet2)).BeginInit();
@@ -437,7 +438,7 @@
             this.LabelStudentTotal.BackColor = System.Drawing.Color.Moccasin;
             this.LabelStudentTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelStudentTotal.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.LabelStudentTotal.Location = new System.Drawing.Point(1095, 704);
+            this.LabelStudentTotal.Location = new System.Drawing.Point(1112, 684);
             this.LabelStudentTotal.Name = "LabelStudentTotal";
             this.LabelStudentTotal.Size = new System.Drawing.Size(190, 29);
             this.LabelStudentTotal.TabIndex = 44;
@@ -466,12 +467,29 @@
             this.textBox_Email.Size = new System.Drawing.Size(296, 30);
             this.textBox_Email.TabIndex = 46;
             // 
+            // Button_AddCourse
+            // 
+            this.Button_AddCourse.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Button_AddCourse.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Button_AddCourse.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Button_AddCourse.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Button_AddCourse.FillColor = System.Drawing.Color.Lime;
+            this.Button_AddCourse.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Button_AddCourse.ForeColor = System.Drawing.Color.Black;
+            this.Button_AddCourse.Location = new System.Drawing.Point(1117, 746);
+            this.Button_AddCourse.Name = "Button_AddCourse";
+            this.Button_AddCourse.Size = new System.Drawing.Size(180, 45);
+            this.Button_AddCourse.TabIndex = 47;
+            this.Button_AddCourse.Text = "Add Course";
+            this.Button_AddCourse.Click += new System.EventHandler(this.Button_AddCourse_Click);
+            // 
             // Manage_Student_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
             this.ClientSize = new System.Drawing.Size(1329, 816);
+            this.Controls.Add(this.Button_AddCourse);
             this.Controls.Add(this.textBox_Email);
             this.Controls.Add(this.label_Email);
             this.Controls.Add(this.LabelStudentTotal);
@@ -558,5 +576,6 @@
         private LoginFormDbDataSet3TableAdapters.studentTableAdapter studentTableAdapter1;
         private System.Windows.Forms.Label label_Email;
         private System.Windows.Forms.TextBox textBox_Email;
+        private Guna.UI2.WinForms.Guna2Button Button_AddCourse;
     }
 }

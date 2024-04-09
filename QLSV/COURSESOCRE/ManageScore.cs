@@ -37,25 +37,37 @@ namespace QLSV.COURSESOCRE
 
         private void dataGridView_Show_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            try
             {
-                DataGridViewRow row = dataGridView_Show.Rows[e.RowIndex];
-                if (dataGridView_Show.Columns.Contains("StudentId"))
+                if (e.RowIndex >= 0)
                 {
-                    textBox_StudentID.Text = row.Cells["StudentId"].Value.ToString();
-
-                    var dataSource = score.getCourseBaseStudentIdRegister(textBox_StudentID.Text);
-                    comboBox_SelectScore.DataSource = dataSource;
-                    comboBox_SelectScore.ValueMember = "CourseID";
-                    comboBox_SelectScore.DisplayMember = "CourseName";
-
-                    if (dataSource.Rows.Count > 0)
+                    DataGridViewRow row = dataGridView_Show.Rows[e.RowIndex];
+                    if (dataGridView_Show.Columns.Contains("StudentId"))
                     {
-                        comboBox_SelectScore.SelectedIndex = 0; 
+                        object cellValue = row.Cells["StudentId"].Value;
+                        if (cellValue != null)
+                        {
+                            textBox_StudentID.Text = cellValue.ToString();
+
+                            var dataSource = score.getCourseBaseStudentIdRegister(textBox_StudentID.Text);
+                            comboBox_SelectScore.DataSource = dataSource;
+                            comboBox_SelectScore.ValueMember = "CourseID";
+                            comboBox_SelectScore.DisplayMember = "CourseName";
+
+                            if (dataSource.Rows.Count > 0)
+                            {
+                                comboBox_SelectScore.SelectedIndex = 0;
+                            }
+                        }
                     }
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
+
 
 
 
@@ -150,6 +162,11 @@ namespace QLSV.COURSESOCRE
             {
                 MessageBox.Show(ex.Message);
             }
+
+        }
+
+        private void Button_Avg_Click(object sender, EventArgs e)
+        {
 
         }
     }

@@ -193,11 +193,12 @@
             this.Button_Avg.FillColor = System.Drawing.Color.DeepPink;
             this.Button_Avg.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Button_Avg.ForeColor = System.Drawing.Color.White;
-            this.Button_Avg.Location = new System.Drawing.Point(104, 438);
+            this.Button_Avg.Location = new System.Drawing.Point(57, 428);
             this.Button_Avg.Name = "Button_Avg";
-            this.Button_Avg.Size = new System.Drawing.Size(295, 45);
+            this.Button_Avg.Size = new System.Drawing.Size(356, 45);
             this.Button_Avg.TabIndex = 10;
             this.Button_Avg.Text = "Average Score By Course";
+            this.Button_Avg.Click += new System.EventHandler(this.Button_Avg_Click);
             // 
             // Button_ShowStudent
             // 

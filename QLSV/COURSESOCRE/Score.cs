@@ -89,7 +89,7 @@ namespace QLSV.COURSESOCRE
             SqlCommand command = new SqlCommand();
             command.Connection = mydb.getConnection;
 
-            command.CommandText = "SELECT CourseTable.label, AVG(Score.student_score) As AverageGrade FROM CourseTable, Score WHERE CourseTable.ID = " + "  Score.course_id GROUP BY CourseTable.label";
+            command.CommandText = "SELECT CourseTable.label as CourseName, AVG(Score.student_score) As AverageGrade FROM CourseTable, Score WHERE CourseTable.ID = " + "  Score.course_id GROUP BY CourseTable.label";
 
             SqlDataAdapter adapter = new SqlDataAdapter(command);
 
