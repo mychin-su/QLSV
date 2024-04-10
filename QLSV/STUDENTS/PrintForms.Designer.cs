@@ -34,6 +34,7 @@
             this.dataGridView_isPrint = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -102,14 +103,26 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.dataGridView_isPrint);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Location = new System.Drawing.Point(-1, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1035, 675);
+            this.panel1.Size = new System.Drawing.Size(1040, 675);
             this.panel1.TabIndex = 5;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe Print", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Navy;
+            this.label3.Location = new System.Drawing.Point(367, 145);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(507, 40);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Danh Sách Sinh Viên Lập Trình Winforms";
             // 
             // printDialog1
             // 
@@ -128,6 +141,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "PrintForms";
             this.Text = "PrintForms";
+            this.Load += new System.EventHandler(this.PrintForms_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_isPrint)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -146,5 +160,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PrintDialog printDialog1;
         private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.Label label3;
     }
 }

@@ -80,9 +80,11 @@
             // 
             // textBox_CourseName
             // 
+            this.textBox_CourseName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.textBox_CourseName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_CourseName.Location = new System.Drawing.Point(255, 51);
             this.textBox_CourseName.Name = "textBox_CourseName";
+            this.textBox_CourseName.ReadOnly = true;
             this.textBox_CourseName.Size = new System.Drawing.Size(193, 30);
             this.textBox_CourseName.TabIndex = 5;
             // 

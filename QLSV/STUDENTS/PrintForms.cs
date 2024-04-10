@@ -4,11 +4,13 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 namespace QLSV.STUDENTS
 {
@@ -16,14 +18,43 @@ namespace QLSV.STUDENTS
     {
         Bitmap bmp;
         Score score = new Score();
+        STUDENT student = new STUDENT();
         public PrintForms(DataGridView dataGrid)
         {
             InitializeComponent();
-            this.dataGridView_isPrint.DataSource = dataGrid.DataSource;
+          //  this.dataGridView_isPrint.DataSource = dataGrid.DataSource;
+          
+            //DataGridViewImageColumn picol = new DataGridViewImageColumn();
+            //picol = (DataGridViewImageColumn)dataGridView_isPrint.Columns["Picture"];
+            //picol.ImageLayout = DataGridViewImageCellLayout.Stretch;
+            //picol.DefaultCellStyle.NullValue = null;
+            //dataGridView_isPrint.AllowUserToAddRows = false;
+        }
 
+        private void PrintForms_Load(object sender, EventArgs e)
+        {
+            SqlCommand command = new SqlCommand("SELECT ROW_NUMBER() OVER (ORDER BY student.lname ASC) as STT, student.id as StudentId, student.fname as FirstName, student.lname as LastName, student.bdate as BirthDate, student.gender as Gender, student.phone as Phone, student.address as Address, student.picture as Picture FROM student");
+            fillGrid(command);
+        }
+
+        public void fillGrid(SqlCommand cmd)
+        {
             try
             {
-                // Add a new column named "SelectedCourse"
+                dataGridView_isPrint.ReadOnly = true;
+                DataGridViewImageColumn picol = new DataGridViewImageColumn();
+                dataGridView_isPrint.RowTemplate.Height = 80;
+                dataGridView_isPrint.DataSource = student.getStudent(cmd);
+                if (dataGridView_isPrint.Columns.Contains("BirthDate"))
+                {
+                    dataGridView_isPrint.Columns["BirthDate"].DefaultCellStyle.Format = "yyyy-MM-dd";
+                }
+                picol = (DataGridViewImageColumn)dataGridView_isPrint.Columns[8];
+                picol.ImageLayout = DataGridViewImageCellLayout.Stretch;
+                dataGridView_isPrint.AllowUserToAddRows = false;
+                picol.DefaultCellStyle.NullValue = null;
+
+                //Thêm cột mới "SelectedCourse" 
                 DataGridViewTextBoxColumn selectedCourseColumn = new DataGridViewTextBoxColumn();
                 selectedCourseColumn.Name = "SelectedCourse";
                 selectedCourseColumn.HeaderText = "Selected Course";
@@ -32,39 +63,32 @@ namespace QLSV.STUDENTS
 
                 foreach (DataGridViewRow row in dataGridView_isPrint.Rows)
                 {
-                    string stdId = row.Cells["StudentId"].Value?.ToString(); // Safely access cell value
-                    if (!string.IsNullOrEmpty(stdId))
+                    string stdId = row.Cells["StudentId"].Value.ToString();
+                    DataTable dataTable = score.getCourseBaseStudentIdRegister(stdId);
+                    if (dataTable.Rows.Count > 0)
                     {
-                        DataTable dataTable = score.getCourseBaseStudentIdRegister(stdId);
-                        if (dataTable.Rows.Count > 0)
+                        string courseName = "";
+                        int rowCount = 0;
+                        foreach (DataRow row1 in dataTable.Rows)
                         {
-                            string courseName = "";
-                            int rowCount = 0;
-                            foreach (DataRow row1 in dataTable.Rows)
+                            string courseLabel = row1["CourseName"].ToString();
+                            courseName += courseLabel;
+                            if (rowCount < dataTable.Rows.Count - 1)
                             {
-                                string courseLabel = row1["CourseName"].ToString();
-                                courseName += courseLabel;
-                                if (rowCount < dataTable.Rows.Count - 1)
-                                {
-                                    courseName += Environment.NewLine;
-                                }
-                                rowCount++;
+                                courseName += Environment.NewLine;
                             }
-                            row.Cells["SelectedCourse"].Value = courseName;
+                            rowCount++;
                         }
+                        row.Cells["SelectedCourse"].Value = courseName;
                     }
                 }
-
-                DataGridViewImageColumn picol = new DataGridViewImageColumn();
-                picol = (DataGridViewImageColumn)dataGridView_isPrint.Columns["Picture"];
-                picol.ImageLayout = DataGridViewImageCellLayout.Stretch;
-                picol.DefaultCellStyle.NullValue = null;
-                dataGridView_isPrint.AllowUserToAddRows = false;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "FillGrid", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+
         }
 
 
@@ -131,5 +155,7 @@ namespace QLSV.STUDENTS
                 dataGridView_isPrint.Height = twpdtg;
             }
         }
+
+  
     }
 }

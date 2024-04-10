@@ -49,6 +49,7 @@ namespace QLSV
             }
             picol = (DataGridViewImageColumn)dataGridView_Search.Columns["Picture"];
             picol.ImageLayout = DataGridViewImageCellLayout.Stretch;
+            picol.DefaultCellStyle.NullValue = null;
             dataGridView_Search.AllowUserToAddRows = false;
             dataGridView_Search.ReadOnly = true;
 
@@ -428,6 +429,7 @@ namespace QLSV
             TextBoxFname.Text = "";
             TextBoxLname.Text = "";
             DateTimePicker1.Value = DateTime.Now;
+            textBox_Email.Text = "";
             RadioButtonFemale.Checked = false;
             RadioButtonMale.Checked = false;
             TextBoxPhone.Text = "";
@@ -437,8 +439,15 @@ namespace QLSV
 
         private void Button_AddCourse_Click(object sender, EventArgs e)
         {
-            AddCourseStudent addCourseStudent = new AddCourseStudent(Convert.ToInt32(txtStudentID.Text));
-            addCourseStudent.Show(this);
+            try
+            {
+                AddCourseStudent addCourseStudent = new AddCourseStudent(Convert.ToInt32(txtStudentID.Text));
+                addCourseStudent.Show(this);
+            } catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Add Course", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
     }
 }

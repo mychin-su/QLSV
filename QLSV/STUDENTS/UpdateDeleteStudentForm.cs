@@ -216,8 +216,16 @@ namespace QLSV
 
         private void button2_Click(object sender, EventArgs e)
         {
-            AddCourseStudent addCourseFrm = new AddCourseStudent(Convert.ToInt32(TextBoxId.Text));
-            addCourseFrm.Show(this);
+            try
+            {
+                AddCourseStudent addCourseFrm = new AddCourseStudent(Convert.ToInt32(TextBoxId.Text));
+                addCourseFrm.Show(this);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "AddCourse", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
         }
     }
 }

@@ -59,6 +59,7 @@ namespace QLSV
                 }
                 picol = (DataGridViewImageColumn)dataGridView_Print.Columns[8];
                 picol.ImageLayout = DataGridViewImageCellLayout.Stretch;
+                picol.DefaultCellStyle.NullValue = null;
                 dataGridView_Print.AllowUserToAddRows = false;
 
                 //Thêm cột mới "SelectedCourse" 
