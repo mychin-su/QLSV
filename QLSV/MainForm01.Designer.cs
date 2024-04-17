@@ -80,7 +80,7 @@
             this.sCOREToolStripMenuItem,
             this.reSultToolStripMenuItem,
             this.adminToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 30);
+            this.menuStrip1.Location = new System.Drawing.Point(0, 24);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(858, 48);
             this.menuStrip1.TabIndex = 0;
@@ -354,6 +354,7 @@
             this.printToolStripMenuItem2.Name = "printToolStripMenuItem2";
             this.printToolStripMenuItem2.Size = new System.Drawing.Size(365, 36);
             this.printToolStripMenuItem2.Text = "Print";
+            this.printToolStripMenuItem2.Click += new System.EventHandler(this.printToolStripMenuItem2_Click);
             // 
             // reSultToolStripMenuItem
             // 
@@ -372,6 +373,7 @@
             this.aVGByScoreToolStripMenuItem.Name = "aVGByScoreToolStripMenuItem";
             this.aVGByScoreToolStripMenuItem.Size = new System.Drawing.Size(421, 44);
             this.aVGByScoreToolStripMenuItem.Text = "AVG Result by Score";
+            this.aVGByScoreToolStripMenuItem.Click += new System.EventHandler(this.aVGByScoreToolStripMenuItem_Click);
             // 
             // finalResultToolStripMenuItem
             // 
@@ -394,7 +396,7 @@
             this.menuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(858, 30);
+            this.menuStrip2.Size = new System.Drawing.Size(858, 24);
             this.menuStrip2.TabIndex = 2;
             this.menuStrip2.Text = "menuStrip2";
             // 

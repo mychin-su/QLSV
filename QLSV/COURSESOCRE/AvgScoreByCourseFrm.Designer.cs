@@ -36,7 +36,7 @@
             // 
             this.guna2DataGridView_AvgCourse.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.guna2DataGridView_AvgCourse.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.guna2DataGridView_AvgCourse.Location = new System.Drawing.Point(34, 22);
+            this.guna2DataGridView_AvgCourse.Location = new System.Drawing.Point(37, 22);
             this.guna2DataGridView_AvgCourse.Name = "guna2DataGridView_AvgCourse";
             this.guna2DataGridView_AvgCourse.RowHeadersWidth = 51;
             this.guna2DataGridView_AvgCourse.RowTemplate.Height = 24;

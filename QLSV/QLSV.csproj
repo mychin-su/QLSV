@@ -127,6 +127,12 @@
     <Compile Include="COURSESOCRE\PrintScore.Designer.cs">
       <DependentUpon>PrintScore.cs</DependentUpon>
     </Compile>
+    <Compile Include="COURSESOCRE\PrintScoreForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="COURSESOCRE\PrintScoreForm.Designer.cs">
+      <DependentUpon>PrintScoreForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="COURSESOCRE\RemoveCourseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,7 +145,19 @@
     <Compile Include="COURSESOCRE\RemoveScoreForm.Designer.cs">
       <DependentUpon>RemoveScoreForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="COURSESOCRE\ResultForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="COURSESOCRE\ResultForm.Designer.cs">
+      <DependentUpon>ResultForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="COURSESOCRE\Score.cs" />
+    <Compile Include="COURSESOCRE\StaticResult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="COURSESOCRE\StaticResult.Designer.cs">
+      <DependentUpon>StaticResult.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginFormDbDataSet4.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -303,11 +321,17 @@
     <EmbeddedResource Include="COURSESOCRE\PrintScore.resx">
       <DependentUpon>PrintScore.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="COURSESOCRE\PrintScoreForm.resx">
+      <DependentUpon>PrintScoreForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="COURSESOCRE\RemoveCourseForm.resx">
       <DependentUpon>RemoveCourseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="COURSESOCRE\RemoveScoreForm.resx">
       <DependentUpon>RemoveScoreForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="COURSESOCRE\ResultForm.resx">
+      <DependentUpon>ResultForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="STUDENTS\Admin.resx">
       <DependentUpon>Admin.cs</DependentUpon>

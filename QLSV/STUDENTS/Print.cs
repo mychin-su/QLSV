@@ -71,7 +71,7 @@ namespace QLSV
 
                 foreach (DataGridViewRow row in dataGridView_Print.Rows)
                 {
-                    string stdId = row.Cells["StudentId"].Value.ToString();
+                    int stdId = Convert.ToInt32(row.Cells["StudentId"].Value.ToString());
                     DataTable dataTable = score.getCourseBaseStudentIdRegister(stdId);
                     if (dataTable.Rows.Count > 0)
                     {

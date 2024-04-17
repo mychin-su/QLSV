@@ -49,9 +49,9 @@
             this.Button_RemoveScore.BackColor = System.Drawing.Color.Red;
             this.Button_RemoveScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Button_RemoveScore.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.Button_RemoveScore.Location = new System.Drawing.Point(294, 390);
+            this.Button_RemoveScore.Location = new System.Drawing.Point(258, 375);
             this.Button_RemoveScore.Name = "Button_RemoveScore";
-            this.Button_RemoveScore.Size = new System.Drawing.Size(152, 38);
+            this.Button_RemoveScore.Size = new System.Drawing.Size(338, 52);
             this.Button_RemoveScore.TabIndex = 1;
             this.Button_RemoveScore.Text = "Remove Score";
             this.Button_RemoveScore.UseVisualStyleBackColor = false;

@@ -126,9 +126,9 @@
             this.Button_AddCourse.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.Button_AddCourse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Button_AddCourse.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Button_AddCourse.Location = new System.Drawing.Point(280, 416);
+            this.Button_AddCourse.Location = new System.Drawing.Point(57, 405);
             this.Button_AddCourse.Name = "Button_AddCourse";
-            this.Button_AddCourse.Size = new System.Drawing.Size(160, 41);
+            this.Button_AddCourse.Size = new System.Drawing.Size(428, 41);
             this.Button_AddCourse.TabIndex = 9;
             this.Button_AddCourse.Text = "Add Score";
             this.Button_AddCourse.UseVisualStyleBackColor = false;

@@ -62,7 +62,7 @@ namespace QLSV
                     selectedCourseColumnExists = true;
                     foreach (DataGridViewRow row in dataGridView_Search.Rows)
                     {
-                        string stdId = row.Cells["StudentId"].Value.ToString();
+                        int stdId = Convert.ToInt32(row.Cells["StudentId"].Value.ToString());
                         DataTable dataTable = score.getCourseBaseStudentIdRegister(stdId);
                         if (dataTable.Rows.Count > 0)
                         {
@@ -97,7 +97,7 @@ namespace QLSV
 
                 foreach (DataGridViewRow row in dataGridView_Search.Rows)
                 {
-                    string stdId = row.Cells["StudentId"].Value.ToString();
+                    int stdId = Convert.ToInt32(row.Cells["StudentId"].Value.ToString());
                     DataTable dataTable = score.getCourseBaseStudentIdRegister(stdId);
                     if (dataTable.Rows.Count > 0)
                     {

@@ -69,7 +69,7 @@ namespace QLSV.COURSESOCRE
             if(e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
                 DataGridViewRow selectedRow = DataGridViewStudents.Rows[e.RowIndex];
-                string studentId = selectedRow.Cells["StudentId"].Value.ToString();
+                int studentId = Convert.ToInt32(selectedRow.Cells["StudentId"].Value.ToString());
                 comboBox_SelectCourse.DataSource = score.getCourseBaseStudentIdRegister(studentId);
                 comboBox_SelectCourse.DisplayMember = "CourseName";
                 comboBox_SelectCourse.ValueMember = "CourseId";

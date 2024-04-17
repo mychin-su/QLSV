@@ -20,6 +20,7 @@ namespace QLSV.COURSESOCRE
 
         private void AvgScoreByCourseFrm_Load(object sender, EventArgs e)
         {
+            //populate the datagridview with average score by course 
             guna2DataGridView_AvgCourse.DataSource = score.getAvgScoreByCourse();
         }
     }

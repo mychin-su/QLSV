@@ -123,7 +123,6 @@
             this.comboBox_SelectScore.Name = "comboBox_SelectScore";
             this.comboBox_SelectScore.Size = new System.Drawing.Size(190, 36);
             this.comboBox_SelectScore.TabIndex = 5;
-            this.comboBox_SelectScore.SelectedIndexChanged += new System.EventHandler(this.comboBox_SelectScore_SelectedIndexChanged);
             // 
             // textBox_Score
             // 
@@ -209,7 +208,7 @@
             this.Button_ShowStudent.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.Button_ShowStudent.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Button_ShowStudent.ForeColor = System.Drawing.Color.White;
-            this.Button_ShowStudent.Location = new System.Drawing.Point(478, 36);
+            this.Button_ShowStudent.Location = new System.Drawing.Point(678, 26);
             this.Button_ShowStudent.Name = "Button_ShowStudent";
             this.Button_ShowStudent.Size = new System.Drawing.Size(227, 45);
             this.Button_ShowStudent.TabIndex = 11;
@@ -225,12 +224,12 @@
             this.Button_ShowScores.FillColor = System.Drawing.Color.DarkOrchid;
             this.Button_ShowScores.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Button_ShowScores.ForeColor = System.Drawing.Color.White;
-            this.Button_ShowScores.Location = new System.Drawing.Point(766, 36);
+            this.Button_ShowScores.Location = new System.Drawing.Point(1083, 26);
             this.Button_ShowScores.Name = "Button_ShowScores";
             this.Button_ShowScores.Size = new System.Drawing.Size(180, 45);
             this.Button_ShowScores.TabIndex = 12;
             this.Button_ShowScores.Text = "Show Scores";
-            this.Button_ShowScores.Click += new System.EventHandler(this.Button_ShowScores_Click);
+            this.Button_ShowScores.Click += new System.EventHandler(this.Button_ShowScores_Click_1);
             // 
             // dataGridView_Show
             // 
@@ -239,16 +238,16 @@
             this.dataGridView_Show.Name = "dataGridView_Show";
             this.dataGridView_Show.RowHeadersWidth = 51;
             this.dataGridView_Show.RowTemplate.Height = 24;
-            this.dataGridView_Show.Size = new System.Drawing.Size(467, 383);
+            this.dataGridView_Show.Size = new System.Drawing.Size(1026, 383);
             this.dataGridView_Show.TabIndex = 13;
-            this.dataGridView_Show.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_Show_CellClick);
+            this.dataGridView_Show.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_Show_CellClick_1);
             // 
             // ManageScore
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGreen;
-            this.ClientSize = new System.Drawing.Size(972, 514);
+            this.ClientSize = new System.Drawing.Size(1543, 514);
             this.Controls.Add(this.dataGridView_Show);
             this.Controls.Add(this.Button_ShowScores);
             this.Controls.Add(this.Button_ShowStudent);
@@ -265,6 +264,7 @@
             this.Controls.Add(this.label1);
             this.Name = "ManageScore";
             this.Text = "ManageScore";
+            this.Load += new System.EventHandler(this.ManageScore_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Show)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

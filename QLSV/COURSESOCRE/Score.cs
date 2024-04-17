@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Data;
+using System.Data.Common;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Net.Http.Headers;
@@ -60,29 +61,50 @@ namespace QLSV.COURSESOCRE
             }
         }
 
-
-        public bool studentScoreExits(int studentId, int courseId)
+        public bool insertScoreStudent(int studentID, int courseId, float scoreValue, string description)
         {
-            SqlCommand command = new SqlCommand("SELECT * FROM Score WHERE student_id = @sid AND course_id = @cid", mydb.getConnection);
+            string connectionString = "Data Source=Vuong-Duc-Thoai\\SQLEXPRESS;User ID=sa;Password=********;Initial Catalog=LoginFormDb;Integrated Security=True;";
 
-            command.Parameters.Add("@sid", SqlDbType.Int).Value = studentId;
-            command.Parameters.Add("@cid", SqlDbType.Int).Value = courseId;
-
-            SqlDataAdapter adapter = new SqlDataAdapter(command);
-            DataTable table = new DataTable();
-
-            adapter.Fill(table);
-
-            if(table.Rows.Count > 0)
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                return true;
-            } else
-            {
-                return false;
+                using (SqlCommand command = new SqlCommand("INSERT INTO Score(student_id, course_id, student_score, description) VALUES(@sid, @cid, @stdScore, @description)", connection))
+                {
+                    command.Parameters.AddWithValue("@sid", studentID);
+                    command.Parameters.AddWithValue("@cid", courseId);
+                    command.Parameters.AddWithValue("@stdScore", scoreValue);
+                    command.Parameters.AddWithValue("@description", description);
+
+                    try
+                    {
+                        connection.Open();
+                        return command.ExecuteNonQuery() == 1;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Error: " + ex.Message);
+                        return false;
+                    }
+                }
             }
         }
 
-        
+
+        public bool studentScoreExists(int studentId, int courseId)
+        {
+            using (SqlCommand command = new SqlCommand("SELECT * FROM Score WHERE student_id = @sid AND course_id = @cid", mydb.getConnection))
+            {
+                command.Parameters.Add("@sid", SqlDbType.Int).Value = studentId;
+                command.Parameters.Add("@cid", SqlDbType.Int).Value = courseId;
+
+                using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                {
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    return table.Rows.Count > 0;
+                }
+            }
+        }
+
 
         public DataTable getAvgScoreByCourse()
         {
@@ -136,13 +158,47 @@ namespace QLSV.COURSESOCRE
             return table;
         }
 
-        public DataTable getCourseNameScoreStudentRegister(string studentId)
+        //get course's scores by id 
+        public DataTable getCourseScorseBaseOnCourseId(int courseId)
         {
-            SqlCommand command = new SqlCommand("SELECT student.id as StudentId, CourseTable.label as CourseName, Score.student_score, Score.description FROM student " +
-                                  "INNER JOIN Score ON student.id = Score.student_id " +
-                                  "INNER JOIN CourseTable  ON Score.course_id = CourseTable.id " +
-                                  "WHERE student.id = @studentID", mydb.getConnection);
-            command.Parameters.AddWithValue("studentId", studentId);
+            SqlCommand command = new SqlCommand();
+
+            command.Connection = mydb.getConnection;
+            command.CommandText = "SELECT Score.student_id, student.fname, student.lname, Score.course_id, CourseTable.label, Score.student_score " +
+               "FROM student " +
+               "INNER JOIN Score ON student.id = Score.student_id" +
+               " INNER JOIN CourseTable ON Score.course_id = CourseTable.id WHERE Score.course_id = " + courseId;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            return table;
+        }
+
+
+        //get student's scores by id 
+        public DataTable getStudentScoreBaseOnStudentId(int studentId)
+        {
+            SqlCommand command = new SqlCommand();
+
+            command.Connection = mydb.getConnection;
+            command.CommandText = "SELECT Score.student_id, student.fname, student.lname, Score.course_id, CourseTable.label, Score.student_score " +
+               "FROM student " +
+               "INNER JOIN Score ON student.id = Score.student_id " +
+               "INNER JOIN CourseTable ON Score.course_id = CourseTable.id " +
+               "WHERE Score.student_id = @studentId";
+            command.Parameters.AddWithValue("@studentId", studentId);
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            return table;
+        }
+
+        public DataTable getCourseNameScoreStudentRegister(int studentId)
+        {
+            SqlCommand command = new SqlCommand("SELECT Score.student_id, student.fname, student.lname, score.course_id, CourseTable.label " +
+                                                 " FROM student INNER JOIN Score ON student.id = Score.student_id " +
+                                                 "INNER JOIN CourseTable ON CourseTable.id = Score.course_id" +
+                                                 " WHERE Score.student_id = " + studentId, mydb.getConnection);
 
             SqlDataAdapter adapter = new SqlDataAdapter(command);
 
@@ -151,17 +207,19 @@ namespace QLSV.COURSESOCRE
             return table;
         }
 
-        public DataTable getCourseBaseStudentIdRegister(string studentId)
+        public DataTable getCourseBaseStudentIdRegister(int studentId)
         {
-            SqlCommand commnad = new SqlCommand("SELECT CourseTable.id as CourseID , CourseTable.label as CourseName FROM Score INNER JOIN CourseTable ON Score.course_id = CourseTable.id WHERE Score.student_id = @stdId", mydb.getConnection);
-            commnad.Parameters.AddWithValue("@stdId", studentId);
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(commnad);    
+            SqlCommand commnad = new SqlCommand("SELECT Score.student_id, student.fname, student.lname, score.course_id, CourseTable.label " +
+                                              " FROM student INNER JOIN Score ON student.id = Score.student_id " +
+                                              "INNER JOIN CourseTable ON CourseTable.id = Score.course_id" +
+                                              " WHERE Score.student_id = " + studentId, mydb.getConnection);
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(commnad);
             DataTable table = new DataTable();
             sqlDataAdapter.Fill(table);
             return table;
         }
 
-        public DataTable getScoreDescriptionBaseCourseId(string studentId,int courseId)
+        public DataTable getScoreDescriptionBaseCourseId(int studentId,int courseId)
         {
             SqlCommand command = new SqlCommand("SELECT student_score, description FROM Score WHERE course_id = @courseId and student_id = @studentId", mydb.getConnection);
             command.Parameters.AddWithValue("courseId", courseId);
@@ -187,11 +245,27 @@ namespace QLSV.COURSESOCRE
         {
             SqlCommand commnad = new SqlCommand("SELECT CourseTable.label CourseName, AVG(Score.student_score) as AverageGrade " +
                                                 "FROM CourseTable INNER JOIN Score" +
-                                                "ON CourseTable.id = Score.course_id  GROUP BY CourseTable.label");
+                                                "ON CourseTable.id = Score.course_id  GROUP BY CourseTable.label", mydb.getConnection);
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(commnad);
             DataTable table = new DataTable();  
             sqlDataAdapter.Fill(table) ;
             return table;
         }
+
+
+        //get course scores 
+        public DataTable getCoruseScores(int courseId)
+        {
+            SqlCommand commnad = new SqlCommand("SELECT Score.student_id, student.fname, student.lname, score.course_id, CourseTable.label " +
+                                               " FROM student INNER JOIN Score ON student.id = Score.student_id " +
+                                               "INNER JOIN CourseTable ON CourseTable.id = Score.course_id" +
+                                               " WHERE Score.course_id = " + courseId, mydb.getConnection);
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(commnad);
+            DataTable table = new DataTable();
+            sqlDataAdapter.Fill(table);
+            return table;
+        }
+
+   
     }
 }
