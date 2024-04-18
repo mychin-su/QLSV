@@ -136,6 +136,8 @@
             // 
             // DataGridViewStudents
             // 
+            this.DataGridViewStudents.AllowUserToAddRows = false;
+            this.DataGridViewStudents.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DataGridViewStudents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridViewStudents.Location = new System.Drawing.Point(513, 49);
             this.DataGridViewStudents.Name = "DataGridViewStudents";

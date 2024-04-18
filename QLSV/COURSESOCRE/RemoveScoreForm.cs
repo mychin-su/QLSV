@@ -36,11 +36,11 @@ namespace QLSV.COURSESOCRE
         {
             try
             {
-               if(selectedCell != null)
+                if (selectedCell != null)
                 {
                     DataGridViewRow row = selectedCell.OwningRow;
-                    int studentId = Convert.ToInt32(row.Cells["student_id"].Value);
-                    int courseId = Convert.ToInt32(row.Cells["course_id"].Value);
+                    int studentId = Convert.ToInt32(row.Cells["StudentId"].Value);
+                    int courseId = Convert.ToInt32(row.Cells["CourseId"].Value);
 
                     if (MessageBox.Show("Are You Sure You Want To Delete This Score?", "Remove Score", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
@@ -55,14 +55,16 @@ namespace QLSV.COURSESOCRE
                         }
                     }
                 } else
-                {
+                    {
                     MessageBox.Show("Please select a cell before removing.", "Remove Score", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+                     }
             } catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Remove Score", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
            
         }
+
+ 
     }
 }

@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace QLSV.COURSESOCRE
+namespace QLSV.Human_Resource
 {
-    public partial class ResultForm : Form
+    public partial class Contact_Full_List_Form : Form
     {
-        public ResultForm()
+        public Contact_Full_List_Form()
         {
             InitializeComponent();
         }

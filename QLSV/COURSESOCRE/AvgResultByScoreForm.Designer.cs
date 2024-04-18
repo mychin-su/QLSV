@@ -1,6 +1,6 @@
 ﻿namespace QLSV.COURSESOCRE
 {
-    partial class ResultForm
+    partial class AvgResultByScoreForm
     {
         /// <summary>
         /// Required designer variable.
@@ -48,7 +48,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(27, 127);
+            this.label1.Location = new System.Drawing.Point(24, 104);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(116, 35);
             this.label1.TabIndex = 0;
@@ -58,7 +58,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(25, 231);
+            this.label3.Location = new System.Drawing.Point(27, 177);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(118, 35);
             this.label3.TabIndex = 2;
@@ -68,7 +68,7 @@
             // 
             this.LastName.AutoSize = true;
             this.LastName.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LastName.Location = new System.Drawing.Point(25, 326);
+            this.LastName.Location = new System.Drawing.Point(30, 260);
             this.LastName.Name = "LastName";
             this.LastName.Size = new System.Drawing.Size(115, 35);
             this.LastName.TabIndex = 3;
@@ -78,7 +78,8 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(24, 410);
+            this.label5.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.label5.Location = new System.Drawing.Point(40, 347);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(273, 35);
             this.label5.TabIndex = 5;
@@ -92,14 +93,17 @@
             this.textBox_StudentID.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.textBox_StudentID.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.textBox_StudentID.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.textBox_StudentID.FillColor = System.Drawing.Color.FloralWhite;
             this.textBox_StudentID.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.textBox_StudentID.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.textBox_StudentID.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_StudentID.ForeColor = System.Drawing.Color.Black;
             this.textBox_StudentID.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.textBox_StudentID.Location = new System.Drawing.Point(207, 104);
+            this.textBox_StudentID.Location = new System.Drawing.Point(157, 104);
             this.textBox_StudentID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox_StudentID.Name = "textBox_StudentID";
             this.textBox_StudentID.PasswordChar = '\0';
             this.textBox_StudentID.PlaceholderText = "";
+            this.textBox_StudentID.ReadOnly = true;
             this.textBox_StudentID.SelectedText = "";
             this.textBox_StudentID.Size = new System.Drawing.Size(187, 44);
             this.textBox_StudentID.TabIndex = 6;
@@ -112,14 +116,17 @@
             this.textBox_FirstName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.textBox_FirstName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.textBox_FirstName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.textBox_FirstName.FillColor = System.Drawing.Color.Snow;
             this.textBox_FirstName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.textBox_FirstName.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.textBox_FirstName.Font = new System.Drawing.Font("Segoe UI", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_FirstName.ForeColor = System.Drawing.Color.Black;
             this.textBox_FirstName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.textBox_FirstName.Location = new System.Drawing.Point(207, 222);
+            this.textBox_FirstName.Location = new System.Drawing.Point(167, 177);
             this.textBox_FirstName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox_FirstName.Name = "textBox_FirstName";
             this.textBox_FirstName.PasswordChar = '\0';
             this.textBox_FirstName.PlaceholderText = "";
+            this.textBox_FirstName.ReadOnly = true;
             this.textBox_FirstName.SelectedText = "";
             this.textBox_FirstName.Size = new System.Drawing.Size(187, 44);
             this.textBox_FirstName.TabIndex = 7;
@@ -132,14 +139,17 @@
             this.textBox_LastName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.textBox_LastName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.textBox_LastName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.textBox_LastName.FillColor = System.Drawing.Color.OldLace;
             this.textBox_LastName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.textBox_LastName.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.textBox_LastName.Font = new System.Drawing.Font("Segoe UI", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_LastName.ForeColor = System.Drawing.Color.Black;
             this.textBox_LastName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.textBox_LastName.Location = new System.Drawing.Point(207, 317);
+            this.textBox_LastName.Location = new System.Drawing.Point(167, 251);
             this.textBox_LastName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox_LastName.Name = "textBox_LastName";
             this.textBox_LastName.PasswordChar = '\0';
             this.textBox_LastName.PlaceholderText = "";
+            this.textBox_LastName.ReadOnly = true;
             this.textBox_LastName.SelectedText = "";
             this.textBox_LastName.Size = new System.Drawing.Size(187, 44);
             this.textBox_LastName.TabIndex = 8;
@@ -154,11 +164,12 @@
             this.guna2Button1.FillColor = System.Drawing.Color.GreenYellow;
             this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button1.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button1.Location = new System.Drawing.Point(30, 467);
+            this.guna2Button1.Location = new System.Drawing.Point(36, 408);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.Size = new System.Drawing.Size(110, 45);
             this.guna2Button1.TabIndex = 9;
             this.guna2Button1.Text = "Search";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // textBox_Search
             // 
@@ -168,10 +179,11 @@
             this.textBox_Search.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.textBox_Search.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.textBox_Search.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.textBox_Search.FillColor = System.Drawing.Color.Cornsilk;
             this.textBox_Search.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.textBox_Search.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.textBox_Search.Font = new System.Drawing.Font("Segoe UI", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_Search.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.textBox_Search.Location = new System.Drawing.Point(197, 464);
+            this.textBox_Search.Location = new System.Drawing.Point(167, 405);
             this.textBox_Search.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox_Search.Name = "textBox_Search";
             this.textBox_Search.PasswordChar = '\0';
@@ -183,23 +195,26 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe Script", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.LawnGreen;
-            this.label2.Location = new System.Drawing.Point(484, 27);
+            this.label2.Font = new System.Drawing.Font("Segoe UI Black", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Blue;
+            this.label2.Location = new System.Drawing.Point(463, 27);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(248, 46);
+            this.label2.Size = new System.Drawing.Size(220, 38);
             this.label2.TabIndex = 11;
             this.label2.Text = "Student Result";
             // 
             // dataGridView_result
             // 
+            this.dataGridView_result.AllowUserToAddRows = false;
+            this.dataGridView_result.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView_result.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_result.Location = new System.Drawing.Point(470, 104);
+            this.dataGridView_result.Location = new System.Drawing.Point(448, 104);
             this.dataGridView_result.Name = "dataGridView_result";
             this.dataGridView_result.RowHeadersWidth = 51;
             this.dataGridView_result.RowTemplate.Height = 24;
-            this.dataGridView_result.Size = new System.Drawing.Size(728, 363);
+            this.dataGridView_result.Size = new System.Drawing.Size(1039, 363);
             this.dataGridView_result.TabIndex = 12;
+            this.dataGridView_result.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_result_CellDoubleClick);
             // 
             // Button_Print
             // 
@@ -210,11 +225,12 @@
             this.Button_Print.FillColor = System.Drawing.Color.Lime;
             this.Button_Print.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Button_Print.ForeColor = System.Drawing.Color.Black;
-            this.Button_Print.Location = new System.Drawing.Point(657, 496);
+            this.Button_Print.Location = new System.Drawing.Point(594, 495);
             this.Button_Print.Name = "Button_Print";
-            this.Button_Print.Size = new System.Drawing.Size(139, 42);
+            this.Button_Print.Size = new System.Drawing.Size(390, 42);
             this.Button_Print.TabIndex = 13;
             this.Button_Print.Text = "Print";
+            this.Button_Print.Click += new System.EventHandler(this.Button_Print_Click);
             // 
             // guna2Button3
             // 
@@ -225,18 +241,19 @@
             this.guna2Button3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button3.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button3.Location = new System.Drawing.Point(925, 496);
+            this.guna2Button3.Location = new System.Drawing.Point(1043, 495);
             this.guna2Button3.Name = "guna2Button3";
-            this.guna2Button3.Size = new System.Drawing.Size(143, 42);
+            this.guna2Button3.Size = new System.Drawing.Size(343, 42);
             this.guna2Button3.TabIndex = 14;
             this.guna2Button3.Text = "Cancel";
+            this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click);
             // 
-            // ResultForm
+            // AvgResultByScoreForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ClientSize = new System.Drawing.Size(1225, 573);
+            this.BackColor = System.Drawing.SystemColors.Window;
+            this.ClientSize = new System.Drawing.Size(1499, 573);
             this.Controls.Add(this.guna2Button3);
             this.Controls.Add(this.Button_Print);
             this.Controls.Add(this.dataGridView_result);
@@ -250,8 +267,9 @@
             this.Controls.Add(this.LastName);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
-            this.Name = "ResultForm";
+            this.Name = "AvgResultByScoreForm";
             this.Text = "ResultForm";
+            this.Load += new System.EventHandler(this.AvgResultByScoreForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_result)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

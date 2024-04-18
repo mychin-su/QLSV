@@ -121,7 +121,7 @@ namespace QLSV
 
         private void aVGByScoreToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AvgScoreByCourseFrm avgScoreByCourseFrm = new AvgScoreByCourseFrm();
+            AvgResultByScoreForm avgScoreByCourseFrm = new AvgResultByScoreForm();
             avgScoreByCourseFrm.Show(this);
         }
 
@@ -129,6 +129,24 @@ namespace QLSV
         {
             PrintScoreForm printScoreForm = new PrintScoreForm();
             printScoreForm.Show(this);
+        }
+
+        private void finalResultToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            StaticResult staticResult = new StaticResult();
+            staticResult.Show(this);
+        }
+
+        private void staticsCharByCourseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            StaticsChartByCourse frm = new StaticsChartByCourse();
+            frm.Show(this);
+        }
+
+        private void staticsCharByScoreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            StaticsChartByResult frm = new StaticsChartByResult();
+            frm.Show(this);
         }
     }
  }

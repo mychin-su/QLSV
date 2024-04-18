@@ -66,6 +66,8 @@
             this.finalResultToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
+            this.staticsCharByCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.staticsCharByScoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -360,7 +362,9 @@
             // 
             this.reSultToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aVGByScoreToolStripMenuItem,
-            this.finalResultToolStripMenuItem});
+            this.finalResultToolStripMenuItem,
+            this.staticsCharByCourseToolStripMenuItem,
+            this.staticsCharByScoreToolStripMenuItem});
             this.reSultToolStripMenuItem.Font = new System.Drawing.Font("Arial Black", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.reSultToolStripMenuItem.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.reSultToolStripMenuItem.Name = "reSultToolStripMenuItem";
@@ -371,7 +375,7 @@
             // 
             this.aVGByScoreToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.aVGByScoreToolStripMenuItem.Name = "aVGByScoreToolStripMenuItem";
-            this.aVGByScoreToolStripMenuItem.Size = new System.Drawing.Size(421, 44);
+            this.aVGByScoreToolStripMenuItem.Size = new System.Drawing.Size(436, 44);
             this.aVGByScoreToolStripMenuItem.Text = "AVG Result by Score";
             this.aVGByScoreToolStripMenuItem.Click += new System.EventHandler(this.aVGByScoreToolStripMenuItem_Click);
             // 
@@ -379,8 +383,9 @@
             // 
             this.finalResultToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.finalResultToolStripMenuItem.Name = "finalResultToolStripMenuItem";
-            this.finalResultToolStripMenuItem.Size = new System.Drawing.Size(421, 44);
+            this.finalResultToolStripMenuItem.Size = new System.Drawing.Size(436, 44);
             this.finalResultToolStripMenuItem.Text = "Statics Result";
+            this.finalResultToolStripMenuItem.Click += new System.EventHandler(this.finalResultToolStripMenuItem_Click);
             // 
             // adminToolStripMenuItem
             // 
@@ -399,6 +404,22 @@
             this.menuStrip2.Size = new System.Drawing.Size(858, 24);
             this.menuStrip2.TabIndex = 2;
             this.menuStrip2.Text = "menuStrip2";
+            // 
+            // staticsCharByCourseToolStripMenuItem
+            // 
+            this.staticsCharByCourseToolStripMenuItem.BackColor = System.Drawing.SystemColors.Highlight;
+            this.staticsCharByCourseToolStripMenuItem.Name = "staticsCharByCourseToolStripMenuItem";
+            this.staticsCharByCourseToolStripMenuItem.Size = new System.Drawing.Size(436, 44);
+            this.staticsCharByCourseToolStripMenuItem.Text = "StaticsCharByCourse";
+            this.staticsCharByCourseToolStripMenuItem.Click += new System.EventHandler(this.staticsCharByCourseToolStripMenuItem_Click);
+            // 
+            // staticsCharByScoreToolStripMenuItem
+            // 
+            this.staticsCharByScoreToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.staticsCharByScoreToolStripMenuItem.Name = "staticsCharByScoreToolStripMenuItem";
+            this.staticsCharByScoreToolStripMenuItem.Size = new System.Drawing.Size(436, 44);
+            this.staticsCharByScoreToolStripMenuItem.Text = "StaticsCharByScore";
+            this.staticsCharByScoreToolStripMenuItem.Click += new System.EventHandler(this.staticsCharByScoreToolStripMenuItem_Click);
             // 
             // MainForm01
             // 
@@ -462,5 +483,7 @@
         private System.Windows.Forms.ToolStripMenuItem aVGByScoreToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem finalResultToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adminToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem staticsCharByCourseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem staticsCharByScoreToolStripMenuItem;
     }
 }

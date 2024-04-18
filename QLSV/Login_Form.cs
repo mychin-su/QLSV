@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Management.Instrumentation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -32,26 +33,41 @@ namespace QLSV
 
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable table = new DataTable();
-            
-            SqlCommand command = new SqlCommand("SELECT * FROM log_in WHERE UserName = @User AND PassWord = @Pass AND Accept = 1" , db.getConnection);
 
-            command.Parameters.Add("@User", SqlDbType.VarChar).Value = TextBoxUsername.Text;
-            command.Parameters.Add("@Pass", SqlDbType.VarChar).Value = TextBoxPassword.Text;
+            //  SqlCommand command = new SqlCommand("SELECT * FROM log_in WHERE UserName = @User AND PassWord = @Pass AND Accept = 1" , db.getConnection);
+
+            //command.Parameters.Add("@User", SqlDbType.VarChar).Value = TextBoxUsername.Text;
+            //command.Parameters.Add("@Pass", SqlDbType.VarChar).Value = TextBoxPassword.Text;
+
+
+            SqlCommand command = new SqlCommand("SELECT * FROM hr WHERE uname = @usn AND pwd = @pass", db.getConnection);
+            command.Parameters.Add("@usn", SqlDbType.VarChar).Value = TextBoxUsername.Text;
+            command.Parameters.Add("@pass", SqlDbType.VarChar).Value = TextBoxPassword.Text;
+
 
             adapter.SelectCommand = command;
 
             adapter.Fill(table);
+            if (TextBoxUsername.Text.Trim() == "" || TextBoxPassword.Text.Trim() == "")
+            {
+                if (table.Rows.Count > 0)
+                {
+                    int userid = Convert.ToInt16(table.Rows[0][0].ToString());
+                    GlobalIdUser.SetGlobalUserId(userid);
+                    this.DialogResult = DialogResult.OK;
 
-            if (table.Rows.Count > 0)
+                    this.Hide(); // Hide the login form
+                    Progress progress = new Progress();
+                    progress.FormClosed += (s, args) => this.Close(); // Ensure the login form closes when progress form closes
+                    progress.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Username Or Password", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            } else
             {
-                this.Hide(); // Hide the login form
-                Progress progress = new Progress();
-                progress.FormClosed += (s, args) => this.Close(); // Ensure the login form closes when progress form closes
-                progress.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Invalid Username Or Password", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Empty Username Or Password", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -59,8 +75,10 @@ namespace QLSV
 
         private void linkLabel_NewUser(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Form_NewUser form_NewUser = new Form_NewUser();
-            form_NewUser.Show(this);
+            //  Form_NewUser form_NewUser = new Form_NewUser();
+            // form_NewUser.Show(this);
+            CreateNewAccount createNewAccount = new CreateNewAccount();
+            createNewAccount.Show(this);
             
         }
 

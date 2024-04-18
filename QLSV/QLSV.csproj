@@ -55,6 +55,7 @@
     <Reference Include="System.Design" />
     <Reference Include="System.Management" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -66,6 +67,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Human_Resource\ContactFormAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human_Resource\ContactFormAdd.Designer.cs">
+      <DependentUpon>ContactFormAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human_Resource\ContactFormEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human_Resource\ContactFormEdit.Designer.cs">
+      <DependentUpon>ContactFormEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="COURSESOCRE\AddCourseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,11 +158,11 @@
     <Compile Include="COURSESOCRE\RemoveScoreForm.Designer.cs">
       <DependentUpon>RemoveScoreForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="COURSESOCRE\ResultForm.cs">
+    <Compile Include="COURSESOCRE\AvgResultByScoreForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="COURSESOCRE\ResultForm.Designer.cs">
-      <DependentUpon>ResultForm.cs</DependentUpon>
+    <Compile Include="COURSESOCRE\AvgResultByScoreForm.Designer.cs">
+      <DependentUpon>AvgResultByScoreForm.cs</DependentUpon>
     </Compile>
     <Compile Include="COURSESOCRE\Score.cs" />
     <Compile Include="COURSESOCRE\StaticResult.cs">
@@ -158,6 +171,32 @@
     <Compile Include="COURSESOCRE\StaticResult.Designer.cs">
       <DependentUpon>StaticResult.cs</DependentUpon>
     </Compile>
+    <Compile Include="COURSESOCRE\StaticsChartByCourse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="COURSESOCRE\StaticsChartByCourse.Designer.cs">
+      <DependentUpon>StaticsChartByCourse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="COURSESOCRE\StaticsChartByResult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="COURSESOCRE\StaticsChartByResult.Designer.cs">
+      <DependentUpon>StaticsChartByResult.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateNewAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateNewAccount.Designer.cs">
+      <DependentUpon>CreateNewAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human_Resource\Contact_Full_List_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human_Resource\Contact_Full_List_Form.Designer.cs">
+      <DependentUpon>Contact_Full_List_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human_Resource\GlobalIdUser.cs" />
+    <Compile Include="Human_Resource\GROUP.cs" />
     <Compile Include="LoginFormDbDataSet4.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -291,6 +330,14 @@
     <Compile Include="STUDENTS\UpdateDeleteStudentForm.Designer.cs">
       <DependentUpon>UpdateDeleteStudentForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Human_Resource\CONTACT.cs" />
+    <Compile Include="Human_Resource\USER.cs" />
+    <EmbeddedResource Include="Human_Resource\ContactFormAdd.resx">
+      <DependentUpon>ContactFormAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human_Resource\ContactFormEdit.resx">
+      <DependentUpon>ContactFormEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="COURSESOCRE\AddCourseForm.resx">
       <DependentUpon>AddCourseForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -330,8 +377,23 @@
     <EmbeddedResource Include="COURSESOCRE\RemoveScoreForm.resx">
       <DependentUpon>RemoveScoreForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="COURSESOCRE\ResultForm.resx">
-      <DependentUpon>ResultForm.cs</DependentUpon>
+    <EmbeddedResource Include="COURSESOCRE\AvgResultByScoreForm.resx">
+      <DependentUpon>AvgResultByScoreForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="COURSESOCRE\StaticResult.resx">
+      <DependentUpon>StaticResult.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="COURSESOCRE\StaticsChartByCourse.resx">
+      <DependentUpon>StaticsChartByCourse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="COURSESOCRE\StaticsChartByResult.resx">
+      <DependentUpon>StaticsChartByResult.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateNewAccount.resx">
+      <DependentUpon>CreateNewAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human_Resource\Contact_Full_List_Form.resx">
+      <DependentUpon>Contact_Full_List_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="STUDENTS\Admin.resx">
       <DependentUpon>Admin.cs</DependentUpon>
