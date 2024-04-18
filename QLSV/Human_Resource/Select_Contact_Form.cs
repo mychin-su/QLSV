@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace QLSV.Contact
+namespace QLSV.Human_Resource
 {
-    public partial class ContactFormEdit : Form
+    public partial class Select_Contact_Form : Form
     {
-        public ContactFormEdit()
+        public Select_Contact_Form()
         {
             InitializeComponent();
         }

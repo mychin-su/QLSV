@@ -1,6 +1,6 @@
 ﻿namespace QLSV.Contact
 {
-    partial class ContactFormEdit
+    partial class Edit_Contact_Form
     {
         /// <summary>
         /// Required designer variable.

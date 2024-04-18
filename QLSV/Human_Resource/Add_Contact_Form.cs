@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace QLSV.Contact
 {
-    public partial class ContactFormAdd : Form
+    public partial class Add_Contact_Form : Form
     {
-        public ContactFormAdd()
+        public Add_Contact_Form()
         {
             InitializeComponent();
         }
