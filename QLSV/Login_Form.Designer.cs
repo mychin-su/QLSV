@@ -190,6 +190,7 @@
             // radioButtonStudent
             // 
             this.radioButtonStudent.AutoSize = true;
+            this.radioButtonStudent.Checked = true;
             this.radioButtonStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButtonStudent.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.radioButtonStudent.Location = new System.Drawing.Point(55, 398);
@@ -209,7 +210,6 @@
             this.radioButtonHr.Name = "radioButtonHr";
             this.radioButtonHr.Size = new System.Drawing.Size(194, 29);
             this.radioButtonHr.TabIndex = 105;
-            this.radioButtonHr.TabStop = true;
             this.radioButtonHr.Text = "Human Rerource";
             this.radioButtonHr.UseVisualStyleBackColor = true;
             // 

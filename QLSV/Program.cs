@@ -14,6 +14,7 @@ namespace QLSV
         [STAThread]
         static void Main()
         {
+         
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Login_Form loginForm = new Login_Form();

@@ -44,6 +44,7 @@
                 MessageBox.Show("User registered successfully");
                 this.Close();
                 parentForm.Hide();
+                bool flag = true;
                 Login_Form loginForm = new Login_Form();
                 loginForm.Hide();   
             }

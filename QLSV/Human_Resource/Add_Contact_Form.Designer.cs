@@ -39,14 +39,14 @@
             this.pictureBoxContact = new System.Windows.Forms.PictureBox();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.textBoxPhone = new System.Windows.Forms.TextBox();
-            this.textBoxGroup = new System.Windows.Forms.TextBox();
             this.textBoxLName = new System.Windows.Forms.TextBox();
             this.textBoxFname = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.textBoxId = new System.Windows.Forms.TextBox();
-            this.guna2ButtonAdd = new Guna.UI2.WinForms.Guna2Button();
+            this.button_Add_Contact = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ButtonCancel = new Guna.UI2.WinForms.Guna2Button();
             this.richTextBoxAddress = new System.Windows.Forms.RichTextBox();
+            this.comboBoxGroup = new Guna.UI2.WinForms.Guna2ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxContact)).BeginInit();
             this.SuspendLayout();
             // 
@@ -149,6 +149,7 @@
             this.pictureBoxContact.Location = new System.Drawing.Point(171, 414);
             this.pictureBoxContact.Name = "pictureBoxContact";
             this.pictureBoxContact.Size = new System.Drawing.Size(222, 194);
+            this.pictureBoxContact.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxContact.TabIndex = 7;
             this.pictureBoxContact.TabStop = false;
             // 
@@ -167,14 +168,6 @@
             this.textBoxPhone.Name = "textBoxPhone";
             this.textBoxPhone.Size = new System.Drawing.Size(459, 30);
             this.textBoxPhone.TabIndex = 11;
-            // 
-            // textBoxGroup
-            // 
-            this.textBoxGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxGroup.Location = new System.Drawing.Point(168, 117);
-            this.textBoxGroup.Name = "textBoxGroup";
-            this.textBoxGroup.Size = new System.Drawing.Size(459, 30);
-            this.textBoxGroup.TabIndex = 12;
             // 
             // textBoxLName
             // 
@@ -211,21 +204,21 @@
             this.textBoxId.Size = new System.Drawing.Size(152, 30);
             this.textBoxId.TabIndex = 16;
             // 
-            // guna2ButtonAdd
+            // button_Add_Contact
             // 
-            this.guna2ButtonAdd.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2ButtonAdd.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2ButtonAdd.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2ButtonAdd.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2ButtonAdd.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.guna2ButtonAdd.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2ButtonAdd.ForeColor = System.Drawing.Color.Black;
-            this.guna2ButtonAdd.Location = new System.Drawing.Point(58, 654);
-            this.guna2ButtonAdd.Name = "guna2ButtonAdd";
-            this.guna2ButtonAdd.Size = new System.Drawing.Size(180, 45);
-            this.guna2ButtonAdd.TabIndex = 17;
-            this.guna2ButtonAdd.Text = "Add Contact";
-            this.guna2ButtonAdd.Click += new System.EventHandler(this.guna2ButtonAdd_Click);
+            this.button_Add_Contact.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.button_Add_Contact.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.button_Add_Contact.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.button_Add_Contact.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.button_Add_Contact.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.button_Add_Contact.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_Add_Contact.ForeColor = System.Drawing.Color.Black;
+            this.button_Add_Contact.Location = new System.Drawing.Point(58, 654);
+            this.button_Add_Contact.Name = "button_Add_Contact";
+            this.button_Add_Contact.Size = new System.Drawing.Size(180, 45);
+            this.button_Add_Contact.TabIndex = 17;
+            this.button_Add_Contact.Text = "Add Contact";
+            this.button_Add_Contact.Click += new System.EventHandler(this.button_Add_Contact_Click);
             // 
             // guna2ButtonCancel
             // 
@@ -251,20 +244,35 @@
             this.richTextBoxAddress.TabIndex = 19;
             this.richTextBoxAddress.Text = "";
             // 
-            // ContactFormAdd
+            // comboBoxGroup
+            // 
+            this.comboBoxGroup.BackColor = System.Drawing.Color.Transparent;
+            this.comboBoxGroup.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxGroup.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.comboBoxGroup.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.comboBoxGroup.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxGroup.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.comboBoxGroup.ItemHeight = 30;
+            this.comboBoxGroup.Location = new System.Drawing.Point(173, 117);
+            this.comboBoxGroup.Name = "comboBoxGroup";
+            this.comboBoxGroup.Size = new System.Drawing.Size(195, 36);
+            this.comboBoxGroup.TabIndex = 20;
+            // 
+            // Add_Contact_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HotTrack;
             this.ClientSize = new System.Drawing.Size(641, 722);
+            this.Controls.Add(this.comboBoxGroup);
             this.Controls.Add(this.richTextBoxAddress);
             this.Controls.Add(this.guna2ButtonCancel);
-            this.Controls.Add(this.guna2ButtonAdd);
+            this.Controls.Add(this.button_Add_Contact);
             this.Controls.Add(this.textBoxId);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.textBoxFname);
             this.Controls.Add(this.textBoxLName);
-            this.Controls.Add(this.textBoxGroup);
             this.Controls.Add(this.textBoxPhone);
             this.Controls.Add(this.textBoxEmail);
             this.Controls.Add(this.guna2ButtonUpload);
@@ -276,8 +284,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "ContactFormAdd";
+            this.Name = "Add_Contact_Form";
             this.Text = "ContactFormAdd";
+            this.Load += new System.EventHandler(this.Add_Contact_Form_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxContact)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -297,13 +306,13 @@
         private Guna.UI2.WinForms.Guna2Button guna2ButtonUpload;
         private System.Windows.Forms.TextBox textBoxEmail;
         private System.Windows.Forms.TextBox textBoxPhone;
-        private System.Windows.Forms.TextBox textBoxGroup;
         private System.Windows.Forms.TextBox textBoxLName;
         private System.Windows.Forms.TextBox textBoxFname;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBoxId;
-        private Guna.UI2.WinForms.Guna2Button guna2ButtonAdd;
+        private Guna.UI2.WinForms.Guna2Button button_Add_Contact;
         private Guna.UI2.WinForms.Guna2Button guna2ButtonCancel;
         private System.Windows.Forms.RichTextBox richTextBoxAddress;
+        private Guna.UI2.WinForms.Guna2ComboBox comboBoxGroup;
     }
 }

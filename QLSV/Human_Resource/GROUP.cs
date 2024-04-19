@@ -15,10 +15,10 @@ namespace QLSV.Human_Resource
 
         public bool insertGroup(int id, string gname, int userid)
         {
-            SqlCommand command = new SqlCommand("INSERT INTO mygroups (id, name. userid)  VALUES (@id, @gn, @uid)", db.getConnection);
+            SqlCommand command = new SqlCommand("INSERT INTO mygroups (id, name, userid)  VALUES (@id, @gn, @uid)", db.getConnection);
             command.Parameters.Add("@id", SqlDbType.Int).Value = id;
             command.Parameters.Add("@gn", SqlDbType.NVarChar).Value = gname;
-            command.Parameters.Add("uid", SqlDbType.Int).Value = userid;
+            command.Parameters.Add("@uid", SqlDbType.Int).Value = userid;
 
             db.openConnection();
             if(command.ExecuteNonQuery() == 1)
@@ -34,7 +34,7 @@ namespace QLSV.Human_Resource
 
         public bool updateGroup(int gid, string gname)
         {
-            SqlCommand command = new SqlCommand("UPDATE mygroups SET name @name WHERE id = @id", db.getConnection);
+            SqlCommand command = new SqlCommand("UPDATE mygroups SET name =  @name WHERE id = @id", db.getConnection);
             command.Parameters.Add("@name", SqlDbType.VarChar).Value = gname;
             command.Parameters.Add("@id", SqlDbType.Int).Value = gid;
 

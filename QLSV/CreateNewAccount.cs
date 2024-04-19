@@ -24,14 +24,20 @@ namespace QLSV
         {
             try
             {
+                bool isPassword = false;
                 int id = Convert.ToInt32(textBoxId.Text);
                 string fname = textBoxFname.Text;
                 string lname = textBoxLName.Text;
                 string uname = textBoxUname.Text;
                 string pword = textBoxPword.Text;
+                string repassword = textBoxRePassword.Text;
+                if(pword == repassword)
+                {
+                    isPassword = true;
+                } 
                 MemoryStream pic = new MemoryStream();
                 pictureBoxAccount.Image.Save(pic, pictureBoxAccount.Image.RawFormat);
-                if (verifieds())
+                if (verifieds() && isPassword == true)
                 {
                     if (!user.usernameExist(uname, "register", id))
                     {
@@ -60,6 +66,16 @@ namespace QLSV
             }
         }
 
+        private void ButtonUpload_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog opf = new OpenFileDialog();
+            opf.Filter = "Select Image(*.jpg;*.png;*.gif)|*.jpg;*.png;*.gif";
+            if ((opf.ShowDialog() == DialogResult.OK))
+            {
+                pictureBoxAccount.Image = Image.FromFile(opf.FileName);
+            }
+        }
+
 
         public bool verifieds()
         {
@@ -77,6 +93,11 @@ namespace QLSV
             {
                 return true;
             }
+        }
+
+        private void linkLabelLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Close();
         }
     }
 }

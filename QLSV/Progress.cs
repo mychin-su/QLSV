@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QLSV.Human_Resource;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,14 +15,19 @@ namespace QLSV
 {
     public partial class Progress : Form
     {
+
+
         public object ProgressResult { get; internal set; }
 
-        public Progress()
+
+        bool flag;
+        public Progress(bool flag)
         {
             InitializeComponent();
-        }
+             this.flag = flag;
+        }   
 
- 
+       
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
@@ -53,11 +59,11 @@ namespace QLSV
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
+            Login_Form login_Form = new Login_Form();
             if (e.Cancelled)
             {
                 label2.Text = "Process was cancelled";
                 this.Hide();
-                Login_Form login_Form = new Login_Form();
                 login_Form.Show();
             }
             else if (e.Error != null)
@@ -66,12 +72,22 @@ namespace QLSV
             }
             else
             {
-                MainForm01 mainForm = new MainForm01();
+                if (flag) // Nếu flag == true
+                {
+                    MainForm01 mainForm = new MainForm01(); // Form Student
+                    mainForm.FormClosed += (s, args) => this.Close(); // Close progress form when main form closes
+                    mainForm.Show();
+                }
+                else
+                {
+                    Main_Form form = new Main_Form();   // Form HR 
+                    form.FormClosed += (s, args) => this.Close();
+                    form.Show();
+                }
                 this.Hide(); // Hide progress form
-                mainForm.FormClosed += (s, args) => this.Close(); // Close progress form when main form closes
-                mainForm.Show();
             }
         }
+
 
 
         private void button2_Click(object sender, EventArgs e)

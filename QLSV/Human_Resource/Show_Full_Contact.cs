@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace QLSV.Human_Resource
 {
-    public partial class Contact_Full_List_Form : Form
+    public partial class Show_Full_Contact : Form
     {
-        public Contact_Full_List_Form()
+        public Show_Full_Contact()
         {
             InitializeComponent();
         }

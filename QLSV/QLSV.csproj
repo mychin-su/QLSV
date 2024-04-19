@@ -67,17 +67,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Human_Resource\ContactFormAdd.cs">
+    <Compile Include="Human_Resource\Add_Contact_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Human_Resource\ContactFormAdd.Designer.cs">
-      <DependentUpon>ContactFormAdd.cs</DependentUpon>
+    <Compile Include="Human_Resource\Add_Contact_Form.Designer.cs">
+      <DependentUpon>Add_Contact_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Human_Resource\ContactFormEdit.cs">
+    <Compile Include="Human_Resource\Edit_Contact_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Human_Resource\ContactFormEdit.Designer.cs">
-      <DependentUpon>ContactFormEdit.cs</DependentUpon>
+    <Compile Include="Human_Resource\Edit_Contact_Form.Designer.cs">
+      <DependentUpon>Edit_Contact_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="COURSESOCRE\AddCourseForm.cs">
       <SubType>Form</SubType>
@@ -189,14 +189,38 @@
     <Compile Include="CreateNewAccount.Designer.cs">
       <DependentUpon>CreateNewAccount.cs</DependentUpon>
     </Compile>
-    <Compile Include="Human_Resource\Contact_Full_List_Form.cs">
+    <Compile Include="Human_Resource\Edit_My_Info.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Human_Resource\Contact_Full_List_Form.Designer.cs">
-      <DependentUpon>Contact_Full_List_Form.cs</DependentUpon>
+    <Compile Include="Human_Resource\Edit_My_Info.Designer.cs">
+      <DependentUpon>Edit_My_Info.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human_Resource\Main_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human_Resource\Main_Form.Designer.cs">
+      <DependentUpon>Main_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Human_Resource\GlobalIdUser.cs" />
     <Compile Include="Human_Resource\GROUP.cs" />
+    <Compile Include="Human_Resource\Select_Contact_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human_Resource\Select_Contact_Form.Designer.cs">
+      <DependentUpon>Select_Contact_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human_Resource\Show_Full_Contact.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human_Resource\Show_Full_Contact.Designer.cs">
+      <DependentUpon>Show_Full_Contact.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human_Resource\Show_Full_List.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human_Resource\Show_Full_List.Designer.cs">
+      <DependentUpon>Show_Full_List.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginFormDbDataSet4.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -332,11 +356,11 @@
     </Compile>
     <Compile Include="Human_Resource\CONTACT.cs" />
     <Compile Include="Human_Resource\USER.cs" />
-    <EmbeddedResource Include="Human_Resource\ContactFormAdd.resx">
-      <DependentUpon>ContactFormAdd.cs</DependentUpon>
+    <EmbeddedResource Include="Human_Resource\Add_Contact_Form.resx">
+      <DependentUpon>Add_Contact_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Human_Resource\ContactFormEdit.resx">
-      <DependentUpon>ContactFormEdit.cs</DependentUpon>
+    <EmbeddedResource Include="Human_Resource\Edit_Contact_Form.resx">
+      <DependentUpon>Edit_Contact_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="COURSESOCRE\AddCourseForm.resx">
       <DependentUpon>AddCourseForm.cs</DependentUpon>
@@ -392,8 +416,20 @@
     <EmbeddedResource Include="CreateNewAccount.resx">
       <DependentUpon>CreateNewAccount.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Human_Resource\Contact_Full_List_Form.resx">
-      <DependentUpon>Contact_Full_List_Form.cs</DependentUpon>
+    <EmbeddedResource Include="Human_Resource\Edit_My_Info.resx">
+      <DependentUpon>Edit_My_Info.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human_Resource\Main_Form.resx">
+      <DependentUpon>Main_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human_Resource\Select_Contact_Form.resx">
+      <DependentUpon>Select_Contact_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human_Resource\Show_Full_Contact.resx">
+      <DependentUpon>Show_Full_Contact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human_Resource\Show_Full_List.resx">
+      <DependentUpon>Show_Full_List.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="STUDENTS\Admin.resx">
       <DependentUpon>Admin.cs</DependentUpon>

@@ -1,6 +1,6 @@
-﻿namespace QLSV
+﻿namespace QLSV.Human_Resource
 {
-    partial class CreateNewAccount
+    partial class Edit_My_Info
     {
         /// <summary>
         /// Required designer variable.
@@ -40,11 +40,11 @@
             this.textBoxPword = new System.Windows.Forms.TextBox();
             this.ButtonUpload = new Guna.UI2.WinForms.Guna2Button();
             this.pictureBoxAccount = new System.Windows.Forms.PictureBox();
-            this.button_Register = new System.Windows.Forms.Button();
-            this.linkLabelLogin = new System.Windows.Forms.LinkLabel();
+            this.buttonEdit = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.textBoxRePassword = new System.Windows.Forms.TextBox();
+            this.buttonCancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAccount)).BeginInit();
             this.SuspendLayout();
             // 
@@ -109,6 +109,7 @@
             this.textBoxId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxId.Location = new System.Drawing.Point(429, 86);
             this.textBoxId.Name = "textBoxId";
+            this.textBoxId.ReadOnly = true;
             this.textBoxId.Size = new System.Drawing.Size(236, 30);
             this.textBoxId.TabIndex = 6;
             // 
@@ -133,6 +134,7 @@
             this.textBoxUname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxUname.Location = new System.Drawing.Point(429, 274);
             this.textBoxUname.Name = "textBoxUname";
+            this.textBoxUname.ReadOnly = true;
             this.textBoxUname.Size = new System.Drawing.Size(241, 30);
             this.textBoxUname.TabIndex = 9;
             // 
@@ -164,35 +166,22 @@
             this.pictureBoxAccount.BackColor = System.Drawing.Color.LightCoral;
             this.pictureBoxAccount.Location = new System.Drawing.Point(12, 86);
             this.pictureBoxAccount.Name = "pictureBoxAccount";
-            this.pictureBoxAccount.Size = new System.Drawing.Size(245, 301);
+            this.pictureBoxAccount.Size = new System.Drawing.Size(245, 295);
             this.pictureBoxAccount.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxAccount.TabIndex = 11;
             this.pictureBoxAccount.TabStop = false;
             // 
-            // button_Register
+            // buttonEdit
             // 
-            this.button_Register.BackColor = System.Drawing.Color.Lime;
-            this.button_Register.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_Register.Location = new System.Drawing.Point(134, 447);
-            this.button_Register.Name = "button_Register";
-            this.button_Register.Size = new System.Drawing.Size(480, 58);
-            this.button_Register.TabIndex = 13;
-            this.button_Register.Text = "Register";
-            this.button_Register.UseVisualStyleBackColor = false;
-            this.button_Register.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // linkLabelLogin
-            // 
-            this.linkLabelLogin.AutoSize = true;
-            this.linkLabelLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabelLogin.LinkColor = System.Drawing.Color.White;
-            this.linkLabelLogin.Location = new System.Drawing.Point(226, 527);
-            this.linkLabelLogin.Name = "linkLabelLogin";
-            this.linkLabelLogin.Size = new System.Drawing.Size(294, 25);
-            this.linkLabelLogin.TabIndex = 14;
-            this.linkLabelLogin.TabStop = true;
-            this.linkLabelLogin.Text = "<<Have an account? Login in";
-            this.linkLabelLogin.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelLogin_LinkClicked);
+            this.buttonEdit.BackColor = System.Drawing.Color.Lime;
+            this.buttonEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEdit.Location = new System.Drawing.Point(64, 472);
+            this.buttonEdit.Name = "buttonEdit";
+            this.buttonEdit.Size = new System.Drawing.Size(242, 58);
+            this.buttonEdit.TabIndex = 13;
+            this.buttonEdit.Text = "Edit";
+            this.buttonEdit.UseVisualStyleBackColor = false;
+            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
             // 
             // label7
             // 
@@ -224,17 +213,29 @@
             this.textBoxRePassword.Size = new System.Drawing.Size(241, 30);
             this.textBoxRePassword.TabIndex = 17;
             // 
-            // CreateNewAccount
+            // buttonCancel
+            // 
+            this.buttonCancel.BackColor = System.Drawing.Color.Cyan;
+            this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCancel.Location = new System.Drawing.Point(362, 472);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(242, 58);
+            this.buttonCancel.TabIndex = 18;
+            this.buttonCancel.Text = "Cancel";
+            this.buttonCancel.UseVisualStyleBackColor = false;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            // 
+            // Edit_My_Info
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(700, 587);
+            this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.textBoxRePassword);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.linkLabelLogin);
-            this.Controls.Add(this.button_Register);
+            this.Controls.Add(this.buttonEdit);
             this.Controls.Add(this.ButtonUpload);
             this.Controls.Add(this.pictureBoxAccount);
             this.Controls.Add(this.textBoxPword);
@@ -247,9 +248,10 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "CreateNewAccount";
+            this.Name = "Edit_My_Info";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CreateNewAccount";
+            this.Load += new System.EventHandler(this.Edit_My_Info_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAccount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -263,17 +265,17 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBoxId;
-        private System.Windows.Forms.TextBox textBoxFname;
-        private System.Windows.Forms.TextBox textBoxLName;
-        private System.Windows.Forms.TextBox textBoxUname;
-        private System.Windows.Forms.TextBox textBoxPword;
-        private System.Windows.Forms.PictureBox pictureBoxAccount;
+        internal System.Windows.Forms.TextBox textBoxId;
+        internal System.Windows.Forms.TextBox textBoxFname;
+        internal System.Windows.Forms.TextBox textBoxLName;
+        internal System.Windows.Forms.TextBox textBoxUname;
+        internal System.Windows.Forms.TextBox textBoxPword;
+        internal System.Windows.Forms.PictureBox pictureBoxAccount;
         private Guna.UI2.WinForms.Guna2Button ButtonUpload;
-        private System.Windows.Forms.Button button_Register;
-        private System.Windows.Forms.LinkLabel linkLabelLogin;
+        private System.Windows.Forms.Button buttonEdit;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBoxRePassword;
+        internal System.Windows.Forms.TextBox textBoxRePassword;
+        private System.Windows.Forms.Button buttonCancel;
     }
 }

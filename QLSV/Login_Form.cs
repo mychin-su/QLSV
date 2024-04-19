@@ -8,6 +8,7 @@ using System.Linq;
 using System.Management.Instrumentation;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Configuration;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
@@ -15,12 +16,16 @@ namespace QLSV
 {
     public partial class Login_Form : Form
     {
+
+        bool flag = true;
         public Login_Form()
         {
             InitializeComponent();
             this.TextBoxPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Login_Form_KeyPress);
 
         }
+
+        
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -34,44 +39,76 @@ namespace QLSV
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable table = new DataTable();
 
-            //  SqlCommand command = new SqlCommand("SELECT * FROM log_in WHERE UserName = @User AND PassWord = @Pass AND Accept = 1" , db.getConnection);
+            SqlCommand command;
 
-            //command.Parameters.Add("@User", SqlDbType.VarChar).Value = TextBoxUsername.Text;
-            //command.Parameters.Add("@Pass", SqlDbType.VarChar).Value = TextBoxPassword.Text;
-
-
-            SqlCommand command = new SqlCommand("SELECT * FROM hr WHERE uname = @usn AND pwd = @pass", db.getConnection);
-            command.Parameters.Add("@usn", SqlDbType.VarChar).Value = TextBoxUsername.Text;
-            command.Parameters.Add("@pass", SqlDbType.VarChar).Value = TextBoxPassword.Text;
-
-
-            adapter.SelectCommand = command;
-
-            adapter.Fill(table);
-            if (TextBoxUsername.Text.Trim() == "" || TextBoxPassword.Text.Trim() == "")
+            if(radioButtonStudent.Checked == true)
             {
-                if (table.Rows.Count > 0)
-                {
-                    int userid = Convert.ToInt16(table.Rows[0][0].ToString());
-                    GlobalIdUser.SetGlobalUserId(userid);
-                    this.DialogResult = DialogResult.OK;
+                 flag = true;
+                 command = new SqlCommand("SELECT * FROM log_in WHERE UserName = @User AND PassWord = @Pass AND Accept = 1", db.getConnection);
 
-                    this.Hide(); // Hide the login form
-                    Progress progress = new Progress();
-                    progress.FormClosed += (s, args) => this.Close(); // Ensure the login form closes when progress form closes
-                    progress.ShowDialog();
+                command.Parameters.Add("@User", SqlDbType.VarChar).Value = TextBoxUsername.Text;
+                command.Parameters.Add("@Pass", SqlDbType.VarChar).Value = TextBoxPassword.Text;
+
+
+
+                adapter.SelectCommand = command;
+
+                adapter.Fill(table);
+                if (TextBoxUsername.Text.Trim() != "" || TextBoxPassword.Text.Trim() != "")
+                {
+                    if (table.Rows.Count > 0)
+                    {
+                        this.Hide(); // Hide the login form
+                        Progress progress = new Progress(flag);
+                        progress.FormClosed += (s, args) => this.Close(); // Ensure the login form closes when progress form closes
+                        progress.ShowDialog();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid Username Or Password", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Invalid Username Or Password", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Empty Username Or Password", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-            } else
+            }
+            else
             {
-                MessageBox.Show("Empty Username Or Password", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                flag = false;
+                command = new SqlCommand("SELECT * FROM hr WHERE uname = @usn AND pwd = @pass", db.getConnection);
+                command.Parameters.Add("@usn", SqlDbType.VarChar).Value = TextBoxUsername.Text;
+                command.Parameters.Add("@pass", SqlDbType.VarChar).Value = TextBoxPassword.Text;
+
+
+
+                adapter.SelectCommand = command;
+
+                adapter.Fill(table);
+                if (TextBoxUsername.Text.Trim() != "" && TextBoxPassword.Text.Trim() != "")
+                {
+                    if (table.Rows.Count > 0)
+                    {
+                        int userid = Convert.ToInt16(table.Rows[0][0].ToString());
+                        GlobalIdUser.SetGlobalUserId(userid);
+                        this.DialogResult = DialogResult.OK;
+
+                        this.Hide(); // Hide the login form
+                        Progress progress = new Progress(flag);
+                        progress.FormClosed += (s, args) => this.Close(); // Ensure the login form closes when progress form closes
+                        progress.ShowDialog();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid Username Or Password", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Empty Username Or Password", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
         }
-
-
 
         private void linkLabel_NewUser(object sender, LinkLabelLinkClickedEventArgs e)
         {
