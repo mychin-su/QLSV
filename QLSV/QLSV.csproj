@@ -572,11 +572,10 @@
   <ItemGroup>
     <Content Include="images\images.jpg" />
     <Content Include="images\user.png" />
+    <None Include="Resources\z5183120163242_41e234abf69a0434e13b6cde55696dda.jpg" />
     <None Include="Resources\images.jpg" />
     <None Include="Resources\z5156032890966_75de56ed84e104eb477f035c83c83c82.jpg" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="NewFolder1\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

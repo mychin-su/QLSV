@@ -141,6 +141,7 @@
             this.textBoxPword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPword.Location = new System.Drawing.Point(429, 339);
             this.textBoxPword.Name = "textBoxPword";
+            this.textBoxPword.PasswordChar = '*';
             this.textBoxPword.Size = new System.Drawing.Size(241, 30);
             this.textBoxPword.TabIndex = 10;
             // 
@@ -221,6 +222,7 @@
             this.textBoxRePassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxRePassword.Location = new System.Drawing.Point(429, 398);
             this.textBoxRePassword.Name = "textBoxRePassword";
+            this.textBoxRePassword.PasswordChar = '*';
             this.textBoxRePassword.Size = new System.Drawing.Size(241, 30);
             this.textBoxRePassword.TabIndex = 17;
             // 

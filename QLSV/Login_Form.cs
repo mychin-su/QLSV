@@ -112,11 +112,15 @@ namespace QLSV
 
         private void linkLabel_NewUser(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            //  Form_NewUser form_NewUser = new Form_NewUser();
-            // form_NewUser.Show(this);
-            CreateNewAccount createNewAccount = new CreateNewAccount();
-            createNewAccount.Show(this);
-            
+            if(radioButtonStudent.Checked == true)
+            {
+                Form_NewUser form_NewUser = new Form_NewUser();
+                form_NewUser.Show(this);
+            } else
+            {
+                CreateNewAccount createNewAccount = new CreateNewAccount();
+                createNewAccount.Show(this);
+            }
         }
 
 
@@ -146,6 +150,12 @@ namespace QLSV
         {
             ForgetPassword forgetPassword = new ForgetPassword();
             forgetPassword.Show();
+        }
+
+        private void btt_Cancel_Click(object sender, EventArgs e)
+        {
+            TextBoxUsername.Text = "";
+            TextBoxPassword.Text = "";
         }
     }
 }
