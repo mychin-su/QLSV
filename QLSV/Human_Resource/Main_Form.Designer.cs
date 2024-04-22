@@ -214,6 +214,8 @@
             // 
             // ButtonShowList
             // 
+            this.ButtonShowList.AutoRoundedCorners = true;
+            this.ButtonShowList.BorderRadius = 31;
             this.ButtonShowList.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.ButtonShowList.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.ButtonShowList.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -255,6 +257,8 @@
             // 
             // ButtonSelectContact
             // 
+            this.ButtonSelectContact.AutoRoundedCorners = true;
+            this.ButtonSelectContact.BorderRadius = 15;
             this.ButtonSelectContact.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.ButtonSelectContact.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.ButtonSelectContact.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -290,8 +294,10 @@
             // 
             // ButtonAddContact
             // 
-            this.ButtonAddContact.BackColor = System.Drawing.Color.Blue;
+            this.ButtonAddContact.AutoRoundedCorners = true;
+            this.ButtonAddContact.BackColor = System.Drawing.Color.Transparent;
             this.ButtonAddContact.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.ButtonAddContact.BorderRadius = 21;
             this.ButtonAddContact.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.ButtonAddContact.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.ButtonAddContact.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -308,8 +314,10 @@
             // 
             // ButtonEditContact
             // 
-            this.ButtonEditContact.BackColor = System.Drawing.Color.Blue;
+            this.ButtonEditContact.AutoRoundedCorners = true;
+            this.ButtonEditContact.BackColor = System.Drawing.Color.Transparent;
             this.ButtonEditContact.BorderColor = System.Drawing.Color.White;
+            this.ButtonEditContact.BorderRadius = 21;
             this.ButtonEditContact.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.ButtonEditContact.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.ButtonEditContact.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -384,6 +392,8 @@
             // 
             // ButtonRemoveGroup
             // 
+            this.ButtonRemoveGroup.AutoRoundedCorners = true;
+            this.ButtonRemoveGroup.BorderRadius = 21;
             this.ButtonRemoveGroup.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.ButtonRemoveGroup.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.ButtonRemoveGroup.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -435,6 +445,8 @@
             // 
             // ButtonEditGroup
             // 
+            this.ButtonEditGroup.AutoRoundedCorners = true;
+            this.ButtonEditGroup.BorderRadius = 21;
             this.ButtonEditGroup.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.ButtonEditGroup.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.ButtonEditGroup.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -504,6 +516,8 @@
             // 
             // ButtonAddGroup
             // 
+            this.ButtonAddGroup.AutoRoundedCorners = true;
+            this.ButtonAddGroup.BorderRadius = 21;
             this.ButtonAddGroup.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.ButtonAddGroup.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.ButtonAddGroup.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
