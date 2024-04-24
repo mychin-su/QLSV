@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Office.Interop.Access.Dao;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -27,6 +28,25 @@ namespace QLSV.User
                 mydb.closeConnection();
                 return false;
             }
+        }
+
+        public DataTable getCourseByContact(int idContact)
+        {
+            SqlCommand command = new SqlCommand(" SELECT id, label FROM CourseTable WHERE idContact = @idContact", mydb.getConnection);
+            command.Parameters.Add("@idContact", SqlDbType.Int).Value = idContact;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            return table;
+        }
+
+        public DataTable getLastNameContact()
+        {
+            SqlCommand command = new SqlCommand("SELECT id as idContact ,lname as LastName FROM mycontact", mydb.getConnection);
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            return table;
         }
 
         public bool insertContact(int id, string fname, string lname, string phone, string address, string email, int userid, int groupid, MemoryStream picture)
@@ -93,7 +113,7 @@ namespace QLSV.User
 
         public DataTable fullContactList(int userId)
         {
-           SqlCommand command = new SqlCommand("SELECT mycontact.fname as FirstName, lname as LastName, mygroups.name as GroupName, phone, email, address, pic as Picture " +
+           SqlCommand command = new SqlCommand("SELECT mycontact.id ContactId, mycontact.fname as FirstName, lname as LastName, mygroups.name as GroupName, phone, email, address, pic as Picture " +
                "\r\nFROM mycontact INNER JOIN mygroups ON  mycontact.group_id = mygroups.id WHERE mycontact.userid  = @uid", mydb.getConnection);
 
             command.Parameters.Add("@uid", SqlDbType.Int).Value=userId;

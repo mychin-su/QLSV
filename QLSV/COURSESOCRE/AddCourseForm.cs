@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QLSV.User;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,18 +16,23 @@ namespace QLSV.COURSE
 {
     public partial class AddCourseForm : Form
     {
+
         public AddCourseForm()
         {
             InitializeComponent();
         }
 
         Course course = new Course();
+        CONTACT contact = new CONTACT();
         MY_DB mydb = new MY_DB();
 
 
         private void AddCourseForm_Load(object sender, EventArgs e)
         {
             this.comboBox_Semester.SelectedIndex = 0;
+            this.comboBoxTeacher.DataSource = contact.getLastNameContact();
+            this.comboBoxTeacher.DisplayMember = "LastName";
+            this.comboBoxTeacher.ValueMember = "idContact";
         }
 
         private void Button_Add_Click(object sender, EventArgs e)
@@ -40,6 +46,7 @@ namespace QLSV.COURSE
                 int courseID = int.Parse(textBox_CourseID.Text);
                 string name = textBox_Label.Text;
                 int hrs = int.Parse(textBox_Period.Text);
+                int idContact = Convert.ToInt32(comboBoxTeacher.SelectedValue);
                 string desc = richTextBox_Description.Text;
                 string semester = comboBox_Semester.Text;
 
@@ -53,7 +60,7 @@ namespace QLSV.COURSE
                 }
                 else if (!course.checkCourseName(name)) // nếu couseName chưa tồn tại
                 {
-                    if (course.insertCourse(courseID, name, hrs, desc, semester))
+                    if (course.insertCourse(courseID, name, hrs, desc, semester, idContact))
                     {
                         MessageBox.Show("New Course Inserted", "Add Course", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }

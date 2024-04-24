@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QLSV.User;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,9 +23,13 @@ namespace QLSV.COURSE
         }
 
         Course course = new Course();
+        CONTACT contact = new CONTACT();
 
         private void EditCoureseForm_Load(object sender, EventArgs e)
         {
+            this.comboBoxTeacher.DataSource = contact.getLastNameContact();
+            this.comboBoxTeacher.DisplayMember = "LastName";
+            this.comboBoxTeacher.ValueMember = "idContact";
             comboBox_SelectCourse.DataSource = course.getAllCourse(new SqlCommand("SELECT * FROM CourseTable"));
             comboBox_SelectCourse.DisplayMember = "label"; // xác định trường dữ liệu nào sẽ hiện thị cho người dùng
             comboBox_SelectCourse.ValueMember = "id"; // Xác định trường dữ liệu nào sẽ được sử dụng như giá trị thực tế khi người dùng chọn.
@@ -44,7 +49,7 @@ namespace QLSV.COURSE
         {
             try
             {
-                if(comboBox_SelectCourse.SelectedItem != null)
+                if (comboBox_SelectCourse.SelectedItem != null)
                 {
                     //Lay du liệu
                     DataRowView selectedRow = (DataRowView)comboBox_SelectCourse.SelectedItem;
@@ -55,6 +60,7 @@ namespace QLSV.COURSE
                     numericUpDown_Period.Value = Convert.ToInt32(table.Rows[0]["period"]);
                     richTextBox_description.Text = table.Rows[0]["description"].ToString();
                     guna2ComboBox_Semester.Text = table.Rows[0]["Semester"].ToString();
+                    comboBoxTeacher.Text = table.Rows[0]["idContact"].ToString();
                 }
             }
             catch (Exception ex)
@@ -68,7 +74,6 @@ namespace QLSV.COURSE
             textBox_Label.Text = "";
             numericUpDown_Period.Value = 10;
             richTextBox_description.Text = "";
-
         }
 
         private void Button_Edit_Click(object sender, EventArgs e)
@@ -78,8 +83,9 @@ namespace QLSV.COURSE
             int period = int.Parse(numericUpDown_Period.Value.ToString());
             string description = richTextBox_description.Text;
             string semester = guna2ComboBox_Semester.Text;
+            int idContact = Convert.ToInt32(comboBoxTeacher.SelectedValue);
 
-            if (course.updateCourse(id, name, period, description, semester))
+            if (course.updateCourse(id, name, period, description, semester, idContact))
             {
                 int index = comboBox_SelectCourse.SelectedIndex;
                 fillCombo(index);
@@ -87,7 +93,7 @@ namespace QLSV.COURSE
             }
             else
             {
-                MessageBox.Show("The course Not Update", "Edit Course", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("The course could not be updated. Please check your input and try again.", "Edit Course", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

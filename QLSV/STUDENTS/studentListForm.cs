@@ -163,14 +163,20 @@ namespace QLSV
                     dataTable.Columns.Add("Phone");
                     dataTable.Columns.Add("Address");
                     dataTable.Columns.Add("Picture", typeof(byte[])); // Specify the data type for the Picture column
-
-                    // Loop through Excel data and populate DataTable
+                                                                      // Loop through Excel data and populate DataTable
                     for (int row = 2; row <= xlRange.Rows.Count; row++)
                     {
                         DataRow newRow = dataTable.NewRow();
+                        bool isValidRow = true; // Flag to indicate if the row data is valid
                         for (int col = 1; col <= 8; col++) // Assuming 8 columns in Excel file
                         {
-                            if (col == 5) // Handling BirthDate column
+                            if ((col == 3 || col == 4) && ContainsDigits(xlRange.Cells[row, col].Value.ToString()))
+                            {
+                                isValidRow = false; // If col 3 or 4 contains digits, mark row as invalid
+                                MessageBox.Show("Bị lỗi dòng " + (row - 1) + " không được import");
+                                break; // Exit the loop since row is already invalid
+                            }
+                            else if (col == 5) // Handling BirthDate column
                             {
                                 string dateFormat = "dd/MM/yyyy";
                                 DateTime dateValue = DateTime.MinValue;
@@ -178,7 +184,13 @@ namespace QLSV
                                 {
                                     newRow[col - 1] = dateValue; // Assign DateTime value directly
                                 }
-                            } else if(col == 6)
+                                else
+                                {
+                                    isValidRow = false; // If date parsing fails, mark row as invalid
+                                    break; // Exit the loop since row is already invalid
+                                }
+                            }
+                            else if (col == 6)
                             {
                                 string studentId = xlRange.Cells[row, 2].Value != null ? xlRange.Cells[row, 2].Value.ToString() : "";
                                 newRow[col - 1] = studentId + "@student.hcmute.edu.vn";
@@ -196,7 +208,10 @@ namespace QLSV
                                 newRow[col - 1] = xlRange.Cells[row, col].Value != null ? xlRange.Cells[row, col].Value.ToString() : "";
                             }
                         }
-                        dataTable.Rows.Add(newRow);
+                        if (isValidRow)
+                        {
+                            dataTable.Rows.Add(newRow); // Only add the row if it's valid
+                        }
                     }
 
                     // Bind the DataTable to the DataGridView
@@ -207,6 +222,12 @@ namespace QLSV
                     MessageBox.Show("Error: " + ex.Message);
                 }
             }
+        }
+
+
+        private bool ContainsDigits(string input)
+        {
+            return input.Any(char.IsDigit);
         }
 
         private void Button_Save_Click(object sender, EventArgs e)

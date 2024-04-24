@@ -1,4 +1,5 @@
-﻿using QLSV.Human_Resource;
+﻿using Microsoft.Office.Interop.Excel;
+using QLSV.Human_Resource;
 using QLSV.User;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -48,8 +50,19 @@ namespace QLSV.Contact
             Close();
         }
 
+        bool IsValidName(string name)
+        {
+            // Kiểm tra xem chuỗi có chứa số không (không tính khoảng trắng)
+            return !Regex.IsMatch(name, @"\d");
+        }
+
         private void button_Add_Contact_Click(object sender, EventArgs e)
         {
+
+            if (!IsValidName(textBoxFname.Text) || !IsValidName(textBoxLName.Text))
+            {
+                MessageBox.Show("Tên và họ không được chứa số", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             int id = Convert.ToInt32(textBoxId.Text);
             string fname = textBoxFname.Text;
             string lname = textBoxLName.Text;

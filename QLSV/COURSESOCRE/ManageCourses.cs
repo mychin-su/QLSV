@@ -1,4 +1,5 @@
 ﻿using QLSV.COURSE;
+using QLSV.User;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,11 +22,15 @@ namespace QLSV.COURSESOCRE
         }
 
         Course course = new Course();
+        CONTACT contact = new CONTACT();
         int pos;
 
         private void ManageCourses_Load(object sender, EventArgs e)
         {
             reloadListBoxData(0);
+            this.comboBoxTeacher.DataSource = contact.getLastNameContact();
+            this.comboBoxTeacher.DisplayMember = "LastName";
+            this.comboBoxTeacher.ValueMember = "idContact";
         }
 
         private void reloadListBoxData(int index)
@@ -54,6 +59,7 @@ namespace QLSV.COURSESOCRE
             richTextBoxDescription.Text = dr.ItemArray[3].ToString();
 
             guna2ComboBox_Semester.Text = dr.ItemArray[4].ToString();
+            comboBoxTeacher.Text = dr.ItemArray[5].ToString();
         }
 
         private void ListBoxCourses_Click(object sender, EventArgs e)
@@ -70,6 +76,7 @@ namespace QLSV.COURSESOCRE
             int hrs = (int)NumericUpDownHours.Value;
             string desc = richTextBoxDescription.Text;
             string semester = guna2ComboBox_Semester.Text;
+            int idContact = Convert.ToInt32(comboBoxTeacher.SelectedValue);
 
             if (name.Trim() == "")  // lam viec voi string xoa het cac khoang trang truoc sau chi lay ten
             {
@@ -81,7 +88,7 @@ namespace QLSV.COURSESOCRE
             }
             else if (course.checkCourseName(name) == false)
             {
-                if (course.insertCourse(courseID, name, hrs, desc, semester))
+                if (course.insertCourse(courseID, name, hrs, desc, semester, idContact))
                 {
                     MessageBox.Show("New Course Inserted", "Add Course", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     int index = guna2ComboBox_Semester.SelectedIndex;
@@ -123,8 +130,9 @@ namespace QLSV.COURSESOCRE
             int hrs = (int)NumericUpDownHours.Value;
             string desc = richTextBoxDescription.Text;
             string semester = guna2ComboBox_Semester.Text;
+            int idContact = Convert.ToInt32(comboBoxTeacher.SelectedValue);
 
-            if(course.updateCourse(id, name, hrs, desc, semester))
+            if (course.updateCourse(id, name, hrs, desc, semester, idContact))
             {
                 MessageBox.Show("Course Updated", "Edit Course", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 int index = guna2ComboBox_Semester.SelectedIndex;

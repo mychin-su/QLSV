@@ -39,6 +39,8 @@
             this.Button_Edit = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.guna2ComboBox_Semester = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.comboBoxTeacher = new Guna.UI2.WinForms.Guna2ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Period)).BeginInit();
             this.SuspendLayout();
             // 
@@ -97,7 +99,7 @@
             // richTextBox_description
             // 
             this.richTextBox_description.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox_description.Location = new System.Drawing.Point(278, 208);
+            this.richTextBox_description.Location = new System.Drawing.Point(278, 185);
             this.richTextBox_description.Name = "richTextBox_description";
             this.richTextBox_description.Size = new System.Drawing.Size(278, 89);
             this.richTextBox_description.TabIndex = 4;
@@ -127,7 +129,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(106, 211);
+            this.label4.Location = new System.Drawing.Point(106, 185);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(127, 25);
             this.label4.TabIndex = 7;
@@ -150,7 +152,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(122, 323);
+            this.label5.Location = new System.Drawing.Point(122, 293);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(111, 25);
             this.label5.TabIndex = 9;
@@ -163,17 +165,43 @@
             this.guna2ComboBox_Semester.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.guna2ComboBox_Semester.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2ComboBox_Semester.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox_Semester.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.guna2ComboBox_Semester.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2ComboBox_Semester.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.guna2ComboBox_Semester.ItemHeight = 30;
             this.guna2ComboBox_Semester.Items.AddRange(new object[] {
             "1",
             "2",
             "3"});
-            this.guna2ComboBox_Semester.Location = new System.Drawing.Point(278, 323);
+            this.guna2ComboBox_Semester.Location = new System.Drawing.Point(278, 293);
             this.guna2ComboBox_Semester.Name = "guna2ComboBox_Semester";
             this.guna2ComboBox_Semester.Size = new System.Drawing.Size(85, 36);
             this.guna2ComboBox_Semester.TabIndex = 10;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label6.Location = new System.Drawing.Point(134, 352);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(99, 25);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Teacher:";
+            // 
+            // comboBoxTeacher
+            // 
+            this.comboBoxTeacher.BackColor = System.Drawing.Color.Transparent;
+            this.comboBoxTeacher.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxTeacher.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxTeacher.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.comboBoxTeacher.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.comboBoxTeacher.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxTeacher.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.comboBoxTeacher.ItemHeight = 30;
+            this.comboBoxTeacher.Location = new System.Drawing.Point(278, 341);
+            this.comboBoxTeacher.Name = "comboBoxTeacher";
+            this.comboBoxTeacher.Size = new System.Drawing.Size(263, 36);
+            this.comboBoxTeacher.TabIndex = 12;
             // 
             // EditCoureseForm
             // 
@@ -181,6 +209,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkKhaki;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.comboBoxTeacher);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.guna2ComboBox_Semester);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.Button_Edit);
@@ -214,5 +244,7 @@
         private System.Windows.Forms.Button Button_Edit;
         private System.Windows.Forms.Label label5;
         private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox_Semester;
+        private System.Windows.Forms.Label label6;
+        private Guna.UI2.WinForms.Guna2ComboBox comboBoxTeacher;
     }
 }

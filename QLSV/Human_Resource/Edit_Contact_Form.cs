@@ -8,6 +8,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -83,12 +84,21 @@ namespace QLSV.Contact
 
         }
 
+
+        bool IsValidName(string name)
+        {
+            // Kiểm tra xem chuỗi có chứa số không (không tính khoảng trắng)
+            return !Regex.IsMatch(name, @"\d");
+        }
+
         private void guna2ButtonEdit_Click(object sender, EventArgs e)
         {
-           
-
             try
             {
+                if (!IsValidName(textBoxFname.Text) || !IsValidName(textBoxLName.Text))
+                {
+                    MessageBox.Show("Tên và họ không được chứa số", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 int userId = GlobalIdUser.GlobalUserId;
                 string fname = textBoxFname.Text;
                 string lname = textBoxLName.Text;

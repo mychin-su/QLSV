@@ -19,16 +19,17 @@ namespace QLSV.COURSE
         MY_DB mydb = new MY_DB();
 
         //function to insert a new Course 
-        public bool insertCourse(int Id, string label, int period, string description, string semester)
+        public bool insertCourse(int Id, string label, int period, string description, string semester, int idContact)
         {
             try
             {
-                SqlCommand command = new SqlCommand("INSERT INTO CourseTable (id, label, period, description, Semester)" + " VALUES (@id, @name, @hrs, @description, @semester)", mydb.getConnection);
+                SqlCommand command = new SqlCommand("INSERT INTO CourseTable (id, label, period, description, Semester, idContact)" + " VALUES (@id, @name, @hrs, @description, @semester, @idContact)", mydb.getConnection);
                 command.Parameters.Add("@id", SqlDbType.Int).Value = Id;
                 command.Parameters.Add("@name", SqlDbType.VarChar).Value = label;
                 command.Parameters.Add("@hrs", SqlDbType.Int).Value = period;
                 command.Parameters.Add("@description", SqlDbType.VarChar).Value = description;
                 command.Parameters.Add("@semester", SqlDbType.VarChar).Value = semester;
+                command.Parameters.Add("@idContact", SqlDbType.Int).Value = idContact;
 
                 mydb.openConnection();
 
@@ -51,11 +52,11 @@ namespace QLSV.COURSE
         }
 
         //Update Student 
-        public bool updateCourse(int Id, string lable, int period, string description, string semester)
+        public bool updateCourse(int Id, string lable, int period, string description, string semester, int idContact)
         {
             try
             {
-                string query = "UPDATE CourseTable SET label = @label, period = @period, description = @description, Semester = @semester WHERE id = @id";
+                string query = "UPDATE CourseTable SET label = @label, period = @period, description = @description, Semester = @semester, idContact = @idContact WHERE id = @id";
                 using (SqlConnection con = new SqlConnection(@"Data Source=Vuong-Duc-Thoai\SQLEXPRESS;User ID=sa;Password=********;Initial Catalog=LoginFormDb;Integrated Security=True;"))
                 using (SqlCommand command = new SqlCommand(query, con))
                 {
@@ -64,6 +65,7 @@ namespace QLSV.COURSE
                     command.Parameters.AddWithValue("@period", period);
                     command.Parameters.AddWithValue("@description", description);
                     command.Parameters.AddWithValue("@semester", semester);
+                    command.Parameters.AddWithValue("@idContact", idContact);
                     con.Open();
                     int result = command.ExecuteNonQuery(); // Executes update and returns number of affected rows
                     return result > 0;
@@ -144,7 +146,7 @@ namespace QLSV.COURSE
             string connectionString = "Data Source=Vuong-Duc-Thoai\\SQLEXPRESS;User ID=sa;Password=********;Initial Catalog=LoginFormDb;Integrated Security=True;";
             using(SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlCommand command = new SqlCommand("SELECT ROW_NUMBER() OVER (ORDER BY s.fname) as STT, s.id as ID, s.fname as FirstName, s.lname as LastName, s.bdate as DOB, ct.label as CourseName FROM student as s  INNER JOIN Score as sc ON s.id = sc.student_id INNER JOIN CourseTable as ct ON sc.course_id = ct.id  WHERE ct.label = @cN", connection);
+                SqlCommand command = new SqlCommand("SELECT ROW_NUMBER() OVER (ORDER BY s.fname) as STT, s.id as ID, s.fname as FirstName, s.lname as LastName, s.bdate as DOB, sc.student_score as Score FROM student as s  INNER JOIN Score as sc ON s.id = sc.student_id INNER JOIN CourseTable as ct ON sc.course_id = ct.id  WHERE ct.label = @cN", connection);
                 command.Parameters.AddWithValue("@cN", courseName);
                 SqlDataAdapter adapter = new SqlDataAdapter(command);
                 DataTable table = new DataTable();  

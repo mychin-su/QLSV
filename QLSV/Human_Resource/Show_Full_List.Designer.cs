@@ -84,6 +84,7 @@
             this.dataGridView_ShowAll.RowTemplate.Height = 24;
             this.dataGridView_ShowAll.Size = new System.Drawing.Size(916, 348);
             this.dataGridView_ShowAll.TabIndex = 3;
+            this.dataGridView_ShowAll.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_ShowAll_CellDoubleClick);
             this.dataGridView_ShowAll.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_ShowAll_ColumnHeaderMouseClick);
             this.dataGridView_ShowAll.Click += new System.EventHandler(this.dataGridView_ShowAll_Click);
             // 

@@ -29,7 +29,7 @@ namespace QLSV.Human_Resource
 
             dataGridView_ShowAll.RowTemplate.Height = 80;
             dataGridView_ShowAll.DataSource = contact.fullContactList(GlobalIdUser.GlobalUserId);
-            piCol = (DataGridViewImageColumn)dataGridView_ShowAll.Columns[6];
+            piCol = (DataGridViewImageColumn)dataGridView_ShowAll.Columns[7];
 
             piCol.ImageLayout = DataGridViewImageCellLayout.Stretch;
 
@@ -91,7 +91,7 @@ namespace QLSV.Human_Resource
         {
             try
             {
-                textBoxAddress.Text = dataGridView_ShowAll.CurrentRow.Cells[5].Value.ToString();
+                textBoxAddress.Text = dataGridView_ShowAll.CurrentRow.Cells[6].Value.ToString();
             } catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -101,6 +101,22 @@ namespace QLSV.Human_Resource
         private void label2_Click(object sender, EventArgs e)
         {
             Show_Full_List_Load(null, null);
+        }
+
+  
+
+        private void dataGridView_ShowAll_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+          try
+            {
+                int idContat = int.Parse(dataGridView_ShowAll.CurrentRow.Cells[0].Value.ToString());
+                Show_Student_By_Contact show_Student_By_Contact = new Show_Student_By_Contact(idContat);
+                show_Student_By_Contact.Show();
+            } catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

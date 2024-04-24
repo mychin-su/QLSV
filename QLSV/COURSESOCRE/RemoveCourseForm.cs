@@ -57,7 +57,7 @@ namespace QLSV.COURSE
 
         private void RemoveCourseForm_Load(object sender, EventArgs e)
         {
-            dataGridView_Remove.DataSource = course.getAllCourse(new SqlCommand("SELECT id as CourseId, label as CourseName, period as Period, description as Description, Semester FROM CourseTable"));
+            dataGridView_Remove.DataSource = course.getAllCourse(new SqlCommand("SELECT id as CourseId, label as CourseName, period as Period, description as Description, Semester, idContact  FROM CourseTable"));
         }
 
         private void dataGridView_Remove_CellClick(object sender, DataGridViewCellEventArgs e)

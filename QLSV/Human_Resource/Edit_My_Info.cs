@@ -1,4 +1,5 @@
-﻿using QLSV.User;
+﻿using Microsoft.Office.Interop.Excel;
+using QLSV.User;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,6 +8,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -35,11 +37,19 @@ namespace QLSV.Human_Resource
                 pictureBoxAccount.Image = Image.FromFile(opf.FileName);
             }
         }
-
+        bool IsValidName(string name)
+        {
+            // Kiểm tra xem chuỗi có chứa số không (không tính khoảng trắng)
+            return !Regex.IsMatch(name, @"\d");
+        }
         private void buttonEdit_Click(object sender, EventArgs e)
         {
             try
             {
+                if (!IsValidName(textBoxFname.Text) || !IsValidName(textBoxLName.Text))
+                {
+                    MessageBox.Show("Tên và họ không được chứa số", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 int UserId = int.Parse(textBoxId.Text);
                 string fname = textBoxFname.Text;
                 string lname = textBoxLName.Text;
