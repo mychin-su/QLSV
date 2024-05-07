@@ -89,7 +89,7 @@ namespace QLSV
                 {
                     if (table.Rows.Count > 0)
                     {
-                        int userid = Convert.ToInt16(table.Rows[0][0].ToString());
+                        int userid = Convert.ToInt32(table.Rows[0][0].ToString());
                         GlobalIdUser.SetGlobalUserId(userid);
                         this.DialogResult = DialogResult.OK;
 

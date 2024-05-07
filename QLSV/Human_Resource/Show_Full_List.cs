@@ -91,7 +91,6 @@ namespace QLSV.Human_Resource
         {
             try
             {
-                textBoxAddress.Text = dataGridView_ShowAll.CurrentRow.Cells[6].Value.ToString();
             } catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);

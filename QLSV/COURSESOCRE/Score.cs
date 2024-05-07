@@ -211,7 +211,7 @@ namespace QLSV.COURSESOCRE
 
         public DataTable getCourseBaseStudentIdRegister(int studentId)
         {
-            SqlCommand commnad = new SqlCommand("SELECT Score.student_id, student.fname, student.lname, score.course_id, CourseTable.label " +
+            SqlCommand commnad = new SqlCommand("SELECT Score.student_id, student.fname, student.lname, score.course_id, CourseTable.label as CourseName" +
                                               " FROM student INNER JOIN Score ON student.id = Score.student_id " +
                                               "INNER JOIN CourseTable ON CourseTable.id = Score.course_id" +
                                               " WHERE Score.student_id = " + studentId, mydb.getConnection);

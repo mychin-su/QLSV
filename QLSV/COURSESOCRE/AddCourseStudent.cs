@@ -66,7 +66,7 @@ namespace QLSV.COURSESOCRE
             {
                 if (guna2DataGridView_Selected.Rows.Count > 0)
                 {
-                    List<DataGridViewRow> rowsToRemove = new List<DataGridViewRow>();
+                  //  List<DataGridViewRow> rowsToRemove = new List<DataGridViewRow>();
                     foreach (DataGridViewRow row in guna2DataGridView_Selected.Rows)
                     {
                         if (row.Cells[0].Value != null)

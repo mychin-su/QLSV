@@ -32,8 +32,6 @@
             this.listBoxGroup = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView_ShowAll = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBoxAddress = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ShowAll)).BeginInit();
             this.SuspendLayout();
             // 
@@ -88,46 +86,12 @@
             this.dataGridView_ShowAll.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_ShowAll_ColumnHeaderMouseClick);
             this.dataGridView_ShowAll.Click += new System.EventHandler(this.dataGridView_ShowAll_Click);
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(324, 461);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(140, 25);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Full Address:";
-            // 
-            // textBoxAddress
-            // 
-            this.textBoxAddress.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textBoxAddress.DefaultText = "";
-            this.textBoxAddress.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.textBoxAddress.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.textBoxAddress.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.textBoxAddress.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.textBoxAddress.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.textBoxAddress.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxAddress.ForeColor = System.Drawing.Color.Black;
-            this.textBoxAddress.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.textBoxAddress.Location = new System.Drawing.Point(482, 461);
-            this.textBoxAddress.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBoxAddress.Name = "textBoxAddress";
-            this.textBoxAddress.PasswordChar = '\0';
-            this.textBoxAddress.PlaceholderText = "";
-            this.textBoxAddress.SelectedText = "";
-            this.textBoxAddress.Size = new System.Drawing.Size(489, 57);
-            this.textBoxAddress.TabIndex = 5;
-            // 
             // Show_Full_List
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(1266, 531);
-            this.Controls.Add(this.textBoxAddress);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.dataGridView_ShowAll);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.listBoxGroup);
@@ -148,7 +112,5 @@
         private System.Windows.Forms.ListBox listBoxGroup;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dataGridView_ShowAll;
-        private System.Windows.Forms.Label label3;
-        private Guna.UI2.WinForms.Guna2TextBox textBoxAddress;
     }
 }
